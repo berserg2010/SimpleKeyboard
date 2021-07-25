@@ -1,0 +1,70 @@
+@import 'normalize';
+@import 'variables';
+@import 'fonts';
+
+
+body {
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.el-header {
+  padding: 0 $gutter;
+}
+
+.el-main {
+  padding: $gutter;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+.text_input {
+  textarea {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+.keyboard {
+  position: fixed;
+  bottom: 0;
+
+  width: calc(100% - 32px);
+  margin-bottom: $gutter;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin-bottom: $gutter;
+}
+.row:last-child {
+  margin-bottom: 0;
+}
+.col {
+  width: 100%;
+  padding-right: 4px;
+
+}
+.col:last-child {
+  padding-right: 0;
+}
+
+.button {
+  width: 100%;
+  min-width: 16px;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  font-size: 20px;
+  font-weight: 600;
+}

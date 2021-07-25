@@ -1,27 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <el-header>Header</el-header>
+  <el-main>
+    <TextInput />
+    <Keyboard />
+  </el-main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+
+import TextInput from "@/components/TextInput.vue";
+import Keyboard from './components/Keyboard.vue';
+
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
-  }
+    TextInput,
+    Keyboard,
+  },
 });
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
