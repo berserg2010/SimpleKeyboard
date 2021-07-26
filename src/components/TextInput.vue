@@ -5,21 +5,27 @@
       :autosize="{ minRows: 4, maxRows: 10 }"
       :autofocus="true"
       placeholder="Поле для текска"
-      v-model="textarea"
-
+      v-model="input"
     ></el-input>
   </section>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
+import { mapState } from 'vuex';
+
 
 export default defineComponent({
   name: 'TextInput',
   data() {
     return {
-      textarea: ref('')
+      textarea: (this as any).input,
     };
   },
+  computed: {
+    ...mapState<any>({
+      input: (state: any): string => state.keyboardStore.input,
+    }),
+  }
 });
 </script>

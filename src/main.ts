@@ -3,7 +3,7 @@ import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
 import App from './App.vue';
 import './registerServiceWorker';
-import store from './store';
+import { store } from './store';
 import '@/assets/scss/main.scss';
 
 
