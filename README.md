@@ -1,4 +1,9 @@
-# keyboard
+# Simple Keyboard
+
+## Description
+
+Клавиатура позволяет печатать текст людям с ограниченными возможностями.
+
 
 ## Project setup
 ```
@@ -19,6 +24,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

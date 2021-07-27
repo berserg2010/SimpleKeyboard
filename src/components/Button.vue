@@ -6,61 +6,78 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { mapState } from 'vuex';
+import { defineComponent, computed } from 'vue';
+import { useStore } from 'vuex';
 
+import { actionModifier } from '@/keyLayouts.ts';
 
 export default defineComponent({
   name: 'Button',
   props: {
     char: {
       type: String,
-      required: true
+      required: true,
     },
   },
-  computed: {
-    ...mapState<any>({
-      currentLayout: (state: any): string => state.keyboardStore.currentLayout,
-      beforeLayout: (state: any): string => state.keyboardStore.beforeLayout,
-    }),
-    checkButton() {
-      let char = '';
+  setup(props) {
+    const store = useStore();
 
-      const firstChar = this.char[0]
-      const lastChar = this.char[this.char.length - 1]
+    const currentLayout = computed(() => store.state.keyboardStore.currentLayout);
+    const modifier = computed(() => store.state.keyboardStore.modifier);
+    const beforeLayout = computed(() => store.state.keyboardStore.beforeLayout);
+
+    const checkButton = computed(() => {
+      let char = '';
+      const firstChar = props.char[0]
+      const lastChar = props.char[props.char.length - 1]
 
       if (
         (firstChar === '{' && lastChar === '}')
         || (firstChar === '[' && lastChar === ']')
         || (firstChar === '<' && lastChar === '>')
       ) {
-        char = this.char.slice(1, this.char.length - 1);
-      } else {
-        char =  this.char;
-      }
-      return char
-    },
-  },
-  methods: {
-    clickButton(ev) {
-      const firstChar = this.char[0];
-      const lastChar = this.char[this.char.length - 1];
-      const actionType = this.char.slice(1, this.char.length - 1);
+        char = props.char.slice(1, props.char.length - 1);
 
-      if (firstChar === '{' && lastChar === '}')  {
-        this.$store.dispatch('setBeforeLayout', this.currentLayout);
-        this.$store.dispatch('setCurrentLayout', actionType);
-      } else if (firstChar === '[' && lastChar === ']') {
-        this.$store.dispatch('setCurrentLayoutType', actionType);
-      } else if (firstChar === '<' && lastChar === '>') {
-        if (actionType === 'back') {
-          this.$store.dispatch('setCurrentLayout', this.beforeLayout);
-          this.$store.dispatch('setBeforeLayout', '');
+        if (char === 'upper') {
+          char = modifier.value === 'none' ? '⇧' : '⇩';
+        } else if (char === 'backspace') {
+          char = '⇦';
         }
       } else {
-        this.$store.dispatch('inputText', ev.target.textContent);
+        char =  actionModifier[modifier.value](props.char);
       }
-    },
-  }
+      return char;
+    });
+
+    const clickButton = (ev: Event) => {
+      const firstChar = props.char[0];
+      const lastChar = props.char[props.char.length - 1];
+      const actionType = props.char.slice(1, props.char.length - 1);
+
+      if (firstChar === '{' && lastChar === '}')  {
+        store.dispatch('setBeforeLayout', currentLayout.value);
+        store.dispatch('setCurrentLayout', actionType);
+      } else if (firstChar === '[' && lastChar === ']') {
+        if (modifier.value === 'upper' && actionType === 'upper') {
+          store.dispatch('setModifier', 'none');
+        } else {
+          store.dispatch('setModifier', actionType);
+        }
+      } else if (firstChar === '<' && lastChar === '>') {
+        if (actionType === 'back') {
+          store.dispatch('setCurrentLayout', beforeLayout.value);
+          store.dispatch('setBeforeLayout', '');
+        } else if (actionType === 'backspace') {
+          store.commit('textBackspace');
+        }
+      } else {
+        store.dispatch('inputText', (ev.target as HTMLDocument).textContent);
+      }
+    };
+
+    return {
+      checkButton, clickButton,
+    }
+  },
 })
 </script>

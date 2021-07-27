@@ -8,6 +8,6 @@ import '@/assets/scss/main.scss';
 
 
 createApp(App)
-    .use(store)
+    .provide('store', store)
     .use(ElementPlus)
     .mount('#app');

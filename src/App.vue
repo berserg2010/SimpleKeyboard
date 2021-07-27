@@ -1,5 +1,5 @@
 <template>
-  <el-header>Header</el-header>
+  <el-header>Привет, Даня!</el-header>
   <el-main>
     <TextInput />
     <Keyboard />

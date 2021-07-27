@@ -17,10 +17,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { mapState } from 'vuex';
+import { defineComponent, computed } from 'vue';
+import { useStore } from 'vuex';
 
-import layouts, { actionButtons } from '@/keyLayouts.ts'
+import layouts from '@/keyLayouts.ts'
 import Button from './Button.vue';
 
 
@@ -29,19 +29,14 @@ export default defineComponent({
   components: {
     Button,
   },
-  data() {
+  setup() {
+    const store = useStore();
+    const currentLayout = computed(() => store.state.keyboardStore.currentLayout);
+    const layout = computed(() => layouts[currentLayout.value]);
+
     return {
-      changedLayout: null,
-    }
-  },
-  computed: {
-    ...mapState<any>({
-      currentLayout: (state: any): string => state.keyboardStore.currentLayout,
-      currentLayoutType: (state: any): string => state.keyboardStore.currentLayoutType,
-    }),
-    layout() {
-      return layouts[(this as any).currentLayout][(this as any).currentLayoutType]
-    },
+      layout,
+    };
   },
 });
 </script>

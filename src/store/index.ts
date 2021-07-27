@@ -1,5 +1,4 @@
-import { InjectionKey } from 'vue'
-import { createStore, useStore as baseUseStore, Store, GetterTree, MutationTree, ActionTree } from 'vuex';
+import { createStore } from 'vuex';
 import keyboardStore from './modules/keyboardStore'
 
 

@@ -1,11 +1,10 @@
-import { InjectionKey } from 'vue'
-import { createStore, useStore as baseUseStore, Store, GetterTree, MutationTree, ActionTree } from 'vuex';
+import { MutationTree, ActionTree } from 'vuex';
 
 
 export interface State {
   input: string,
   currentLayout: string,
-  currentLayoutType: string,
+  modifier: string,
   beforeLayout: string,
 }
 
@@ -13,7 +12,7 @@ const state = (): State => {
   return {
     input: '',
     currentLayout: 'rus',
-    currentLayoutType: 'lower',
+    modifier: 'none',
     beforeLayout: '',
   };
 };
@@ -22,11 +21,14 @@ const mutations = <MutationTree<State>>{
   inputText(state, input) {
     state.input = state.input + input;
   },
+  textBackspace(state) {
+    state.input = state.input.slice(0, state.input.length - 1);
+  },
   setCurrentLayout(state, currentLayout) {
     state.currentLayout = currentLayout;
   },
-  setCurrentLayoutType(state, currentLayoutType) {
-    state.currentLayoutType = currentLayoutType;
+  setModifier(state, modifier) {
+    state.modifier = modifier;
   },
   setBeforeLayout(state, beforeLayout) {
     state.beforeLayout = beforeLayout;
@@ -40,8 +42,8 @@ const actions = <ActionTree<State, any>>{
   setCurrentLayout({ commit }, currentLayout) {
     commit('setCurrentLayout', currentLayout);
   },
-  setCurrentLayoutType({ commit }, currentLayoutType) {
-    commit('setCurrentLayoutType', currentLayoutType);
+  setModifier({ commit }, modifier) {
+    commit('setModifier', modifier);
   },
   setBeforeLayout({ commit }, beforeLayout) {
     commit('setBeforeLayout', beforeLayout);
