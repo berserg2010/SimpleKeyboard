@@ -3,7 +3,6 @@
     <el-input
       type="textarea"
       :autosize="{ minRows: 4, maxRows: 10 }"
-      :autofocus="true"
       placeholder="Поле для ввода"
       v-model="input"
     ></el-input>
@@ -18,13 +17,13 @@ import { useStore } from 'vuex';
 export default defineComponent({
   name: 'TextInput',
   setup() {
-    const store = useStore()
+    const store = useStore();
 
     const input = computed(() => store.state.keyboardStore.input);
 
     return {
       input,
-    }
+    };
   },
 });
 </script>

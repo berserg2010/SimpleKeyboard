@@ -1,7 +1,7 @@
 <template>
   <button
     class="button"
-    @click="clickButton"
+    @click.stop.prevent="clickButton"
   >{{ checkButton }}</button>
 </template>
 
@@ -10,6 +10,7 @@ import { defineComponent, computed } from 'vue';
 import { useStore } from 'vuex';
 
 import { actionModifier } from '@/keyLayouts.ts';
+
 
 export default defineComponent({
   name: 'Button',
@@ -28,8 +29,8 @@ export default defineComponent({
 
     const checkButton = computed(() => {
       let char = '';
-      const firstChar = props.char[0]
-      const lastChar = props.char[props.char.length - 1]
+      const firstChar = props.char[0];
+      const lastChar = props.char[props.char.length - 1];
 
       if (
         (firstChar === '{' && lastChar === '}')
@@ -77,7 +78,7 @@ export default defineComponent({
 
     return {
       checkButton, clickButton,
-    }
+    };
   },
-})
+});
 </script>
