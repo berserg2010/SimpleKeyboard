@@ -9,7 +9,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import TextInput from "@/components/TextInput.vue";
+import TextInput from './components/TextInput.vue';
 import Keyboard from './components/Keyboard.vue';
 
 
@@ -22,15 +22,16 @@ export default defineComponent({
   mounted() {
     let row: number;
     let col: number;
+    let button: HTMLButtonElement;
     let timerId: number;
-    let running = false;
+    let running = '';
 
     const keyboard = document.querySelector('.keyboard');
 
-    const delay = 2000;
+    const delay = 1000;
     const rows = (keyboard as HTMLElement).querySelectorAll('.row');
 
-    const runIterator = () => {
+    const rowsIterator = () => {
       let cursor = 0;
       let lenArray = rows.length - 1;
 
@@ -48,6 +49,23 @@ export default defineComponent({
       }, 0);
     };
 
+    const colsIterator = () => {
+      let cursor = 0;
+      const buttons = (rows[row] as HTMLElement).querySelectorAll('button');
+      let lenArray = buttons.length - 1;
+
+      return setTimeout(function tick() {
+        buttons[cursor === 0 ? lenArray : cursor - 1 ].classList.remove('button--selected');
+        buttons[cursor].classList.add('button--selected');
+        col = cursor;
+        button = buttons[cursor];
+
+        cursor = cursor < lenArray ? ++cursor : 0;
+
+        timerId = setTimeout(tick, delay);
+      }, 0);
+    };
+
     const removeClassFromElements = (node: HTMLElement): void => {
       const elements = (node as HTMLElement).querySelectorAll('button');
       elements.forEach((element) => {
@@ -57,13 +75,20 @@ export default defineComponent({
 
     document.addEventListener('click', () => {
       if (!running) {
-        timerId = runIterator();
-      } else {
-        removeClassFromElements(keyboard as HTMLElement);
+        timerId = rowsIterator();
+        running = 'row';
+      } else if (running === 'row') {
         clearInterval(timerId);
+        removeClassFromElements(keyboard as HTMLElement);
+        timerId = colsIterator();
+        running = 'col';
+      } else {
+        clearInterval(timerId);
+        removeClassFromElements(keyboard as HTMLElement);
+        button.click();
+        timerId = rowsIterator();
+        running = 'row';
       }
-      running = !running;
-      console.info(running);
     });
   },
 });

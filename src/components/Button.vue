@@ -45,7 +45,12 @@ export default defineComponent({
           char = '⇦';
         }
       } else {
-        char =  actionModifier[modifier.value](props.char);
+        // Блок проверки спец символов
+        if (props.char === '\n') {
+          char = '↵';
+        } else {
+          char = actionModifier[modifier.value](props.char);
+        }
       }
       return char;
     });
@@ -72,7 +77,12 @@ export default defineComponent({
           store.commit('textBackspace');
         }
       } else {
-        store.dispatch('inputText', (ev.target as HTMLDocument).textContent);
+        let textContent = (ev.target as HTMLDocument).textContent;
+        // Блок проверки спец символов
+        if (textContent === '↵') {
+          textContent = '\n';
+        }
+        store.dispatch('inputText', textContent);
       }
     };
 

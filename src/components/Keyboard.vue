@@ -5,13 +5,11 @@
       :key="key"
       class="row"
     >
-      <div
+      <Button
         v-for="(j, key) in i"
         :key="key"
-        class="col"
-      >
-        <Button :char="j" />
-      </div>
+        :char="j"
+      />
     </div>
   </section>
 </template>

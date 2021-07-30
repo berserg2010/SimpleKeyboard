@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, nextTick } from 'vue';
 import { useStore } from 'vuex';
 
 
@@ -24,6 +24,12 @@ export default defineComponent({
     return {
       input,
     };
+  },
+  updated() {
+    const textarea: HTMLTextAreaElement = document.querySelector('textarea')!;
+    nextTick(() => {
+      textarea.scrollBy(0, textarea.scrollHeight);
+    });
   },
 });
 </script>
