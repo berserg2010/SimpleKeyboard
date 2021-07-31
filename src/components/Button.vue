@@ -42,6 +42,8 @@ export default defineComponent({
         if (char === 'upper') {
           char = modifier.value === 'none' ? '⇧' : '⇩';
         } else if (char === 'backspace') {
+          char = '⇤';
+        } else if (char === 'back') {
           char = '⇦';
         }
       } else {

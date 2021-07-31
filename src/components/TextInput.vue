@@ -2,7 +2,7 @@
   <section class="text_input">
     <el-input
       type="textarea"
-      :autosize="{ minRows: 4, maxRows: 10 }"
+      :autosize="{ minRows: 4, maxRows: 8 }"
       placeholder="Поле для ввода"
       v-model="input"
     ></el-input>

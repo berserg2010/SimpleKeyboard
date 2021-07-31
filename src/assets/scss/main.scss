@@ -17,11 +17,11 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 $gutter;
+  padding: 0 $gutter-desktop;
 }
 
 .el-main {
-  padding: $gutter;
+  padding: $gutter-desktop;
 }
 
 section {
@@ -43,7 +43,7 @@ section {
   bottom: 0;
 
   width: calc(100% - 32px);
-  margin-bottom: $gutter;
+  margin-bottom: $gutter-desktop;
 }
 
 .row {
@@ -52,7 +52,7 @@ section {
   flex-wrap: nowrap;
   justify-content: center;
   align-items: stretch;
-  margin-bottom: $gutter;
+  margin-bottom: $gutter-desktop;
 }
 .row:last-child {
   margin-bottom: 0;
@@ -96,9 +96,19 @@ button:last-child {
   color: $color-first;
 }
 
+@media screen and (max-width: 800px){
+  .row {
+    margin-bottom: $gutter-mobile;
+  }
+  .button {
+    font-size: 24px;
+  }
+}
 @media screen and (max-width: 600px){
   .button {
     min-height: 40px;
     padding: 4px;
+
+    font-size: 14px;
   }
 }
