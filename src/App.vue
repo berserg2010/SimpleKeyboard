@@ -1,5 +1,4 @@
 <template>
-  <el-header>Привет, Даня!</el-header>
   <el-main>
     <TextInput />
     <Keyboard />
@@ -20,16 +19,12 @@ export default defineComponent({
     Keyboard,
   },
   mounted() {
-    let row: number;
-    let col: number;
-    let button: HTMLButtonElement;
     let timerId: number;
+    let row: number;
+    let button: HTMLButtonElement;
     let running = '';
 
-    const keyboard = document.querySelector('.keyboard');
-
-    const delay = 1000;
-    const rows = (keyboard as HTMLElement).querySelectorAll('.row');
+    const delay = 1500;
 
     const rowsIterator = () => {
       let cursor = 0;
@@ -42,13 +37,12 @@ export default defineComponent({
         row = cursor;
         buttons.forEach((button) => {
           button.classList.add('button--selected');
-        })
+        });
         cursor = cursor < lenArray ? ++cursor : 0;
 
         timerId = setTimeout(tick, delay);
       }, 0);
     };
-
     const colsIterator = () => {
       let cursor = 0;
       const buttons = (rows[row] as HTMLElement).querySelectorAll('button');
@@ -57,7 +51,6 @@ export default defineComponent({
       return setTimeout(function tick() {
         buttons[cursor === 0 ? lenArray : cursor - 1 ].classList.remove('button--selected');
         buttons[cursor].classList.add('button--selected');
-        col = cursor;
         button = buttons[cursor];
 
         cursor = cursor < lenArray ? ++cursor : 0;
@@ -72,6 +65,9 @@ export default defineComponent({
         element.classList.remove('button--selected');
       });
     };
+
+    const keyboard = document.querySelector('.keyboard');
+    const rows = (keyboard as HTMLElement).querySelectorAll('.row');
 
     document.addEventListener('click', () => {
       if (!running) {

@@ -42,25 +42,36 @@ export default defineComponent({
         if (char === 'upper') {
           char = modifier.value === 'none' ? '⇧' : '⇩';
         } else if (char === 'backspace') {
-          char = '⇤';
+          // char = '⇤';
+          char = 'Шаг назад';
         } else if (char === 'back') {
           char = '⇦';
         }
       } else {
+        char = props.char;
         // Блок проверки спец символов
-        if (props.char === '\n') {
-          char = '↵';
-        } else {
-          char = actionModifier[modifier.value](props.char);
+        switch (char) {
+          case '\n':
+            char = '↵';
+            break;
+          case ' ':
+            char = '␣';
+            break;
+          case '':
+            char = '↰';
+            break;
+          default:
+            char = actionModifier[modifier.value](char);
         }
       }
       return char;
     });
 
     const clickButton = (ev: Event) => {
-      const firstChar = props.char[0];
-      const lastChar = props.char[props.char.length - 1];
-      const actionType = props.char.slice(1, props.char.length - 1);
+      const char = props.char;
+      const firstChar = char[0];
+      const lastChar = char[char.length - 1];
+      const actionType = char.slice(1, char.length - 1);
 
       if (firstChar === '{' && lastChar === '}')  {
         store.dispatch('setBeforeLayout', currentLayout.value);
@@ -81,15 +92,20 @@ export default defineComponent({
       } else {
         let textContent = (ev.target as HTMLDocument).textContent;
         // Блок проверки спец символов
-        if (textContent === '↵') {
-          textContent = '\n';
+        if (['\n', ' ', ''].includes(char)) {
+          textContent = char;
+        }
+        // Вернуть заглавные к строчным буквам
+        if (store.state.keyboardStore.modifier !== 'none') {
+          store.dispatch('setModifier', 'none');
         }
         store.dispatch('inputText', textContent);
       }
     };
 
     return {
-      checkButton, clickButton,
+      checkButton,
+      clickButton,
     };
   },
 });
