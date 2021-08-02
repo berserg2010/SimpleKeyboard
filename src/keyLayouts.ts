@@ -3,7 +3,7 @@ export type Layouts = {
 };
 
 export type ActionButton = {
-  [key:string]: any;
+  [key:string]: (value: string) => string;
 };
 
 const mix: Array<Array<string>> = [
@@ -29,10 +29,10 @@ const eng: Array<Array<string>> = [
 ];
 
 const num: Array<Array<string>> = [
-  [ '#', '<', '>', '_', '-', '1', '2', '3', '?', '', ],
-  [ '@', '(', ')', '=', '+', '4', '5', '6', '!', '', ],
-  [ '"', '\'', ':', '%', '/', '7', '8', '9', '', ],
-  [ '<back>', '<backspace>', '^', '~', ' ', '*', ',', '0', '.', '\n', '', ],
+  [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '', ],
+  [ '+', '-', '×', ':', '(', ')', '', ],
+  [ '%', '<', '>', '\'', ',', '.', '/', '~', '', ],
+  [ '<back>', '<backspace>', ' ', '\n', '', ],
 ];
 
 const layouts: Layouts = {
