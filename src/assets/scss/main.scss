@@ -52,7 +52,7 @@ section {
   flex-wrap: nowrap;
   justify-content: center;
   align-items: stretch;
-  margin-bottom: $gutter-desktop;
+  margin-bottom: 4px;
 }
 .row:last-child {
   margin-bottom: 0;
@@ -66,7 +66,7 @@ section {
   min-height: 48px;
   min-width: 16px;
   margin-right: 4px;
-  padding: 8px;
+  padding: 4px;
 
   background-color: rgba($color-second, .1);
 
@@ -97,9 +97,6 @@ button:last-child {
 }
 
 @media screen and (max-width: 800px){
-  .row {
-    margin-bottom: $gutter-mobile;
-  }
   .button {
     font-size: 24px;
   }

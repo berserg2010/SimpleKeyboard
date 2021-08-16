@@ -1,12 +1,12 @@
 <template>
   <el-main>
     <TextInput />
-    <Keyboard />
+    <Keyboard :getKeyboard="getKeyboard" />
   </el-main>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref, onMounted } from 'vue';
 
 import TextInput from './components/TextInput.vue';
 import Keyboard from './components/Keyboard.vue';
@@ -18,74 +18,96 @@ export default defineComponent({
     TextInput,
     Keyboard,
   },
-  mounted() {
-    let timerId: number;
-    let row: number;
-    let button: HTMLButtonElement;
-    let running = '';
-
+  setup() {
     const delay = 1500;
 
-    const rowsIterator = () => {
-      let cursor = 0;
-      let lenArray = rows.length - 1;
+    const timerId = ref<number | null>(null);
+    const running = ref('');
 
-      return setTimeout(function tick() {
-        removeClassFromElements(rows[cursor === 0 ? lenArray : cursor - 1 ] as HTMLElement);
+    const keyboard = ref<NodeList | null>(null);
+    const rows = ref<NodeList | null>(null);
+    const lenArray = ref(0);
 
-        const buttons = (rows[cursor] as HTMLElement).querySelectorAll('button');
-        row = cursor;
-        buttons.forEach((button) => {
-          button.classList.add('button--selected');
-        });
-        cursor = cursor < lenArray ? ++cursor : 0;
+    const row = ref<number | null>(null);
+    const button = ref<HTMLButtonElement | null>(null);
 
-        timerId = setTimeout(tick, delay);
-      }, 0);
-    };
-    const colsIterator = () => {
-      let cursor = 0;
-      const buttons = (rows[row] as HTMLElement).querySelectorAll('button');
-      let lenArray = buttons.length - 1;
-
-      return setTimeout(function tick() {
-        buttons[cursor === 0 ? lenArray : cursor - 1 ].classList.remove('button--selected');
-        buttons[cursor].classList.add('button--selected');
-        button = buttons[cursor];
-
-        cursor = cursor < lenArray ? ++cursor : 0;
-
-        timerId = setTimeout(tick, delay);
-      }, 0);
-    };
-
-    const removeClassFromElements = (node: HTMLElement): void => {
-      const elements = (node as HTMLElement).querySelectorAll('button');
+    const removeClassFromElements = (node: HTMLElement[]): void => {
+      // console.info('[removeClassFromElements]')
+      const elements: HTMLElement[] = (node as any).querySelectorAll('button');
       elements.forEach((element) => {
         element.classList.remove('button--selected');
       });
     };
 
-    const keyboard = document.querySelector('.keyboard');
-    const rows = (keyboard as HTMLElement).querySelectorAll('.row');
+    const rowsIterator = () => {
+      let cursor = 0;
+      // console.info('[rowsIterator]', rows.value)
 
-    document.addEventListener('click', () => {
-      if (!running) {
-        timerId = rowsIterator();
-        running = 'row';
-      } else if (running === 'row') {
-        clearInterval(timerId);
-        removeClassFromElements(keyboard as HTMLElement);
-        timerId = colsIterator();
-        running = 'col';
-      } else {
-        clearInterval(timerId);
-        removeClassFromElements(keyboard as HTMLElement);
-        button.click();
-        timerId = rowsIterator();
-        running = 'row';
-      }
-    });
+      return setTimeout(function tick() {
+        removeClassFromElements(rows.value![cursor === 0 ? lenArray.value - 1 : cursor - 1 ] as any);
+        const buttons = (rows.value![cursor] as HTMLElement).querySelectorAll('button');
+        row.value = cursor;
+        buttons.forEach((button) => {
+          button.classList.add('button--selected');
+        });
+        cursor = cursor < lenArray.value - 1 ? ++cursor : 0;
+
+        timerId.value = setTimeout(tick, delay);
+      }, 0);
+    };
+    const colsIterator = () => {
+      let cursor = 0;
+      // console.info('[colsIterator]', rows.value)
+      const buttons = (rows.value![row.value!] as HTMLElement).querySelectorAll('button');
+      let lenButtonsArray = buttons.length - 1;
+
+      return setTimeout(function tick() {
+        buttons[cursor === 0 ? lenButtonsArray : cursor - 1 ].classList.remove('button--selected');
+        buttons[cursor].classList.add('button--selected');
+        button.value = buttons[cursor];
+
+        cursor = cursor < lenButtonsArray ? ++cursor : 0;
+        timerId.value = setTimeout(tick, delay);
+      }, 0);
+    };
+
+    const getKeyboard = (keyboardRef: NodeList) => {
+      // console.info('[getKeyboard]')
+      keyboard.value = keyboardRef;
+      rows.value = (keyboardRef as any).querySelectorAll('.row');
+      lenArray.value = rows.value!.length
+    }
+
+    onMounted(() => {
+      document.addEventListener('click', () => {
+        if (running.value === '') {
+          timerId.value = rowsIterator();
+          running.value = 'row';
+        } else if (running.value === 'row') {
+          clearInterval(timerId.value!);
+          removeClassFromElements(keyboard.value as any);
+          timerId.value = colsIterator();
+          running.value = 'col';
+        } else {
+          clearInterval(timerId.value!);
+          removeClassFromElements(keyboard.value as any);
+          button.value!.click();
+          timerId.value = rowsIterator();
+          running.value = 'row';
+        }
+      });
+    })
+
+    return {
+      // timerId,
+      // rowsIterator,
+      // colsIterator,
+      // button,
+      // running,
+      getKeyboard,
+      // keyboard,
+      // rows,
+    }
   },
 });
 </script>

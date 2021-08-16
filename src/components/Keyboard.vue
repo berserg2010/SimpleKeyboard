@@ -1,5 +1,5 @@
 <template>
-  <section class="keyboard">
+  <section ref="keyboardRef" class="keyboard">
     <div
       v-for="(i, key) in layout"
       :key="key"
@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, onUpdated, onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
 
 import layouts from '@/keyLayouts.ts'
@@ -27,13 +27,32 @@ export default defineComponent({
   components: {
     Button,
   },
-  setup() {
+  props: {
+    getKeyboard: {
+      type: Function,
+      required: true,
+    }
+  },
+  setup(props) {
     const store = useStore();
     const currentLayout = computed(() => store.state.keyboardStore.currentLayout);
     const layout = computed(() => layouts[currentLayout.value]);
 
+    const keyboardRef = ref('')
+
+    onMounted(() => {
+      // console.info('[onMounted]')
+      props.getKeyboard(keyboardRef.value);
+    });
+
+    onUpdated(() => {
+      // console.info('[onUpdated]')
+      props.getKeyboard(keyboardRef.value);
+    });
+
     return {
       layout,
+      keyboardRef,
     };
   },
 });
