@@ -17,7 +17,7 @@ const rus: Array<Array<string>> = [
   [ 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', '', ],
   [ 'ы', 'э', 'ю', 'я', 'й', 'ъ', 'ь', '',  ],
   ...mix,
-  [ '<backspace>', '[upper]', '{eng}', '{num}', '\n', '', ],
+  [ '<backspace>', '[upper]', '{eng}', '{num}', '{emoji}', '\n', '', ],
 ];
 
 const eng: Array<Array<string>> = [
@@ -25,7 +25,7 @@ const eng: Array<Array<string>> = [
   [ 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', '', ],
   [ 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '', ],
   ...mix,
-  [ '<backspace>', '[upper]', '{rus}', '{num}', '\n', '', ],
+  [ '<backspace>', '[upper]', '{rus}', '{num}', '{emoji}', '\n', '', ],
 ];
 
 const num: Array<Array<string>> = [
@@ -35,10 +35,19 @@ const num: Array<Array<string>> = [
   [ '<back>', '<backspace>', ' ', '\n', '', ],
 ];
 
+const emoji: Array<Array<string>> = [
+  [ '😀', '😉', '😁', '😆', '😅', '😂', '🤣', '😊', '🙂', '😄', '🙃', '', ],
+  [ '😇', '😃', '😚', '🥰', '😙', '😍', '😘', '😋', '😜', '🤔', '🤫', '', ],
+  [ '😐', '😏', '🙄', '😒', '😔', '😴', '🥶', '🤧', '🤯', '😵', '🤒', '', ],
+  [ '🥳', '😎', '😕', '😧', '🥺', '😢', '😳', '😡', '🤖', '👽', '👻', '', ],
+  [ '<back>', '<backspace>', ' ', '\n', '', ],
+];
+
 const layouts: Layouts = {
   eng,
   rus,
   num,
+  emoji,
 };
 
 export const actionModifier: ActionButton = {
