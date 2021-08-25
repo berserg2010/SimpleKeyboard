@@ -12,7 +12,8 @@ const state = (): State => {
   return {
     input: '',
     currentLayout: 'rus',
-    modifier: 'none',
+    // modifier: 'none',
+    modifier: 'upper',
     beforeLayout: '',
   };
 };

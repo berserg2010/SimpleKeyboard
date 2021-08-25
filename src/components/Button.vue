@@ -54,8 +54,8 @@ export default defineComponent({
           case '\n':
             char = '↵';
             break;
-          case ' ':
-            char = '␣';
+          case '_':
+            char = ' ';
             break;
           case '':
             char = '↰';
@@ -92,12 +92,12 @@ export default defineComponent({
       } else {
         let textContent = (ev.target as HTMLDocument).textContent;
         // Блок проверки спец символов
-        if (['\n', ' ', ''].includes(char)) {
+        if (['\n', '_', ''].includes(char)) {
           textContent = char;
         }
         // Вернуть заглавные к строчным буквам
-        if (store.state.keyboardStore.modifier !== 'none') {
-          store.dispatch('setModifier', 'none');
+        if (store.state.keyboardStore.modifier !== 'upper') {
+          store.dispatch('setModifier', 'upper');
         }
         store.dispatch('inputText', textContent);
       }
