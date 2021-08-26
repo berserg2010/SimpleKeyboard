@@ -2,7 +2,7 @@
   <section class="text_input">
     <el-input
       type="textarea"
-      :autosize="{ minRows: 4, maxRows: 6 }"
+      :autosize="{ minRows: 3, maxRows: 4 }"
       placeholder="Поле для ввода"
       v-model="input"
     ></el-input>
@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, nextTick } from 'vue';
+import { defineComponent, computed, onUpdated, nextTick } from 'vue';
 import { useStore } from 'vuex';
 
 
@@ -21,15 +21,16 @@ export default defineComponent({
 
     const input = computed(() => store.state.keyboardStore.input);
 
+    onUpdated(() => {
+      const textarea: HTMLTextAreaElement | null = document.querySelector('textarea');
+      nextTick(() => {
+        textarea?.scrollBy(0, textarea.scrollHeight);
+      });
+    });
+
     return {
       input,
     };
-  },
-  updated() {
-    const textarea: HTMLTextAreaElement = document.querySelector('textarea')!;
-    nextTick(() => {
-      textarea.scrollBy(0, textarea.scrollHeight);
-    });
   },
 });
 </script>

@@ -1,12 +1,13 @@
 <template>
   <button
+    ref="buttonRef"
     class="button"
     @click.stop.prevent="clickButton"
   >{{ checkButton }}</button>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import { useStore } from 'vuex';
 
 import { actionModifier } from '@/keyLayouts.ts';
@@ -23,6 +24,8 @@ export default defineComponent({
   setup(props) {
     const store = useStore();
 
+    const buttonRef = ref<HTMLButtonElement | null>(null);
+
     const currentLayout = computed(() => store.state.keyboardStore.currentLayout);
     const modifier = computed(() => store.state.keyboardStore.modifier);
     const beforeLayout = computed(() => store.state.keyboardStore.beforeLayout);
@@ -31,6 +34,8 @@ export default defineComponent({
       let char = '';
       const firstChar = props.char[0];
       const lastChar = props.char[props.char.length - 1];
+
+      buttonRef.value?.classList.remove('button--symbol');
 
       if (
         (firstChar === '{' && lastChar === '}')
@@ -46,6 +51,10 @@ export default defineComponent({
           char = 'Шаг назад';
         } else if (char === 'back') {
           char = '⇦';
+        } else if (char === 'emoji') {
+          char = '😉';
+        } else if (char === 'phrases') {
+          char = 'Фразы';
         }
       } else {
         char = props.char;
@@ -55,13 +64,19 @@ export default defineComponent({
             char = '↵';
             break;
           case '_':
-            char = ' ';
+            char = '_';
             break;
           case '':
-            char = '↰';
+            // char = '↰';
+            char = '^';
             break;
           default:
             char = actionModifier[modifier.value](char);
+        }
+        // Изменение цвета кнопок с буквами
+        const regexp = /[A-Za-zА-ЯЁа-яё]/;
+        if (char.search(regexp) !== -1) {
+          buttonRef.value?.classList.add('button--symbol');
         }
       }
       return char;
@@ -104,6 +119,7 @@ export default defineComponent({
     };
 
     return {
+      buttonRef,
       checkButton,
       clickButton,
     };

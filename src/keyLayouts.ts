@@ -17,7 +17,7 @@ const rus: Array<Array<string>> = [
   [ 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', '', ],
   [ 'ы', 'э', 'ю', 'я', 'й', 'ъ', 'ь', '',  ],
   ...mix,
-  [ '<backspace>', '[upper]', '{eng}', '{num}', '{emoji}', '\n', '', ],
+  [ '<backspace>', '[upper]', '{eng}', '{num}', '{emoji}', '{phrases}', '\n', '', ],
 ];
 
 const eng: Array<Array<string>> = [
@@ -25,7 +25,7 @@ const eng: Array<Array<string>> = [
   [ 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', '', ],
   [ 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '', ],
   ...mix,
-  [ '<backspace>', '[upper]', '{rus}', '{num}', '{emoji}', '\n', '', ],
+  [ '<backspace>', '[upper]', '{rus}', '{num}', '{emoji}', '{phrases}', '\n', '', ],
 ];
 
 const num: Array<Array<string>> = [
@@ -44,11 +44,22 @@ const emoji: Array<Array<string>> = [
   [ '<back>', '<backspace>', ' ', '\n', '', ],
 ];
 
+const phrases: Array<Array<string>> = [
+  [ 'Я_хочу_', 'пить', 'есть', 'спать', '', ],
+  [ 'писить', 'какать', 'гулять', 'в_магазин', '', ],
+  [ 'поговорить_', 'с_мамой', 'с_папой', 'с_бабушкой', '', ],
+  [ 'Я_люблю_', 'свою_мамочку', 'своего_папочку', '', ],
+  [ 'Да', 'Нет', 'Не_знаю', '', ],
+  [ '?', '_', '.', '!', ',', ':', ';', '-', '', ],
+  [ '<back>', '<backspace>', ' ', '\n', '', ],
+];
+
 const layouts: Layouts = {
   eng,
   rus,
   num,
   emoji,
+  phrases,
 };
 
 export const actionModifier: ActionButton = {
