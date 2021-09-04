@@ -5,7 +5,7 @@
   >
     <el-input
       type="textarea"
-      :autosize="{ minRows: 3, maxRows: 4 }"
+      :autosize="{ minRows: 2, maxRows: 3 }"
       placeholder="Поле для ввода"
       v-model="input"
     ></el-input>
