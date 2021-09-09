@@ -11,17 +11,46 @@ body {
   font-weight: normal;
 }
 
-.el-header {
+.wrapper {
+  background-color: white
+}
+.wrapper:fullscreen,
+.wrapper:-webkit-full-screen {
+  width: 100%;
+  height: calc(100vh - 60px);
+}
+
+header {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: right;
   align-items: center;
+  gap: 4px;
+  height: 60px;
   padding: 0 $gutter-desktop;
+
+  box-sizing: border-box;
+  border-bottom-color: rgba($color-second, .2);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+
+  .logo {
+    margin-left: 0;
+    margin-right: auto;
+  }
 }
 
-.el-main {
+.logo {
+  color: $color-logo;
+  font-weight: bold;
+}
+
+main {
+  height: calc(100vh - 60px);
   padding: $gutter-desktop;
+
+  box-sizing: border-box;
 }
 
 section {
@@ -34,24 +63,31 @@ section {
 
 .text_input {
   position: relative;
+  width: 100%;
 
   textarea {
-    color: $color-second;
+    padding-left: 8px;
+    padding-right: 8px;
+
     font-size: 50px;
     font-weight: normal;
     line-height: 1.5;
     letter-spacing: 1px;
+
+    border-color: rgba($color-second, .2);
+    border-width: 1px;
+    border-radius: 4px;
+    border-style: solid;
   }
+  textarea::placeholder {
+    color: rgba($color-second, .2);
+  }
+
   button {
     position: absolute;
     top: 8px;
     right: 24px;
   }
-}
-.text_input:fullscreen,
-.text_input:-webkit-full-screen {
-  width: 100%;
-  height: 100vh;
 }
 
 .keyboard {

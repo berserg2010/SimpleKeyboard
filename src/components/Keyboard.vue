@@ -1,5 +1,9 @@
 <template>
-  <section ref="keyboardRef" class="keyboard">
+  <section
+    v-show="!isHiddenKeyboard"
+    ref="keyboardRef"
+    class="keyboard"
+  >
     <div
       v-for="(i, key) in layout"
       :key="key"
@@ -18,7 +22,7 @@
 import { defineComponent, computed, onUpdated, onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
 
-import layouts from '@/keyLayouts.ts'
+import layouts from '@/keyLayouts.ts';
 import Button from './Button.vue';
 
 
@@ -31,10 +35,15 @@ export default defineComponent({
     getKeyboard: {
       type: Function,
       required: true,
-    }
+    },
+    isHiddenKeyboard: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props) {
     const store = useStore();
+
     const currentLayout = computed(() => store.state.keyboardStore.currentLayout);
     const layout = computed(() => layouts[currentLayout.value]);
 

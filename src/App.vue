@@ -1,15 +1,42 @@
 <template>
-  <el-main>
-    <TextInput />
-    <Keyboard :getKeyboard="getKeyboard" />
-  </el-main>
+  <div class="wrapper" ref="fullscreenElement">
+    <header>
+      <span class="logo">Simple Keyboard</span>
+
+      <el-button
+        v-if="isFullscreen"
+        ref="fullscreenButton"
+        :icon="isHiddenKeyboard ? 'el-icon-arrow-up' : 'el-icon-arrow-down'"
+        circle
+        @click.stop.prevent="hideKeyboardHandler"
+      ></el-button>
+      <el-button
+        ref="fullscreenButton"
+        :icon="isFullscreen ? 'el-icon-close' : 'el-icon-full-screen'"
+        circle
+        @click.stop.prevent="fullscreenHandler"
+      ></el-button>
+    </header>
+    <main>
+      <TextInput
+        :isFullscreen="isFullscreen"
+      />
+      <Keyboard
+        :getKeyboard="getKeyboard"
+        :isHiddenKeyboard="isHiddenKeyboard"
+      />
+    </main>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from 'vue';
+import { defineComponent, onMounted, ref } from 'vue';
 
-import TextInput from './components/TextInput.vue';
-import Keyboard from './components/Keyboard.vue';
+import TextInput from '@/components/TextInput.vue';
+import Keyboard from '@/components/Keyboard.vue';
+import useIterator from '@/use/useIterator';
+import useScroll from '@/use/useScroll';
+import useFullscreen from '@/use/useFullscreen';
 
 
 export default defineComponent({
@@ -19,66 +46,44 @@ export default defineComponent({
     Keyboard,
   },
   setup() {
-    const delay = 1500;
+    const {
+      timerId,
+      running,
+      keyboard,
+      button,
+      removeClassFromElements,
+      rowsIterator,
+      colsIterator,
+      getKeyboard,
+    } = useIterator();
 
-    const timerId = ref<number | null>(null);
-    const running = ref('');
+    const { scrollToBottom } = useScroll();
 
-    const keyboard = ref<NodeList | null>(null);
-    const rows = ref<NodeList | null>(null);
-    const lenArray = ref(0);
+    const {
+      fullscreenElement,
+      fullscreenButton,
+      isFullscreen,
+      fullscreenHandler,
+      fullscreenEventHandler,
+    } = useFullscreen();
 
-    const row = ref<number | null>(null);
-    const button = ref<HTMLButtonElement | null>(null);
+    const isHiddenKeyboard = ref(false);
+    const hideKeyboardHandler = () => {
+      isHiddenKeyboard.value = !isHiddenKeyboard.value;
 
-    const removeClassFromElements = (node: HTMLElement[]): void => {
-      // console.info('[removeClassFromElements]')
-      const elements: HTMLElement[] = (node as any).querySelectorAll('button');
-      elements.forEach((element) => {
-        element.classList.remove('button--selected');
-      });
+      const fsElementGet = fullscreenElement.value!.getElementsByTagName('textarea')[0];
+      if (isHiddenKeyboard.value) {
+        fsElementGet.style.height = 'calc(100vh - 60px - 32px)';
+      } else {
+        fsElementGet.style.height = 'auto';
+        scrollToBottom(fsElementGet);
+      }
     };
-
-    const rowsIterator = () => {
-      let cursor = 0;
-      // console.info('[rowsIterator]', rows.value)
-
-      return setTimeout(function tick() {
-        removeClassFromElements(rows.value![cursor === 0 ? lenArray.value - 1 : cursor - 1 ] as any);
-        const buttons = (rows.value![cursor] as HTMLElement).querySelectorAll('button');
-        row.value = cursor;
-        buttons.forEach((button) => {
-          button.classList.add('button--selected');
-        });
-        cursor = cursor < lenArray.value - 1 ? ++cursor : 0;
-
-        timerId.value = setTimeout(tick, delay);
-      }, 0);
-    };
-    const colsIterator = () => {
-      let cursor = 0;
-      // console.info('[colsIterator]', rows.value)
-      const buttons = (rows.value![row.value!] as HTMLElement).querySelectorAll('button');
-      let lenButtonsArray = buttons.length - 1;
-
-      return setTimeout(function tick() {
-        buttons[cursor === 0 ? lenButtonsArray : cursor - 1 ].classList.remove('button--selected');
-        buttons[cursor].classList.add('button--selected');
-        button.value = buttons[cursor];
-
-        cursor = cursor < lenButtonsArray ? ++cursor : 0;
-        timerId.value = setTimeout(tick, delay);
-      }, 0);
-    };
-
-    const getKeyboard = (keyboardRef: NodeList) => {
-      // console.info('[getKeyboard]')
-      keyboard.value = keyboardRef;
-      rows.value = (keyboardRef as any).querySelectorAll('.row');
-      lenArray.value = rows.value!.length
-    }
 
     onMounted(() => {
+      document.addEventListener('fullscreenchange', fullscreenEventHandler);
+      document.addEventListener('webkitfullscreenchange', fullscreenEventHandler);
+
       document.addEventListener('click', () => {
         if (running.value === '') {
           timerId.value = rowsIterator();
@@ -96,18 +101,17 @@ export default defineComponent({
           running.value = 'row';
         }
       });
-    })
+    });
 
     return {
-      // timerId,
-      // rowsIterator,
-      // colsIterator,
-      // button,
-      // running,
+      fullscreenElement,
+      fullscreenButton,
+      isFullscreen,
+      fullscreenHandler,
       getKeyboard,
-      // keyboard,
-      // rows,
-    }
+      isHiddenKeyboard,
+      hideKeyboardHandler,
+    };
   },
 });
 </script>
