@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 
 
-export default function useIterator() {
+export default function useIterator(): any {
   const delay = 1500;
 
   const timerId = ref<number | null>(null);
@@ -59,7 +59,7 @@ export default function useIterator() {
     // console.info('[getKeyboard]');
     keyboard.value = keyboardRef;
     rows.value = (keyboardRef as any).querySelectorAll('.row');
-    lenArray.value = rows.value!.length;
+    lenArray.value = rows.value?.length || 0;
   };
 
   return {

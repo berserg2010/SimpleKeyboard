@@ -33,7 +33,7 @@ export default defineComponent({
     const input = computed(() => store.state.keyboardStore.input);
 
     const maxRows = computed(() => {
-      return isFullscreen.value ? 6 : 3;
+      return isFullscreen.value ? 4 : 3;
     });
 
     onUpdated(() => {

@@ -1,57 +1,76 @@
+type Layout = Array<Array<string>>
+
 export type Layouts = {
-  [key:string]: Array<Array<string>>;
+  [key: string]: Layout;
 };
 
 export type ActionButton = {
-  [key:string]: (value: string) => string;
+  [key: string]: (value: string) => string;
 };
 
-const mix: Array<Array<string>> = [
+const mixSymbols: Layout = [
   [ '?', '_', '.', '!', ',', ':', ';', '-', '', ],
+]
+
+const mixNum: Layout = [
   [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '', ],
 ]
 
-const rus: Array<Array<string>> = [
+const mixUnits: Layout = [
+  [ 'мм', 'см', 'дм', 'м', 'км', 'м^2', 'м^3', '', ],
+  [ 'м/с', 'км/ч', 'мг', 'г', 'кг', 'т', '', ],
+]
+
+const mixSpaceChar: Layout = [
+  [ '<back>', '<backspace>', '\n', '', ],
+]
+
+const rus: Layout = [
   [ 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', '', ],
   [ 'з', 'и', 'к', 'л', 'м', 'н', 'о', 'п', 'р', '', ],
   [ 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', '', ],
   [ 'ы', 'э', 'ю', 'я', 'й', 'ъ', 'ь', '',  ],
-  ...mix,
+  ...mixNum,
+  ...mixSymbols,
   [ '<backspace>', '[upper]', '{eng}', '{num}', '{emoji}', '{phrases}', '\n', '', ],
 ];
 
-const eng: Array<Array<string>> = [
+const eng: Layout = [
   [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', '', ],
   [ 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', '', ],
   [ 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '', ],
-  ...mix,
+  ...mixNum,
+  ...mixSymbols,
   [ '<backspace>', '[upper]', '{rus}', '{num}', '{emoji}', '{phrases}', '\n', '', ],
 ];
 
-const num: Array<Array<string>> = [
+const num: Layout = [
   [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '', ],
   [ '+', '-', '×', ':', '=', '(', ')', '', ],
   [ '%', '<', '>', '\'', ',', '.', '/', '~', '', ],
-  [ '<back>', '<backspace>', ' ', '\n', '', ],
+  ...mixUnits,
+  ...mixSymbols,
+  ...mixSpaceChar,
 ];
 
-const emoji: Array<Array<string>> = [
+const emoji: Layout = [
   [ '☺', '☹', '😁', '😂', '😉', '😋', '😍', '😎', '😏', '😔', '😖', '🤗', '', ],
   [ '😘', '😛', '😜', '😟', '😡', '😠', '😤', '😬', '😭', '😢', '😳', '😴', '', ],
   [ '🙈', '🙉', '🙊', '🙏', '🚽', '🛁', '🚁', '🚂', '🚃', '🚑', '🚒', '🚓', '', ],
   [ '🚕', '🚗', '🚙', '🚚', '🚛', '🚜', '🚢', '🚣', '🚴', '🔥', '☕', '❤', '', ],
   [ '👋', '👌', '👍', '👏', '🥶', '🌨', '🎹', '🌜', '🌝', '💐', '🌷', '🌸', '', ],
-  [ '<back>', '<backspace>', ' ', '\n', '', ],
+  ...mixSymbols,
+  ...mixSpaceChar,
 ];
 
-const phrases: Array<Array<string>> = [
+const phrases: Layout = [
   [ 'Я_хочу_', 'пить', 'есть', 'спать', '', ],
   [ 'писить', 'какать', 'гулять', 'в_магазин', '', ],
   [ 'поговорить_', 'с_мамой', 'с_папой', 'с_бабушкой', '', ],
   [ 'Я_люблю_', 'свою_мамочку', 'своего_папочку', '', ],
   [ 'Да', 'Нет', 'Не_знаю', '', ],
-  [ '?', '_', '.', '!', ',', ':', ';', '-', '', ],
-  [ '<back>', '<backspace>', ' ', '\n', '', ],
+  ...mixSymbols,
+  ...mixSpaceChar,
 ];
 
 const layouts: Layouts = {
@@ -63,8 +82,8 @@ const layouts: Layouts = {
 };
 
 export const actionModifier: ActionButton = {
-  'none': (value: string) => { return  value },
-  'upper': (value: string) => { return  value.toUpperCase() },
+  'none': (value: string): string => value,
+  'upper': (value: string): string => value.toUpperCase(),
 }
 
 export default layouts;
