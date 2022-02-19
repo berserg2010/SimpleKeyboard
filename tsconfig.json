@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "target": "ESNext",
+    "module": "ESNext",
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
@@ -10,9 +10,14 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "types": [
-      "webpack-env"
+      "webpack-env",
+      "@types/jest",
+      "node"
+    ],
+    "typeRoots": [
+      "./src/types"
     ],
     "paths": {
       "@/*": [
@@ -27,11 +32,12 @@
     ]
   },
   "include": [
+    ".eslintrc.js",
+    "webpack.config.js",
+    "stylelint.config.js",
     "src/**/*.ts",
-    "src/**/*.tsx",
     "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "src/**/*.js"
   ],
   "exclude": [
     "node_modules"

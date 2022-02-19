@@ -1,20 +1,14 @@
 <template>
   <section class="text_input">
-    <textarea
-      type="textarea"
-      placeholder="Поле для ввода"
-      :rows="maxRows"
-      v-model="input"
-    ></textarea>
+    <textarea type="textarea" placeholder="Поле для ввода" :rows="maxRows" v-model="input"></textarea>
   </section>
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, computed, onUpdated, nextTick } from 'vue';
+import { computed, defineComponent, nextTick, onUpdated, toRefs } from 'vue';
 import { useStore } from 'vuex';
 
-import useScroll from '@/use/useScroll';
-
+import useScroll from '../use/useScroll';
 
 export default defineComponent({
   name: 'TextInput',
@@ -30,7 +24,15 @@ export default defineComponent({
 
     const { isFullscreen } = toRefs(props);
 
-    const input = computed(() => store.state.keyboardStore.input);
+    const input = computed({
+      get() {
+        return store.state.keyboardStore.input;
+      },
+      set(newValue: string) {
+        const length = store.state.keyboardStore.input.length;
+        store.dispatch('inputText', newValue.slice(length));
+      },
+    });
 
     const maxRows = computed(() => {
       return isFullscreen.value ? 4 : 3;

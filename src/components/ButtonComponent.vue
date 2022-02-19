@@ -1,20 +1,15 @@
 <template>
-  <button
-    ref="buttonRef"
-    class="button"
-    @click.stop.prevent="clickButton"
-  >{{ checkButton }}</button>
+  <button ref="buttonRef" class="button" @click.stop.prevent="clickButton">{{ checkButton }}</button>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 import { useStore } from 'vuex';
 
-import { actionModifier } from '@/keyLayouts.ts';
-
+import { actionModifier } from '../keyLayouts';
 
 export default defineComponent({
-  name: 'Button',
+  name: 'ButtonComponent',
   props: {
     char: {
       type: String,
@@ -38,9 +33,9 @@ export default defineComponent({
       buttonRef.value?.classList.remove('button--symbol');
 
       if (
-        (firstChar === '{' && lastChar === '}')
-        || (firstChar === '[' && lastChar === ']')
-        || (firstChar === '<' && lastChar === '>')
+        (firstChar === '{' && lastChar === '}') ||
+        (firstChar === '[' && lastChar === ']') ||
+        (firstChar === '<' && lastChar === '>')
       ) {
         char = props.char.slice(1, props.char.length - 1);
 
@@ -88,7 +83,7 @@ export default defineComponent({
       const lastChar = char[char.length - 1];
       const actionType = char.slice(1, char.length - 1);
 
-      if (firstChar === '{' && lastChar === '}')  {
+      if (firstChar === '{' && lastChar === '}') {
         store.dispatch('setBeforeLayout', currentLayout.value);
         store.dispatch('setCurrentLayout', actionType);
       } else if (firstChar === '[' && lastChar === ']') {
