@@ -22,7 +22,7 @@ jobs:
       - name: Run build
         run: npm run build
       - name: Publish generated content to gh pages
-        uses: tsunematsu21/actions-publish-gh-pages@v1
+        uses: tsunematsu21/actions-publish-gh-pages@v1.0.2
         with:
           dir: dist
           branch: gh-pages
