@@ -13,7 +13,6 @@
     "baseUrl": "./src",
     "types": [
       "webpack-env",
-      "@types/jest",
       "node"
     ],
     "typeRoots": [
