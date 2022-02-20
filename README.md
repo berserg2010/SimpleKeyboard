@@ -4,26 +4,21 @@
 
 Клавиатура позволяет печатать текст людям с ограниченными возможностями.
 
-
 [Demo](https://berserg2010.github.io/SimpleKeyboard/)
 
-
 ## Project setup
+
 ```
+# Install packages
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+# Run app
+npm run start
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
+# Run linter
 npm run lint
+
+# Build app
+npm run build
+
 ```

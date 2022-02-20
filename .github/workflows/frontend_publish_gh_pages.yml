@@ -1,0 +1,23 @@
+name: frontend:publish_gh_pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    name: Publish gh pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkout@v2
+      - name: Install packages
+        run: npm ci
+      - name: Run build
+        run: npm run build
+      - name: Publish generated content to gh pages
+        uses: tsunematsu21/actions-publish-gh-pages@v1
+        with:
+          dir: dist
+          branch: gh-pages
+          token: ${{ secrets.ACCESS_TOKEN }}

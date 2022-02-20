@@ -1,6 +1,5 @@
 import { ref } from 'vue';
 
-
 export default function useIterator(): any {
   const delay = 1500;
 
@@ -26,8 +25,8 @@ export default function useIterator(): any {
     let cursor = 0;
     // console.info('[rowsIterator]', rows.value)
 
-    return setTimeout(function tick() {
-      removeClassFromElements(rows.value![cursor === 0 ? lenArray.value - 1 : cursor - 1 ] as any);
+    return window.setTimeout(function tick() {
+      removeClassFromElements(rows.value![cursor === 0 ? lenArray.value - 1 : cursor - 1] as any);
       const buttons = (rows.value![cursor] as HTMLElement).querySelectorAll('button');
       row.value = cursor;
       buttons.forEach((button) => {
@@ -35,7 +34,7 @@ export default function useIterator(): any {
       });
       cursor = cursor < lenArray.value - 1 ? ++cursor : 0;
 
-      timerId.value = setTimeout(tick, delay);
+      timerId.value = window.setTimeout(tick, delay);
     }, 0);
   };
 
@@ -45,13 +44,13 @@ export default function useIterator(): any {
     const buttons = (rows.value![row.value!] as HTMLElement).querySelectorAll('button');
     const lenButtonsArray = buttons.length - 1;
 
-    return setTimeout(function tick() {
-      buttons[cursor === 0 ? lenButtonsArray : cursor - 1 ].classList.remove('button--selected');
+    return window.setTimeout(function tick() {
+      buttons[cursor === 0 ? lenButtonsArray : cursor - 1].classList.remove('button--selected');
       buttons[cursor].classList.add('button--selected');
       button.value = buttons[cursor];
 
       cursor = cursor < lenButtonsArray ? ++cursor : 0;
-      timerId.value = setTimeout(tick, delay);
+      timerId.value = window.setTimeout(tick, delay);
     }, 0);
   };
 
