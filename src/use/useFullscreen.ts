@@ -1,8 +1,6 @@
 import { ref } from 'vue';
 
-
 export default function () {
-
   interface FsDocumentElement extends HTMLElement {
     webkitRequestFullScreen?: () => void;
     mozRequestFullScreen?: () => void;
@@ -26,10 +24,11 @@ export default function () {
     // console.info('[exitFullscreen]')
     const fsDoc = document as FsDocument;
 
-    const fsElement = fsDoc.fullscreenElement
-      || fsDoc.webkitFullscreenElement
-      || fsDoc.msFullscreenElement
-      || fsDoc.mozFullScreenElement;
+    const fsElement =
+      fsDoc.fullscreenElement ||
+      fsDoc.webkitFullscreenElement ||
+      fsDoc.msFullscreenElement ||
+      fsDoc.mozFullScreenElement;
 
     if (fsElement) {
       let exitFS;
@@ -52,7 +51,7 @@ export default function () {
           })
           .catch((err) => {
             console.warn(err);
-          })
+          });
       }
     }
   };

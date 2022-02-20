@@ -1,11 +1,10 @@
-import { MutationTree, ActionTree } from 'vuex';
-
+import { ActionTree, MutationTree } from 'vuex';
 
 export interface State {
-  input: string,
-  currentLayout: string,
-  modifier: string,
-  beforeLayout: string,
+  input: string;
+  currentLayout: string;
+  modifier: string;
+  beforeLayout: string;
 }
 
 const state = (): State => {
@@ -53,7 +52,6 @@ const actions = <ActionTree<State, any>>{
 
 const getters = {};
 
-
 export default {
   namespaced: false,
   state,
@@ -61,4 +59,3 @@ export default {
   actions,
   mutations,
 };
-
