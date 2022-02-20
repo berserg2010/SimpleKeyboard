@@ -10,7 +10,7 @@ jobs:
     name: Publish gh pages
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checkout@v2
+      - uses: actions/checkout@v2
       - name: Install packages
         run: npm ci
       - name: Run build
