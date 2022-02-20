@@ -8,7 +8,7 @@
 // extracted by mini-css-extract-plugin
 
     if(true) {
-      // 1645391902808
+      // 1645393314881
       var cssReload = __webpack_require__(4783)(module.id, {"locals":false});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);
@@ -17,7 +17,7 @@
 
 /***/ }),
 
-/***/ 344:
+/***/ 2427:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 
@@ -29,7 +29,7 @@ var es = __webpack_require__(1173);
 var theme_chalk = __webpack_require__(3074);
 // EXTERNAL MODULE: ./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
 var runtime_core_esm_bundler = __webpack_require__(6252);
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./src/App.vue?vue&type=template&id=1e146a4a&ts=true
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/App.vue?vue&type=template&id=1e146a4a&ts=true
 
 const _hoisted_1 = {
     class: "wrapper",
@@ -98,7 +98,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 // EXTERNAL MODULE: ./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
 var reactivity_esm_bundler = __webpack_require__(2262);
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./src/components/TextInput.vue?vue&type=template&id=8ed8c798&ts=true
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/TextInput.vue?vue&type=template&id=8ed8c798&ts=true
 
 const TextInputvue_type_template_id_8ed8c798_ts_true_hoisted_1 = { class: "text_input" };
 const TextInputvue_type_template_id_8ed8c798_ts_true_hoisted_2 = ["rows"];
@@ -129,7 +129,7 @@ function useScroll() {
     };
 }
 
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./src/components/TextInput.vue?vue&type=script&lang=ts
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/TextInput.vue?vue&type=script&lang=ts
 
 
 
@@ -183,7 +183,7 @@ var exportHelper = __webpack_require__(3744);
 const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.Z)(TextInputvue_type_script_lang_ts, [['render',TextInputvue_type_template_id_8ed8c798_ts_true_render]])
 
 /* harmony default export */ var TextInput = (__exports__);
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./src/components/KeyboardComponent.vue?vue&type=template&id=26ef0c07&ts=true
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/KeyboardComponent.vue?vue&type=template&id=26ef0c07&ts=true
 
 const KeyboardComponentvue_type_template_id_26ef0c07_ts_true_hoisted_1 = {
     ref: "keyboardRef",
@@ -278,7 +278,7 @@ const actionModifier = {
 
 // EXTERNAL MODULE: ./node_modules/@vue/shared/dist/shared.esm-bundler.js
 var shared_esm_bundler = __webpack_require__(3577);
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./src/components/ButtonComponent.vue?vue&type=template&id=ddc7d720&ts=true
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/ButtonComponent.vue?vue&type=template&id=ddc7d720&ts=true
 
 function ButtonComponentvue_type_template_id_ddc7d720_ts_true_render(_ctx, _cache, $props, $setup, $data, $options) {
     return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)("button", {
@@ -290,7 +290,7 @@ function ButtonComponentvue_type_template_id_ddc7d720_ts_true_render(_ctx, _cach
     }, (0,shared_esm_bundler/* toDisplayString */.zw)(_ctx.checkButton), 513 /* TEXT, NEED_PATCH */));
 }
 
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./src/components/ButtonComponent.vue?vue&type=script&lang=ts
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/ButtonComponent.vue?vue&type=script&lang=ts
 
 
 
@@ -417,7 +417,7 @@ function ButtonComponentvue_type_template_id_ddc7d720_ts_true_render(_ctx, _cach
 const ButtonComponent_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(ButtonComponentvue_type_script_lang_ts, [['render',ButtonComponentvue_type_template_id_ddc7d720_ts_true_render]])
 
 /* harmony default export */ var ButtonComponent = (ButtonComponent_exports_);
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./src/components/KeyboardComponent.vue?vue&type=script&lang=ts
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/KeyboardComponent.vue?vue&type=script&lang=ts
 
 
 
@@ -619,7 +619,7 @@ var arrow_up = __webpack_require__(3928);
 var es_close = __webpack_require__(4915);
 // EXTERNAL MODULE: ./node_modules/@element-plus/icons-vue/dist/es/full-screen.mjs
 var full_screen = __webpack_require__(5876);
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./src/App.vue?vue&type=script&lang=ts
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/App.vue?vue&type=script&lang=ts
 
 
 
@@ -907,7 +907,7 @@ var main = __webpack_require__(3342);
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
-/******/ 		__webpack_require__.h = function() { return "b0a83e93732ef044cd61"; }
+/******/ 		__webpack_require__.h = function() { return "18b8072d2ca1476ae1ac"; }
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -1378,7 +1378,7 @@ var main = __webpack_require__(3342);
 /******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
 /******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
 /******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 		__webpack_require__.p = scriptUrl + "../";
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/css loading */
@@ -2015,7 +2015,7 @@ var main = __webpack_require__(3342);
 /******/ 	// module cache are used so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [216], function() { return __webpack_require__(344); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [216], function() { return __webpack_require__(2427); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
