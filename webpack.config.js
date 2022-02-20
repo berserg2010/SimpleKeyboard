@@ -22,7 +22,7 @@ module.exports = {
   mode: 'development',
   output: {
     path: distPath,
-    filename: '[name]-[contenthash].js',
+    filename: 'js/[name]-[contenthash].js',
   },
   module: {
     rules: [
@@ -73,13 +73,27 @@ module.exports = {
         loader: 'svg-sprite-loader',
         options: {},
       },
+      // Fonts
+      {
+        test: /\.(woff|woff2|eot|ttf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              limit: 100000,
+              outputPath: 'fonts',
+              name: '[name].[ext]',
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new Dotenv(),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'main-[contenthash].css',
+      filename: 'css/main-[contenthash].css',
     }),
     require('autoprefixer'),
     new HtmlWebpackPlugin({
