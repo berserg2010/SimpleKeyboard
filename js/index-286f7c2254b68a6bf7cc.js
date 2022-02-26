@@ -8,7 +8,7 @@
 // extracted by mini-css-extract-plugin
 
     if(true) {
-      // 1645393314881
+      // 1645911787374
       var cssReload = __webpack_require__(4783)(module.id, {"locals":false});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);
@@ -17,7 +17,7 @@
 
 /***/ }),
 
-/***/ 2427:
+/***/ 4918:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 
@@ -29,7 +29,7 @@ var es = __webpack_require__(1173);
 var theme_chalk = __webpack_require__(3074);
 // EXTERNAL MODULE: ./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
 var runtime_core_esm_bundler = __webpack_require__(6252);
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/App.vue?vue&type=template&id=1e146a4a&ts=true
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/App.vue?vue&type=template&id=20241fd1&ts=true
 
 const _hoisted_1 = {
     class: "wrapper",
@@ -44,6 +44,23 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)("div", _hoisted_1, [
         (0,runtime_core_esm_bundler/* createElementVNode */._)("header", null, [
             _hoisted_2,
+            (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_button, {
+                circle: "",
+                onClick: (0,runtime_dom_esm_bundler/* withModifiers */.iM)(_ctx.textExport, ["stop", "prevent"])
+            }, {
+                default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                    (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_icon, {
+                        size: 14,
+                        style: { "vertical-align": "middle" }
+                    }, {
+                        default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                            ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)((0,runtime_core_esm_bundler/* resolveDynamicComponent */.LL)(_ctx.DocumentAdd)))
+                        ]),
+                        _: 1 /* STABLE */
+                    })
+                ]),
+                _: 1 /* STABLE */
+            }, 8 /* PROPS */, ["onClick"]),
             (_ctx.isFullscreen)
                 ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)(_component_el_button, {
                     key: 0,
@@ -94,28 +111,28 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 512 /* NEED_PATCH */));
 }
 
-;// CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=1e146a4a&ts=true
+;// CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=20241fd1&ts=true
 
 // EXTERNAL MODULE: ./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
 var reactivity_esm_bundler = __webpack_require__(2262);
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/TextInput.vue?vue&type=template&id=8ed8c798&ts=true
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/TextInput.vue?vue&type=template&id=2692d1d0&ts=true
 
-const TextInputvue_type_template_id_8ed8c798_ts_true_hoisted_1 = { class: "text_input" };
-const TextInputvue_type_template_id_8ed8c798_ts_true_hoisted_2 = ["rows"];
-function TextInputvue_type_template_id_8ed8c798_ts_true_render(_ctx, _cache, $props, $setup, $data, $options) {
-    return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)("section", TextInputvue_type_template_id_8ed8c798_ts_true_hoisted_1, [
+const TextInputvue_type_template_id_2692d1d0_ts_true_hoisted_1 = { class: "text_input" };
+const TextInputvue_type_template_id_2692d1d0_ts_true_hoisted_2 = ["rows"];
+function TextInputvue_type_template_id_2692d1d0_ts_true_render(_ctx, _cache, $props, $setup, $data, $options) {
+    return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)("section", TextInputvue_type_template_id_2692d1d0_ts_true_hoisted_1, [
         (0,runtime_core_esm_bundler/* withDirectives */.wy)((0,runtime_core_esm_bundler/* createElementVNode */._)("textarea", {
             type: "textarea",
             placeholder: "Поле для ввода",
             rows: _ctx.maxRows,
             "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => ((_ctx.input) = $event))
-        }, null, 8 /* PROPS */, TextInputvue_type_template_id_8ed8c798_ts_true_hoisted_2), [
+        }, null, 8 /* PROPS */, TextInputvue_type_template_id_2692d1d0_ts_true_hoisted_2), [
             [runtime_dom_esm_bundler/* vModelText */.nr, _ctx.input]
         ])
     ]));
 }
 
-;// CONCATENATED MODULE: ./src/components/TextInput.vue?vue&type=template&id=8ed8c798&ts=true
+;// CONCATENATED MODULE: ./src/components/TextInput.vue?vue&type=template&id=2692d1d0&ts=true
 
 // EXTERNAL MODULE: ./node_modules/vuex/dist/vuex.esm-bundler.js + 3 modules
 var vuex_esm_bundler = __webpack_require__(4709);
@@ -141,7 +158,7 @@ function useScroll() {
             default: false,
         },
     },
-    setup: function (props) {
+    setup(props) {
         const store = (0,vuex_esm_bundler/* useStore */.oR)();
         const { scrollToBottom } = useScroll();
         const { isFullscreen } = (0,reactivity_esm_bundler/* toRefs */.BK)(props);
@@ -150,8 +167,7 @@ function useScroll() {
                 return store.state.keyboardStore.input;
             },
             set(newValue) {
-                const length = store.state.keyboardStore.input.length;
-                store.dispatch('inputText', newValue.slice(length));
+                store.dispatch('inputText', newValue);
             },
         });
         const maxRows = (0,runtime_core_esm_bundler/* computed */.Fl)(() => {
@@ -180,7 +196,7 @@ var exportHelper = __webpack_require__(3744);
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.Z)(TextInputvue_type_script_lang_ts, [['render',TextInputvue_type_template_id_8ed8c798_ts_true_render]])
+const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.Z)(TextInputvue_type_script_lang_ts, [['render',TextInputvue_type_template_id_2692d1d0_ts_true_render]])
 
 /* harmony default export */ var TextInput = (__exports__);
 ;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/KeyboardComponent.vue?vue&type=template&id=26ef0c07&ts=true
@@ -278,9 +294,9 @@ const actionModifier = {
 
 // EXTERNAL MODULE: ./node_modules/@vue/shared/dist/shared.esm-bundler.js
 var shared_esm_bundler = __webpack_require__(3577);
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/ButtonComponent.vue?vue&type=template&id=ddc7d720&ts=true
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/ButtonComponent.vue?vue&type=template&id=0c24d409&ts=true
 
-function ButtonComponentvue_type_template_id_ddc7d720_ts_true_render(_ctx, _cache, $props, $setup, $data, $options) {
+function ButtonComponentvue_type_template_id_0c24d409_ts_true_render(_ctx, _cache, $props, $setup, $data, $options) {
     return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)("button", {
         ref: "buttonRef",
         class: "button",
@@ -395,7 +411,7 @@ function ButtonComponentvue_type_template_id_ddc7d720_ts_true_render(_ctx, _cach
                 if (store.state.keyboardStore.modifier !== 'upper') {
                     store.dispatch('setModifier', 'upper');
                 }
-                store.dispatch('inputText', textContent);
+                store.dispatch('inputKeyboardText', textContent);
             }
         };
         return {
@@ -414,7 +430,7 @@ function ButtonComponentvue_type_template_id_ddc7d720_ts_true_render(_ctx, _cach
 
 
 ;
-const ButtonComponent_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(ButtonComponentvue_type_script_lang_ts, [['render',ButtonComponentvue_type_template_id_ddc7d720_ts_true_render]])
+const ButtonComponent_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(ButtonComponentvue_type_script_lang_ts, [['render',ButtonComponentvue_type_template_id_0c24d409_ts_true_render]])
 
 /* harmony default export */ var ButtonComponent = (ButtonComponent_exports_);
 ;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/KeyboardComponent.vue?vue&type=script&lang=ts
@@ -611,6 +627,25 @@ function useIterator() {
     };
 }
 
+// EXTERNAL MODULE: ./node_modules/file-saver/dist/FileSaver.min.js
+var FileSaver_min = __webpack_require__(3162);
+;// CONCATENATED MODULE: ./src/use/useTextExport.ts
+
+
+
+/* harmony default export */ function useTextExport() {
+    const store = (0,vuex_esm_bundler/* useStore */.oR)();
+    const textExport = () => {
+        const text = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.state.keyboardStore.input);
+        const filename = text.value.split('\n')[0];
+        const blob = new Blob([text.value], { type: 'text/plain;charset=utf-8' });
+        (0,FileSaver_min.saveAs)(blob, `${filename}.txt`);
+    };
+    return {
+        textExport,
+    };
+}
+
 // EXTERNAL MODULE: ./node_modules/@element-plus/icons-vue/dist/es/arrow-down.mjs
 var arrow_down = __webpack_require__(8647);
 // EXTERNAL MODULE: ./node_modules/@element-plus/icons-vue/dist/es/arrow-up.mjs
@@ -619,7 +654,10 @@ var arrow_up = __webpack_require__(3928);
 var es_close = __webpack_require__(4915);
 // EXTERNAL MODULE: ./node_modules/@element-plus/icons-vue/dist/es/full-screen.mjs
 var full_screen = __webpack_require__(5876);
+// EXTERNAL MODULE: ./node_modules/@element-plus/icons-vue/dist/es/document-add.mjs
+var document_add = __webpack_require__(9795);
 ;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/App.vue?vue&type=script&lang=ts
+
 
 
 
@@ -636,6 +674,7 @@ var full_screen = __webpack_require__(5876);
     setup() {
         const { timerId, running, keyboard, button, removeClassFromElements, rowsIterator, colsIterator, getKeyboard } = useIterator();
         const { scrollToBottom } = useScroll();
+        const { textExport } = useTextExport();
         const { fullscreenElement, fullscreenButton, isFullscreen, fullscreenHandler, fullscreenEventHandler } = useFullscreen();
         const isHiddenKeyboard = (0,reactivity_esm_bundler/* ref */.iH)(false);
         const hideKeyboardHandler = () => {
@@ -682,10 +721,12 @@ var full_screen = __webpack_require__(5876);
             getKeyboard,
             isHiddenKeyboard,
             hideKeyboardHandler,
+            textExport,
             ArrowDown: arrow_down/* default */.Z,
             ArrowUp: arrow_up/* default */.Z,
             Close: es_close/* default */.Z,
             FullScreen: full_screen/* default */.Z,
+            DocumentAdd: document_add/* default */.Z,
         };
     },
 }));
@@ -712,8 +753,11 @@ const state = () => {
     };
 };
 const mutations = {
-    inputText(state, input) {
+    inputKeyboardText(state, input) {
         state.input = state.input + input;
+    },
+    inputText(state, input) {
+        state.input = input;
     },
     textBackspace(state) {
         state.input = state.input.slice(0, state.input.length - 1);
@@ -729,6 +773,9 @@ const mutations = {
     },
 };
 const actions = {
+    inputKeyboardText({ commit }, input) {
+        commit('inputKeyboardText', input);
+    },
     inputText({ commit }, input) {
         commit('inputText', input);
     },
@@ -907,7 +954,7 @@ var main = __webpack_require__(3342);
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
-/******/ 		__webpack_require__.h = function() { return "18b8072d2ca1476ae1ac"; }
+/******/ 		__webpack_require__.h = function() { return "c04b0dc4ac381ba80e95"; }
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -2015,7 +2062,7 @@ var main = __webpack_require__(3342);
 /******/ 	// module cache are used so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [216], function() { return __webpack_require__(2427); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [216], function() { return __webpack_require__(4918); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
