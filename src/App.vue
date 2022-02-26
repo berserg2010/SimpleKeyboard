@@ -3,6 +3,12 @@
     <header>
       <span class="logo">Simple Keyboard</span>
 
+      <el-button circle @click.stop.prevent="textExport">
+        <el-icon :size="14" style="vertical-align: middle">
+          <component :is="DocumentAdd" />
+        </el-icon>
+      </el-button>
+
       <el-button v-if="isFullscreen" ref="fullscreenButton" circle @click.stop.prevent="hideKeyboardHandler">
         <el-icon :size="14" style="vertical-align: middle">
           <component :is="isHiddenKeyboard ? ArrowUp : ArrowDown" />
@@ -29,8 +35,9 @@ import KeyboardComponent from '@/components/KeyboardComponent.vue';
 import useIterator from './use/useIterator';
 import useScroll from './use/useScroll';
 import useFullscreen from './use/useFullscreen';
+import useTextExport from './use/useTextExport';
 
-import { ArrowDown, ArrowUp, Close, FullScreen } from '@element-plus/icons-vue';
+import { ArrowDown, ArrowUp, Close, DocumentAdd, FullScreen } from '@element-plus/icons-vue';
 
 export default defineComponent({
   name: 'App',
@@ -43,7 +50,7 @@ export default defineComponent({
       useIterator();
 
     const { scrollToBottom } = useScroll();
-
+    const { textExport } = useTextExport();
     const { fullscreenElement, fullscreenButton, isFullscreen, fullscreenHandler, fullscreenEventHandler } =
       useFullscreen();
 
@@ -93,11 +100,13 @@ export default defineComponent({
       getKeyboard,
       isHiddenKeyboard,
       hideKeyboardHandler,
+      textExport,
 
       ArrowDown,
       ArrowUp,
       Close,
       FullScreen,
+      DocumentAdd,
     };
   },
 });

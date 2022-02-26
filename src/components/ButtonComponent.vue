@@ -109,7 +109,7 @@ export default defineComponent({
         if (store.state.keyboardStore.modifier !== 'upper') {
           store.dispatch('setModifier', 'upper');
         }
-        store.dispatch('inputText', textContent);
+        store.dispatch('inputKeyboardText', textContent);
       }
     };
 
