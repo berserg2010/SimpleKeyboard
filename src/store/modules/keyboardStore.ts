@@ -18,8 +18,11 @@ const state = (): State => {
 };
 
 const mutations = <MutationTree<State>>{
-  inputText(state, input) {
+  inputKeyboardText(state, input) {
     state.input = state.input + input;
+  },
+  inputText(state, input) {
+    state.input = input;
   },
   textBackspace(state) {
     state.input = state.input.slice(0, state.input.length - 1);
@@ -36,6 +39,9 @@ const mutations = <MutationTree<State>>{
 };
 
 const actions = <ActionTree<State, any>>{
+  inputKeyboardText({ commit }, input) {
+    commit('inputKeyboardText', input);
+  },
   inputText({ commit }, input) {
     commit('inputText', input);
   },

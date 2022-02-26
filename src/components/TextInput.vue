@@ -18,7 +18,7 @@ export default defineComponent({
       default: false,
     },
   },
-  setup: function (props) {
+  setup(props) {
     const store = useStore();
     const { scrollToBottom } = useScroll();
 
@@ -29,8 +29,7 @@ export default defineComponent({
         return store.state.keyboardStore.input;
       },
       set(newValue: string) {
-        const length = store.state.keyboardStore.input.length;
-        store.dispatch('inputText', newValue.slice(length));
+        store.dispatch('inputText', newValue);
       },
     });
 
