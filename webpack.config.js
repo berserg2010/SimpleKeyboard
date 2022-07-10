@@ -27,9 +27,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /(\.d)?\.ts$/,
         loader: 'ts-loader',
         options: {
+          configFile: 'tsconfig.json',
           appendTsSuffixTo: [/\.vue$/],
         },
         exclude: /node_modules/,

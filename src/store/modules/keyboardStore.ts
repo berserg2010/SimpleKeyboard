@@ -1,31 +1,33 @@
-import { ActionTree, MutationTree } from 'vuex';
+import { ActionTree, GetterTree, MutationTree } from 'vuex';
 
 export interface State {
-  input: string;
+  text: string;
   currentLayout: string;
   modifier: string;
   beforeLayout: string;
+  caretPosition: number | null;
 }
 
 const state = (): State => {
   return {
-    input: '',
+    text: '',
     currentLayout: 'rus',
     // modifier: 'none',
     modifier: 'upper',
     beforeLayout: '',
+    caretPosition: null,
   };
 };
 
 const mutations = <MutationTree<State>>{
-  inputKeyboardText(state, input) {
-    state.input = state.input + input;
+  inputKeyboardText(state, text) {
+    state.text = state.text + text;
   },
-  inputText(state, input) {
-    state.input = input;
+  inputText(state, text) {
+    state.text = text;
   },
   textBackspace(state) {
-    state.input = state.input.slice(0, state.input.length - 1);
+    state.text = state.text.slice(0, state.text.length - 1);
   },
   setCurrentLayout(state, currentLayout) {
     state.currentLayout = currentLayout;
@@ -36,14 +38,17 @@ const mutations = <MutationTree<State>>{
   setBeforeLayout(state, beforeLayout) {
     state.beforeLayout = beforeLayout;
   },
+  setCaretPosition(state, payload: number) {
+    state.caretPosition = payload;
+  },
 };
 
 const actions = <ActionTree<State, any>>{
-  inputKeyboardText({ commit }, input) {
-    commit('inputKeyboardText', input);
+  inputKeyboardText({ commit }, text) {
+    commit('inputKeyboardText', text);
   },
-  inputText({ commit }, input) {
-    commit('inputText', input);
+  inputText({ commit }, text) {
+    commit('inputText', text);
   },
   setCurrentLayout({ commit }, currentLayout) {
     commit('setCurrentLayout', currentLayout);
@@ -54,9 +59,22 @@ const actions = <ActionTree<State, any>>{
   setBeforeLayout({ commit }, beforeLayout) {
     commit('setBeforeLayout', beforeLayout);
   },
+  setCaretPosition({ commit }, payload: number) {
+    commit('setCaretPosition', payload);
+  },
 };
 
-const getters = {};
+const getters = <GetterTree<State, any>>{
+  readText(state) {
+    return state.text;
+  },
+  readTextLength(state) {
+    return state.text.length;
+  },
+  readCaretPosition(state) {
+    return state.caretPosition;
+  },
+};
 
 export default {
   namespaced: false,

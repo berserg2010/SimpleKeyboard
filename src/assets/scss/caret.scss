@@ -1,0 +1,17 @@
+.caret {
+  border-left-color: $color-second;
+  border-left-width: 3px;
+  border-left-style: solid;
+
+  animation: ripple 1s infinite ease-in-out;
+}
+
+@keyframes ripple {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}

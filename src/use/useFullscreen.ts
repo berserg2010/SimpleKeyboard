@@ -1,25 +1,13 @@
 import { ref } from 'vue';
 
 export default function () {
-  interface FsDocumentElement extends HTMLElement {
-    webkitRequestFullScreen?: () => void;
-    mozRequestFullScreen?: () => void;
-    msRequestFullscreen?: () => void;
-  }
-
-  interface FsDocument extends HTMLDocument {
-    webkitFullscreenElement?: Element;
-    mozFullScreenElement?: Element;
-    msFullscreenElement?: Element;
-    webkitCancelFullScreen?: () => void;
-    mozCancelFullScreen?: () => void;
-    msExitFullscreen?: () => void;
-  }
-
   const fullscreenElement = ref<FsDocumentElement | null>(null);
   const fullscreenButton = ref<HTMLButtonElement | null>(null);
   const isFullscreen = ref(false);
 
+  /**
+   * Выйти из пролноэкранного режима.
+   */
   const exitFullscreen = () => {
     // console.info('[exitFullscreen]')
     const fsDoc = document as FsDocument;
@@ -56,7 +44,10 @@ export default function () {
     }
   };
 
-  const fullscreenHandler = () => {
+  /**
+   * Переключение пролноэкранного режима.
+   */
+  const toggleFullscreen = () => {
     if (!isFullscreen.value) {
       if (fullscreenElement.value!.requestFullscreen!) {
         fullscreenElement.value!.requestFullscreen();
@@ -72,6 +63,9 @@ export default function () {
     }
   };
 
+  /**
+   * Переключение состояния при изменении пролноэкранного режима.
+   */
   const fullscreenEventHandler = () => {
     let fsElement;
     const fsDoc = document as FsDocument;
@@ -89,7 +83,7 @@ export default function () {
     fullscreenElement,
     fullscreenButton,
     isFullscreen,
-    fullscreenHandler,
+    toggleFullscreen,
     fullscreenEventHandler,
   };
 }

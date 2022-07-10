@@ -39,32 +39,61 @@ export default defineComponent({
       ) {
         char = props.char.slice(1, props.char.length - 1);
 
-        if (char === 'upper') {
-          char = modifier.value === 'none' ? '⇧' : '⇩';
-        } else if (char === 'backspace') {
-          // char = '⇤';
-          char = 'Шаг назад';
-        } else if (char === 'back') {
-          char = '⇦';
-        } else if (char === 'emoji') {
-          char = '😉';
-        } else if (char === 'phrases') {
-          char = 'Фразы';
+        switch (char) {
+          case 'upper': {
+            char = modifier.value === 'none' ? '⇧' : '⇩';
+            break;
+          }
+          case 'backspace': {
+            char = 'Шаг назад';
+            break;
+          }
+          case 'back': {
+            char = '⇦';
+            break;
+          }
+          case 'emoji': {
+            char = '😉';
+            break;
+          }
+          case 'phrases': {
+            char = 'Фразы';
+            break;
+          }
         }
       } else {
         char = props.char;
         // Блок проверки спец символов
         switch (char) {
-          case '\n':
+          case '\n': {
             char = '↵';
             break;
-          case '_':
+          }
+          case '_': {
             char = '_';
             break;
-          case '':
+          }
+          case '': {
             // char = '↰';
             char = '^';
             break;
+          }
+          case 'left': {
+            char = '←';
+            break;
+          }
+          case 'top': {
+            char = '↑';
+            break;
+          }
+          case 'right': {
+            char = '→';
+            break;
+          }
+          case 'bottom': {
+            char = '↓';
+            break;
+          }
           default:
             char = actionModifier[modifier.value](char);
         }
@@ -99,6 +128,8 @@ export default defineComponent({
         } else if (actionType === 'backspace') {
           store.commit('textBackspace');
         }
+      } else if (['left', 'top', 'right', 'bottom'].includes(char)) {
+        //
       } else {
         let textContent = (ev.target as HTMLDocument).textContent;
         // Блок проверки спец символов

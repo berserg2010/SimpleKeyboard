@@ -9,17 +9,19 @@
         </el-icon>
       </el-button>
 
-      <el-button v-if="isFullscreen" ref="fullscreenButton" circle @click.stop.prevent="hideKeyboardHandler">
+      <el-button v-if="isFullscreen" ref="fullscreenButton" circle @click.stop.prevent="onToggleShowKeyboard">
         <el-icon :size="14" style="vertical-align: middle">
           <component :is="isHiddenKeyboard ? ArrowUp : ArrowDown" />
         </el-icon>
       </el-button>
-      <el-button ref="fullscreenButton" circle @click.stop.prevent="fullscreenHandler">
+
+      <el-button ref="fullscreenButton" circle @click.stop.prevent="onToggleFullscreen">
         <el-icon :size="14" style="vertical-align: middle">
           <component :is="isFullscreen ? Close : FullScreen" />
         </el-icon>
       </el-button>
     </header>
+
     <main>
       <TextInput :isFullscreen="isFullscreen" />
       <KeyboardComponent :getKeyboard="getKeyboard" :isHiddenKeyboard="isHiddenKeyboard" />
@@ -49,24 +51,28 @@ export default defineComponent({
     const { timerId, running, keyboard, button, removeClassFromElements, rowsIterator, colsIterator, getKeyboard } =
       useIterator();
 
-    const { scrollToBottom } = useScroll();
+    const { scrollElementToBottom } = useScroll();
     const { textExport } = useTextExport();
-    const { fullscreenElement, fullscreenButton, isFullscreen, fullscreenHandler, fullscreenEventHandler } =
+    const { fullscreenElement, fullscreenButton, isFullscreen, toggleFullscreen, fullscreenEventHandler } =
       useFullscreen();
 
     const isHiddenKeyboard = ref(false);
-    const hideKeyboardHandler = () => {
+    /**
+     * Переключатель отображения клавиатуры.
+     */
+    const onToggleShowKeyboard = () => {
       isHiddenKeyboard.value = !isHiddenKeyboard.value;
 
-      if (fullscreenElement.value) {
-        const fsElementGet = fullscreenElement.value.getElementsByTagName('textarea')[0];
-        if (isHiddenKeyboard.value) {
-          fsElementGet.style.height = 'calc(100vh - 60px - 32px)';
-        } else {
-          fsElementGet.style.height = 'auto';
-          scrollToBottom(fsElementGet);
-        }
+      if (fullscreenElement.value && !isHiddenKeyboard.value) {
+        // Если fullscreen и клавиатура отображается - прокрутить в конец текста
+        scrollElementToBottom();
       }
+    };
+
+    const onToggleFullscreen = async () => {
+      isFullscreen.value && (isHiddenKeyboard.value = false);
+      toggleFullscreen();
+      await scrollElementToBottom();
     };
 
     onMounted(() => {
@@ -96,10 +102,10 @@ export default defineComponent({
       fullscreenElement,
       fullscreenButton,
       isFullscreen,
-      fullscreenHandler,
+      onToggleFullscreen,
       getKeyboard,
       isHiddenKeyboard,
-      hideKeyboardHandler,
+      onToggleShowKeyboard,
       textExport,
 
       ArrowDown,
