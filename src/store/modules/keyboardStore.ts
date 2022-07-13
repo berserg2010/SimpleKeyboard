@@ -1,11 +1,12 @@
 import { ActionTree, GetterTree, MutationTree } from 'vuex';
+import CaretPosition from '../../classes/caretPosition';
 
 export interface State {
   text: string;
   currentLayout: string;
   modifier: string;
   beforeLayout: string;
-  caretPosition: number | null;
+  caretPosition: number;
 }
 
 const state = (): State => {
@@ -15,7 +16,7 @@ const state = (): State => {
     // modifier: 'none',
     modifier: 'upper',
     beforeLayout: '',
-    caretPosition: null,
+    caretPosition: 0,
   };
 };
 
@@ -27,7 +28,7 @@ const mutations = <MutationTree<State>>{
     state.text = text;
   },
   textBackspace(state) {
-    state.text = state.text.slice(0, state.text.length - 1);
+    state.text = CaretPosition.getCharArray(state.text, 0, -1);
   },
   setCurrentLayout(state, currentLayout) {
     state.currentLayout = currentLayout;

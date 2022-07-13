@@ -3,6 +3,8 @@
     <header>
       <span class="logo">Simple Keyboard</span>
 
+      {{ caretPosition }}
+
       <el-button circle @click.stop.prevent="textExport">
         <el-icon :size="14" style="vertical-align: middle">
           <component :is="DocumentAdd" />
@@ -30,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue';
+import { computed, defineComponent, onMounted, ref } from 'vue';
 
 import TextInput from '@/components/TextInput.vue';
 import KeyboardComponent from '@/components/KeyboardComponent.vue';
@@ -40,6 +42,7 @@ import useFullscreen from './use/useFullscreen';
 import useTextExport from './use/useTextExport';
 
 import { ArrowDown, ArrowUp, Close, DocumentAdd, FullScreen } from '@element-plus/icons-vue';
+import { useStore } from 'vuex';
 
 export default defineComponent({
   name: 'App',
@@ -48,6 +51,7 @@ export default defineComponent({
     KeyboardComponent,
   },
   setup() {
+    const store = useStore();
     const { timerId, running, keyboard, button, removeClassFromElements, rowsIterator, colsIterator, getKeyboard } =
       useIterator();
 
@@ -55,6 +59,9 @@ export default defineComponent({
     const { textExport } = useTextExport();
     const { fullscreenElement, fullscreenButton, isFullscreen, toggleFullscreen, fullscreenEventHandler } =
       useFullscreen();
+
+    // TODO: Для отладки
+    const caretPosition = computed(() => store.getters.readCaretPosition);
 
     const isHiddenKeyboard = ref(false);
     /**
@@ -113,6 +120,8 @@ export default defineComponent({
       Close,
       FullScreen,
       DocumentAdd,
+
+      caretPosition,
     };
   },
 });

@@ -20,10 +20,15 @@ export default defineComponent({
     const { setCaret } = useCaret();
 
     const text = computed(() => store.getters.readText);
+    const caretPosition = computed(() => store.getters.readCaretPosition);
 
     watch(text, () => {
       setCaret();
       scrollElementToBottom();
+    });
+
+    watch(caretPosition, () => {
+      setCaret(caretPosition.value);
     });
 
     onMounted(() => {

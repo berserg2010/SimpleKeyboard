@@ -7,6 +7,8 @@ import { computed, defineComponent, ref } from 'vue';
 import { useStore } from 'vuex';
 
 import { actionModifier } from '../keyLayouts';
+import { Nav } from '../types/enums';
+import CaretPosition from '../classes/caretPosition';
 
 export default defineComponent({
   name: 'ButtonComponent',
@@ -24,6 +26,8 @@ export default defineComponent({
     const currentLayout = computed(() => store.state.keyboardStore.currentLayout);
     const modifier = computed(() => store.state.keyboardStore.modifier);
     const beforeLayout = computed(() => store.state.keyboardStore.beforeLayout);
+    const text = computed(() => store.getters.readText);
+    const caretPosition = computed(() => store.getters.readCaretPosition);
 
     const checkButton = computed(() => {
       let char = '';
@@ -129,7 +133,26 @@ export default defineComponent({
           store.commit('textBackspace');
         }
       } else if (['left', 'top', 'right', 'bottom'].includes(char)) {
-        //
+        let newPosition = 0;
+        switch (char) {
+          case Nav.LEFT: {
+            newPosition = CaretPosition.toLeft(caretPosition.value, text.value);
+            break;
+          }
+          case Nav.RIGHT: {
+            newPosition = CaretPosition.toRight(caretPosition.value, text.value);
+            break;
+          }
+          case Nav.TOP: {
+            newPosition = CaretPosition.toTop(caretPosition.value, text.value);
+            break;
+          }
+          case Nav.BOTTOM: {
+            newPosition = CaretPosition.toBottom(caretPosition.value, text.value);
+            break;
+          }
+        }
+        store.dispatch('setCaretPosition', newPosition);
       } else {
         let textContent = (ev.target as HTMLDocument).textContent;
         // Блок проверки спец символов
@@ -140,7 +163,10 @@ export default defineComponent({
         if (store.state.keyboardStore.modifier !== 'upper') {
           store.dispatch('setModifier', 'upper');
         }
-        store.dispatch('inputKeyboardText', textContent);
+        if (textContent) {
+          store.dispatch('inputKeyboardText', textContent);
+          store.dispatch('setCaretPosition', store.getters.readTextLength);
+        }
       }
     };
 
