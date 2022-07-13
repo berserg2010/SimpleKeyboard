@@ -9,7 +9,7 @@ class CaretPosition {
    */
   static toLeft(currentPosition: number, text: string) {
     // Получаем символ слева
-    const char = v.chain(text.slice(0, currentPosition)).reverseGrapheme().graphemeAt(0).value();
+    const char = this.getLastChar(text.slice(0, currentPosition));
     if (currentPosition > char.length) {
       return currentPosition - char.length;
     } else {
@@ -124,6 +124,16 @@ class CaretPosition {
    */
   static getCharArray(text: string, start: number, end?: number) {
     return v.graphemes(text).slice(start, end).join('');
+  }
+
+  /**
+   * Получить последний символ.
+   *
+   * @param text
+   */
+  static getLastChar(text: string): string {
+    const char = v.chain(text).reverseGrapheme().graphemeAt(0).value();
+    return char;
   }
 }
 

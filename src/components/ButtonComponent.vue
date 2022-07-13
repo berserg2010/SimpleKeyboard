@@ -130,7 +130,7 @@ export default defineComponent({
           store.dispatch('setCurrentLayout', beforeLayout.value);
           store.dispatch('setBeforeLayout', '');
         } else if (actionType === 'backspace') {
-          store.commit('textBackspace');
+          store.dispatch('backspace');
         }
       } else if (['left', 'top', 'right', 'bottom'].includes(char)) {
         let newPosition = 0;
@@ -164,8 +164,7 @@ export default defineComponent({
           store.dispatch('setModifier', 'upper');
         }
         if (textContent) {
-          store.dispatch('inputKeyboardText', textContent);
-          store.dispatch('setCaretPosition', store.getters.readTextLength);
+          store.dispatch('inputText', textContent);
         }
       }
     };

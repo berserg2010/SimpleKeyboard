@@ -29,7 +29,7 @@ header {
   flex-direction: row;
   justify-content: right;
   align-items: center;
-  gap: 4px;
+  gap: 24px;
   height: 60px;
   padding: 0 $gutter-desktop;
 
@@ -41,6 +41,10 @@ header {
   .logo {
     margin-left: 0;
     margin-right: auto;
+  }
+
+  .header__button {
+    margin: 0 !important;
   }
 }
 

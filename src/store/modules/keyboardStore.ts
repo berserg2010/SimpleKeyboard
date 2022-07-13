@@ -1,5 +1,6 @@
 import { ActionTree, GetterTree, MutationTree } from 'vuex';
 import CaretPosition from '../../classes/caretPosition';
+import v from 'voca';
 
 export interface State {
   text: string;
@@ -21,14 +22,8 @@ const state = (): State => {
 };
 
 const mutations = <MutationTree<State>>{
-  inputKeyboardText(state, text) {
-    state.text = state.text + text;
-  },
-  inputText(state, text) {
+  inputText(state, text: string) {
     state.text = text;
-  },
-  textBackspace(state) {
-    state.text = CaretPosition.getCharArray(state.text, 0, -1);
   },
   setCurrentLayout(state, currentLayout) {
     state.currentLayout = currentLayout;
@@ -45,11 +40,30 @@ const mutations = <MutationTree<State>>{
 };
 
 const actions = <ActionTree<State, any>>{
-  inputKeyboardText({ commit }, text) {
-    commit('inputKeyboardText', text);
+  inputText({ commit, getters }, char: string) {
+    const text = getters.readText;
+    const caretPosition = getters.readCaretPosition;
+    let result = '';
+
+    if (!caretPosition) {
+      result = char + text;
+    } else if (caretPosition === text.length) {
+      result = text + char;
+    } else {
+      result = text.slice(0, caretPosition) + char + text.slice(caretPosition);
+    }
+    commit('inputText', result);
+    commit('setCaretPosition', caretPosition + char.length);
   },
-  inputText({ commit }, text) {
-    commit('inputText', text);
+  backspace({ commit, getters }) {
+    const text = getters.readText;
+    const caretPosition = getters.readCaretPosition;
+
+    const char = CaretPosition.getLastChar(text.slice(0, caretPosition));
+    const result = text.slice(0, caretPosition - char.length) + text.slice(caretPosition);
+
+    commit('inputText', result);
+    commit('setCaretPosition', caretPosition - char.length);
   },
   setCurrentLayout({ commit }, currentLayout) {
     commit('setCurrentLayout', currentLayout);
@@ -69,8 +83,8 @@ const getters = <GetterTree<State, any>>{
   readText(state) {
     return state.text;
   },
-  readTextLength(state) {
-    return state.text.length;
+  readCharsLength(state) {
+    return v.countGraphemes(state.text);
   },
   readCaretPosition(state) {
     return state.caretPosition;

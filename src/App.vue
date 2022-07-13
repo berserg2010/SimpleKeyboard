@@ -3,21 +3,25 @@
     <header>
       <span class="logo">Simple Keyboard</span>
 
-      {{ caretPosition }}
+      <el-space />
 
-      <el-button circle @click.stop.prevent="textExport">
+      <el-tag round style="font-size: 16px">
+        {{ charsLength }}
+      </el-tag>
+
+      <el-button class="header__button" circle @click.stop.prevent="textExport">
         <el-icon :size="14" style="vertical-align: middle">
           <component :is="DocumentAdd" />
         </el-icon>
       </el-button>
 
-      <el-button v-if="isFullscreen" ref="fullscreenButton" circle @click.stop.prevent="onToggleShowKeyboard">
+      <el-button class="header__button" v-if="isFullscreen" circle @click.stop.prevent="onToggleShowKeyboard">
         <el-icon :size="14" style="vertical-align: middle">
           <component :is="isHiddenKeyboard ? ArrowUp : ArrowDown" />
         </el-icon>
       </el-button>
 
-      <el-button ref="fullscreenButton" circle @click.stop.prevent="onToggleFullscreen">
+      <el-button class="header__button" ref="fullscreenButton" circle @click.stop.prevent="onToggleFullscreen">
         <el-icon :size="14" style="vertical-align: middle">
           <component :is="isFullscreen ? Close : FullScreen" />
         </el-icon>
@@ -60,8 +64,7 @@ export default defineComponent({
     const { fullscreenElement, fullscreenButton, isFullscreen, toggleFullscreen, fullscreenEventHandler } =
       useFullscreen();
 
-    // TODO: Для отладки
-    const caretPosition = computed(() => store.getters.readCaretPosition);
+    const charsLength = computed(() => store.getters.readCharsLength);
 
     const isHiddenKeyboard = ref(false);
     /**
@@ -121,7 +124,7 @@ export default defineComponent({
       FullScreen,
       DocumentAdd,
 
-      caretPosition,
+      charsLength,
     };
   },
 });
