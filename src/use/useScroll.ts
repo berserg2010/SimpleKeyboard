@@ -1,28 +1,17 @@
 import { nextTick } from 'vue';
-import { SCROLL_ELEMENT_CLASSNAME } from '../constants';
+import { CARET_CLASSNAME } from '../constants';
 
 export default () => {
   /**
-   * Прокрутить скролл в конец элемента.
-   *
-   * @param el
+   * Прокрутить скролл, держать в области видимости элемент с указанным классом.
    */
-  const scrollToBottom = (el: HTMLElement | undefined): void => {
-    el?.scrollBy(0, el.scrollHeight);
-  };
-
-  /**
-   * Прокрутить скролл в конец элемента с указанным классом.
-   */
-  const scrollElementToBottom = async () => {
+  const scrollElement = async () => {
     await nextTick();
-
-    const [scrollEl] = document.getElementsByClassName(SCROLL_ELEMENT_CLASSNAME);
-    scrollToBottom(scrollEl as HTMLElement);
+    const [caret] = document.getElementsByClassName(CARET_CLASSNAME);
+    caret?.scrollIntoView({ block: 'center', behavior: 'auto' });
   };
 
   return {
-    scrollToBottom,
-    scrollElementToBottom,
+    scrollElement,
   };
 };

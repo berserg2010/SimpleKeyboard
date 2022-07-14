@@ -59,7 +59,7 @@ export default defineComponent({
     const { timerId, running, keyboard, button, removeClassFromElements, rowsIterator, colsIterator, getKeyboard } =
       useIterator();
 
-    const { scrollElementToBottom } = useScroll();
+    const { scrollElement } = useScroll();
     const { textExport } = useTextExport();
     const { fullscreenElement, fullscreenButton, isFullscreen, toggleFullscreen, fullscreenEventHandler } =
       useFullscreen();
@@ -74,15 +74,15 @@ export default defineComponent({
       isHiddenKeyboard.value = !isHiddenKeyboard.value;
 
       if (fullscreenElement.value && !isHiddenKeyboard.value) {
-        // Если fullscreen и клавиатура отображается - прокрутить в конец текста
-        scrollElementToBottom();
+        // Если fullscreen и клавиатура отображается - прокрутить
+        scrollElement();
       }
     };
 
     const onToggleFullscreen = async () => {
       isFullscreen.value && (isHiddenKeyboard.value = false);
       toggleFullscreen();
-      await scrollElementToBottom();
+      await scrollElement();
     };
 
     onMounted(() => {

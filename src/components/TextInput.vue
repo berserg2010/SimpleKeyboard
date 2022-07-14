@@ -16,23 +16,20 @@ export default defineComponent({
   name: 'TextInput',
   setup() {
     const store = useStore();
-    const { scrollElementToBottom } = useScroll();
+    const { scrollElement } = useScroll();
     const { setCaret } = useCaret();
 
     const text = computed(() => store.getters.readText);
     const caretPosition = computed(() => store.getters.readCaretPosition);
 
-    watch(text, () => {
-      setCaret();
-      scrollElementToBottom();
-    });
-
     watch(caretPosition, () => {
       setCaret(caretPosition.value);
+      scrollElement();
     });
 
     onMounted(() => {
       setCaret();
+      scrollElement();
     });
 
     return {
