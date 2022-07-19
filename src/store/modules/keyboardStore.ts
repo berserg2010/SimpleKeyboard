@@ -8,6 +8,8 @@ export interface State {
   modifier: string;
   beforeLayout: string;
   caretPosition: number;
+  isFullscreen: boolean;
+  isHiddenKeyboard: boolean;
 }
 
 const state = (): State => {
@@ -18,6 +20,8 @@ const state = (): State => {
     modifier: 'upper',
     beforeLayout: '',
     caretPosition: 0,
+    isFullscreen: false,
+    isHiddenKeyboard: false,
   };
 };
 
@@ -36,6 +40,16 @@ const mutations = <MutationTree<State>>{
   },
   setCaretPosition(state, payload: number) {
     state.caretPosition = payload;
+  },
+  toggleIsFullscreen(state, payload: boolean) {
+    state.isFullscreen = payload;
+  },
+  toggleHiddenKeyboard(state, flag?: boolean) {
+    if (typeof flag === 'undefined') {
+      state.isHiddenKeyboard = !state.isHiddenKeyboard;
+    } else {
+      state.isHiddenKeyboard = flag;
+    }
   },
 };
 
@@ -88,6 +102,12 @@ const getters = <GetterTree<State, any>>{
   },
   readCaretPosition(state) {
     return state.caretPosition;
+  },
+  readIsFullscreen(state) {
+    return state.isFullscreen;
+  },
+  readIsHiddenKeyboard(state) {
+    return state.isHiddenKeyboard;
   },
 };
 

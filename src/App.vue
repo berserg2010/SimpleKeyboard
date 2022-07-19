@@ -1,89 +1,36 @@
 <template>
-  <div class="wrapper" ref="fullscreenElement">
-    <header>
-      <span class="logo">Simple Keyboard</span>
-
-      <el-space />
-
-      <el-tag round style="font-size: 16px">
-        {{ charsLength }}
-      </el-tag>
-
-      <el-button class="header__button" circle @click.stop.prevent="textExport">
-        <el-icon :size="14" style="vertical-align: middle">
-          <component :is="DocumentAdd" />
-        </el-icon>
-      </el-button>
-
-      <el-button class="header__button" v-if="isFullscreen" circle @click.stop.prevent="onToggleShowKeyboard">
-        <el-icon :size="14" style="vertical-align: middle">
-          <component :is="isHiddenKeyboard ? ArrowUp : ArrowDown" />
-        </el-icon>
-      </el-button>
-
-      <el-button class="header__button" ref="fullscreenButton" circle @click.stop.prevent="onToggleFullscreen">
-        <el-icon :size="14" style="vertical-align: middle">
-          <component :is="isFullscreen ? Close : FullScreen" />
-        </el-icon>
-      </el-button>
-    </header>
+  <div :class="FULLSCREEN_ELEMENT_CLASSNAME">
+    <MainHeader />
 
     <main>
-      <TextInput :isFullscreen="isFullscreen" />
-      <KeyboardComponent :getKeyboard="getKeyboard" :isHiddenKeyboard="isHiddenKeyboard" />
+      <TextInput />
+
+      <KeyboardComponent :getKeyboard="getKeyboard" />
     </main>
   </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, ref } from 'vue';
+import { defineComponent, onMounted } from 'vue';
 
-import TextInput from '@/components/TextInput.vue';
-import KeyboardComponent from '@/components/KeyboardComponent.vue';
-import useIterator from './use/useIterator';
-import useScroll from './use/useScroll';
+import TextInput from './components/TextInput.vue';
+import KeyboardComponent from './components/KeyboardComponent.vue';
 import useFullscreen from './use/useFullscreen';
-import useTextExport from './use/useTextExport';
-
-import { ArrowDown, ArrowUp, Close, DocumentAdd, FullScreen } from '@element-plus/icons-vue';
-import { useStore } from 'vuex';
+import useIterator from './use/useIterator';
+import MainHeader from './components/MainHeader.vue';
+import { FULLSCREEN_ELEMENT_CLASSNAME } from './constants';
 
 export default defineComponent({
   name: 'App',
   components: {
+    MainHeader,
     TextInput,
     KeyboardComponent,
   },
   setup() {
-    const store = useStore();
+    const { fullscreenEventHandler } = useFullscreen();
     const { timerId, running, keyboard, button, removeClassFromElements, rowsIterator, colsIterator, getKeyboard } =
       useIterator();
-
-    const { scrollElement } = useScroll();
-    const { textExport } = useTextExport();
-    const { fullscreenElement, fullscreenButton, isFullscreen, toggleFullscreen, fullscreenEventHandler } =
-      useFullscreen();
-
-    const charsLength = computed(() => store.getters.readCharsLength);
-
-    const isHiddenKeyboard = ref(false);
-    /**
-     * Переключатель отображения клавиатуры.
-     */
-    const onToggleShowKeyboard = () => {
-      isHiddenKeyboard.value = !isHiddenKeyboard.value;
-
-      if (fullscreenElement.value && !isHiddenKeyboard.value) {
-        // Если fullscreen и клавиатура отображается - прокрутить
-        scrollElement();
-      }
-    };
-
-    const onToggleFullscreen = async () => {
-      isFullscreen.value && (isHiddenKeyboard.value = false);
-      toggleFullscreen();
-      await scrollElement();
-    };
 
     onMounted(() => {
       document.addEventListener('fullscreenchange', fullscreenEventHandler);
@@ -109,22 +56,9 @@ export default defineComponent({
     });
 
     return {
-      fullscreenElement,
-      fullscreenButton,
-      isFullscreen,
-      onToggleFullscreen,
       getKeyboard,
-      isHiddenKeyboard,
-      onToggleShowKeyboard,
-      textExport,
 
-      ArrowDown,
-      ArrowUp,
-      Close,
-      FullScreen,
-      DocumentAdd,
-
-      charsLength,
+      FULLSCREEN_ELEMENT_CLASSNAME,
     };
   },
 });

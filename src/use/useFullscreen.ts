@@ -1,12 +1,20 @@
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { FULLSCREEN_ELEMENT_CLASSNAME } from '../constants';
+import { useStore } from 'vuex';
 
 export default function () {
-  const fullscreenElement = ref<FsDocumentElement | null>(null);
+  const store = useStore();
+
   const fullscreenButton = ref<HTMLButtonElement | null>(null);
-  const isFullscreen = ref(false);
+
+  const fullscreenElement = computed(() => {
+    const [el] = document.getElementsByClassName(FULLSCREEN_ELEMENT_CLASSNAME);
+    return el as FsDocumentElement | undefined;
+  });
+  const isFullscreen = computed<boolean>(() => store.getters.readIsFullscreen);
 
   /**
-   * Выйти из пролноэкранного режима.
+   * Выйти из полноэкранного режима.
    */
   const exitFullscreen = () => {
     // console.info('[exitFullscreen]')
@@ -45,7 +53,7 @@ export default function () {
   };
 
   /**
-   * Переключение пролноэкранного режима.
+   * Переключение полноэкранного режима.
    */
   const toggleFullscreen = () => {
     if (!isFullscreen.value) {
@@ -64,7 +72,7 @@ export default function () {
   };
 
   /**
-   * Переключение состояния при изменении пролноэкранного режима.
+   * Переключение состояния при изменении полноэкранного режима.
    */
   const fullscreenEventHandler = () => {
     let fsElement;
@@ -75,8 +83,7 @@ export default function () {
     } else if (fsDoc.webkitFullscreenElement !== undefined) {
       fsElement = fsDoc.webkitFullscreenElement;
     }
-
-    isFullscreen.value = fsElement !== null;
+    store.commit('toggleIsFullscreen', fsElement !== null);
   };
 
   return {

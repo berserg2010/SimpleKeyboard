@@ -1,9 +1,11 @@
 <template>
-  <section v-show="!isHiddenKeyboard" ref="keyboardRef" class="keyboard">
-    <div v-for="(i, key) in layout" :key="key" class="row">
-      <ButtonComponent v-for="(j, key) in i" :key="key" :char="j" />
-    </div>
-  </section>
+  <transition name="slide-fade">
+    <section v-show="!isHiddenKeyboard" ref="keyboardRef" class="keyboard">
+      <div v-for="(i, key) in layout" :key="key" class="row">
+        <ButtonComponent v-for="(j, key) in i" :key="key" :char="j" />
+      </div>
+    </section>
+  </transition>
 </template>
 
 <script lang="ts">
@@ -23,18 +25,15 @@ export default defineComponent({
       type: Function,
       required: true,
     },
-    isHiddenKeyboard: {
-      type: Boolean,
-      default: false,
-    },
   },
   setup(props) {
     const store = useStore();
 
+    const keyboardRef = ref('');
+
     const currentLayout = computed(() => store.state.keyboardStore.currentLayout);
     const layout = computed(() => layouts[currentLayout.value]);
-
-    const keyboardRef = ref('');
+    const isHiddenKeyboard = computed(() => store.getters.readIsHiddenKeyboard);
 
     onMounted(() => {
       // console.info('[onMounted]')
@@ -49,6 +48,7 @@ export default defineComponent({
     return {
       layout,
       keyboardRef,
+      isHiddenKeyboard,
     };
   },
 });
