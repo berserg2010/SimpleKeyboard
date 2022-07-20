@@ -1,9 +1,11 @@
 import { computed, ref } from 'vue';
 import { FULLSCREEN_ELEMENT_CLASSNAME } from '../constants';
 import { useStore } from 'vuex';
+import useScroll from './useScroll';
 
 export default function () {
   const store = useStore();
+  const { scrollElement } = useScroll();
 
   const fullscreenButton = ref<HTMLButtonElement | null>(null);
 
@@ -86,11 +88,20 @@ export default function () {
     store.commit('toggleIsFullscreen', fsElement !== null);
   };
 
+  /**
+   * Переключить полноэкранный режим.
+   */
+  const onToggleFullscreen = async () => {
+    isFullscreen.value && store.commit('toggleHiddenKeyboard', false);
+    toggleFullscreen();
+    await scrollElement();
+  };
+
   return {
     fullscreenElement,
     fullscreenButton,
     isFullscreen,
-    toggleFullscreen,
     fullscreenEventHandler,
+    onToggleFullscreen,
   };
 }

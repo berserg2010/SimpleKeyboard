@@ -79,6 +79,10 @@ const actions = <ActionTree<State, any>>{
     commit('inputText', result);
     commit('setCaretPosition', caretPosition - char.length);
   },
+  uploadText({ commit }, text: string) {
+    commit('inputText', text);
+    commit('setCaretPosition', 0);
+  },
   setCurrentLayout({ commit }, currentLayout) {
     commit('setCurrentLayout', currentLayout);
   },
