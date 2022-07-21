@@ -1,6 +1,9 @@
 <template>
   <section :class="SCROLL_ELEMENT_CLASSNAME">
-    <p :class="TEXT_ELEMENT_CLASSNAME" v-text="text"></p>
+    <template v-for="(value, key) in textArray" :key="key">
+      <span class="line_number" v-text="key + 1"></span>
+      <span :class="TEXT_ELEMENT_CLASSNAME" v-text="value"></span>
+    </template>
   </section>
 </template>
 
@@ -20,6 +23,7 @@ export default defineComponent({
     const { setCaret } = useCaret();
 
     const text = computed(() => store.getters.readText);
+    const textArray = computed(() => text.value.split('\n'));
     const caretPosition = computed(() => store.getters.readCaretPosition);
 
     watch(caretPosition, () => {
@@ -33,8 +37,7 @@ export default defineComponent({
     });
 
     return {
-      text,
-
+      textArray,
       SCROLL_ELEMENT_CLASSNAME,
       TEXT_ELEMENT_CLASSNAME,
     };

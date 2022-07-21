@@ -81,11 +81,8 @@ section {
 .text_input {
   position: relative;
 
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: stretch;
-  align-items: stretch;
+  display: grid;
+  align-content: start;
   flex-grow: 1;
   width: 100%;
 
@@ -97,7 +94,10 @@ section {
   border-radius: 4px;
   border-style: solid;
 
-  p {
+  grid-template-columns: auto 1fr;
+
+  .line_number,
+  .text_element {
     height: 100%;
     margin: 0;
     padding-left: 8px;
@@ -107,7 +107,21 @@ section {
     font-weight: normal;
     line-height: 1.5;
     letter-spacing: 1px;
+  }
 
+  .line_number {
+    text-align: right;
+
+    color: rgba($color-second, .6);
+
+    background-color: rgba($color-second, .1);
+
+    border-right-color: rgba($color-second, .2);
+    border-right-width: 1px;
+    border-right-style: solid;
+  }
+
+  .text_element {
     white-space: pre-wrap;
   }
 }
