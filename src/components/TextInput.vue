@@ -1,8 +1,8 @@
 <template>
-  <section :class="SCROLL_ELEMENT_CLASSNAME">
+  <section :class="SCROLL_ELEMENT_CLASSNAME" :style="[styles]">
     <template v-for="(value, key) in textArray" :key="key">
-      <span class="line_number" v-text="key + 1"></span>
-      <span :class="TEXT_ELEMENT_CLASSNAME" v-text="value"></span>
+      <p class="line_number" v-text="key + 1"></p>
+      <p :class="TEXT_ELEMENT_CLASSNAME" v-text="value"></p>
     </template>
   </section>
 </template>
@@ -26,6 +26,10 @@ export default defineComponent({
     const textArray = computed(() => text.value.split('\n'));
     const caretPosition = computed(() => store.getters.readCaretPosition);
 
+    const styles = computed(() => ({
+      gridTemplateRows: textArray.value.length < 2 ? '1fr' : `repeat(${textArray.value.length - 1}, auto) 1fr`,
+    }));
+
     watch(caretPosition, () => {
       setCaret(caretPosition.value);
       scrollElement();
@@ -40,6 +44,7 @@ export default defineComponent({
       textArray,
       SCROLL_ELEMENT_CLASSNAME,
       TEXT_ELEMENT_CLASSNAME,
+      styles,
     };
   },
 });

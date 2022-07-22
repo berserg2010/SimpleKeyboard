@@ -12,6 +12,7 @@
       title="Удаляем текст?"
       confirm-button-text="Да"
       cancel-button-text="Нет"
+      :teleported="false"
       @confirm.stop="onRemoveText"
       @cancel.stop
     >
