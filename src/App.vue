@@ -5,7 +5,7 @@
     <main>
       <TextInput />
 
-      <KeyboardComponent :getKeyboard="getKeyboard" />
+      <KeyboardComponent @change="getKeyboard" />
     </main>
   </div>
 </template>
@@ -37,18 +37,18 @@ export default defineComponent({
       document.addEventListener('webkitfullscreenchange', fullscreenEventHandler);
 
       document.addEventListener('click', () => {
-        if (running.value === '') {
-          timerId.value = rowsIterator();
-          running.value = 'row';
-        } else if (running.value === 'row') {
+        if (running.value === 'row') {
           clearInterval(timerId.value!);
           removeClassFromElements(keyboard.value as any);
           timerId.value = colsIterator();
           running.value = 'col';
-        } else {
+        } else if (running.value === 'col') {
           clearInterval(timerId.value!);
           removeClassFromElements(keyboard.value as any);
           button.value!.click();
+          timerId.value = rowsIterator();
+          running.value = 'row';
+        } else {
           timerId.value = rowsIterator();
           running.value = 'row';
         }

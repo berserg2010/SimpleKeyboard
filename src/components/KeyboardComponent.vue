@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, onUpdated, ref } from 'vue';
+import { computed, defineComponent, nextTick, ref, watch } from 'vue';
 import { useStore } from 'vuex';
 
 import layouts from '../keyLayouts';
@@ -20,13 +20,8 @@ export default defineComponent({
   components: {
     ButtonComponent,
   },
-  props: {
-    getKeyboard: {
-      type: Function,
-      required: true,
-    },
-  },
-  setup(props) {
+  emits: ['change'],
+  setup(props, { emit }) {
     const store = useStore();
 
     const keyboardRef = ref('');
@@ -35,15 +30,14 @@ export default defineComponent({
     const layout = computed(() => layouts[currentLayout.value]);
     const isHiddenKeyboard = computed(() => store.getters.readIsHiddenKeyboard);
 
-    onMounted(() => {
-      // console.info('[onMounted]')
-      props.getKeyboard(keyboardRef.value);
-    });
-
-    onUpdated(() => {
-      // console.info('[onUpdated]')
-      props.getKeyboard(keyboardRef.value);
-    });
+    watch(
+      currentLayout,
+      async () => {
+        await nextTick();
+        emit('change', keyboardRef.value);
+      },
+      { immediate: true },
+    );
 
     return {
       layout,
