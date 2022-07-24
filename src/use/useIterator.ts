@@ -4,7 +4,7 @@ export default function useIterator(): any {
   const delay = 1500;
 
   const timerId = ref<number | null>(null);
-  const running = ref('');
+  const running = ref<'row' | 'col' | undefined>();
 
   const keyboard = ref<NodeList | null>(null);
   const rows = ref<NodeList | null>(null);

@@ -1,13 +1,3 @@
-type Layout = Array<Array<string>>;
-
-export type Layouts = {
-  [key: string]: Layout;
-};
-
-export type ActionButton = {
-  [key: string]: (value: string) => string;
-};
-
 const mixSymbols: Layout = [['?', '_', '.', '!', ',', ':', ';', '-', '']];
 
 const mixNum: Layout = [['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '']];
@@ -26,7 +16,7 @@ const rus: Layout = [
   ['ы', 'э', 'ю', 'я', 'й', 'ъ', 'ь', ''],
   ...mixNum,
   ...mixSymbols,
-  ['<backspace>', '[upper]', '{eng}', '{num}', '{emoji}', '{phrases}', '\n', ''],
+  ['<backspace>', '{nav}', '[upper]', '{eng}', '{num}', '{emoji}', '{phrases}', '\n', ''],
 ];
 
 const eng: Layout = [
@@ -35,7 +25,7 @@ const eng: Layout = [
   ['s', 't', 'u', 'v', 'w', 'x', 'y', 'z', ''],
   ...mixNum,
   ...mixSymbols,
-  ['<backspace>', '[upper]', '{rus}', '{num}', '{emoji}', '{phrases}', '\n', ''],
+  ['<backspace>', '{nav}', '[upper]', '{rus}', '{num}', '{emoji}', '{phrases}', '\n', ''],
 ];
 
 const num: Layout = [
@@ -67,12 +57,18 @@ const phrases: Layout = [
   ...mixSpaceChar,
 ];
 
+const nav: Layout = [
+  ['left', 'top', 'right', 'bottom', ''],
+  ['<backspace>', '{rus}', '{eng}', '{num}', '{emoji}', '{phrases}', '\n', ''],
+];
+
 const layouts: Layouts = {
   eng,
   rus,
   num,
   emoji,
   phrases,
+  nav,
 };
 
 export const actionModifier: ActionButton = {

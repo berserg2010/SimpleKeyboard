@@ -1,25 +1,23 @@
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { FULLSCREEN_ELEMENT_CLASSNAME } from '../constants';
+import { useStore } from 'vuex';
+import useScroll from './useScroll';
 
 export default function () {
-  interface FsDocumentElement extends HTMLElement {
-    webkitRequestFullScreen?: () => void;
-    mozRequestFullScreen?: () => void;
-    msRequestFullscreen?: () => void;
-  }
+  const store = useStore();
+  const { scrollElement } = useScroll();
 
-  interface FsDocument extends HTMLDocument {
-    webkitFullscreenElement?: Element;
-    mozFullScreenElement?: Element;
-    msFullscreenElement?: Element;
-    webkitCancelFullScreen?: () => void;
-    mozCancelFullScreen?: () => void;
-    msExitFullscreen?: () => void;
-  }
-
-  const fullscreenElement = ref<FsDocumentElement | null>(null);
   const fullscreenButton = ref<HTMLButtonElement | null>(null);
-  const isFullscreen = ref(false);
 
+  const fullscreenElement = computed(() => {
+    const [el] = document.getElementsByClassName(FULLSCREEN_ELEMENT_CLASSNAME);
+    return el as FsDocumentElement | undefined;
+  });
+  const isFullscreen = computed<boolean>(() => store.getters.readIsFullscreen);
+
+  /**
+   * Выйти из полноэкранного режима.
+   */
   const exitFullscreen = () => {
     // console.info('[exitFullscreen]')
     const fsDoc = document as FsDocument;
@@ -56,7 +54,10 @@ export default function () {
     }
   };
 
-  const fullscreenHandler = () => {
+  /**
+   * Переключение полноэкранного режима.
+   */
+  const toggleFullscreen = () => {
     if (!isFullscreen.value) {
       if (fullscreenElement.value!.requestFullscreen!) {
         fullscreenElement.value!.requestFullscreen();
@@ -72,6 +73,9 @@ export default function () {
     }
   };
 
+  /**
+   * Переключение состояния при изменении полноэкранного режима.
+   */
   const fullscreenEventHandler = () => {
     let fsElement;
     const fsDoc = document as FsDocument;
@@ -81,15 +85,23 @@ export default function () {
     } else if (fsDoc.webkitFullscreenElement !== undefined) {
       fsElement = fsDoc.webkitFullscreenElement;
     }
+    store.commit('toggleIsFullscreen', fsElement !== null);
+  };
 
-    isFullscreen.value = fsElement !== null;
+  /**
+   * Переключить полноэкранный режим.
+   */
+  const onToggleFullscreen = async () => {
+    isFullscreen.value && store.commit('toggleHiddenKeyboard', false);
+    toggleFullscreen();
+    await scrollElement();
   };
 
   return {
     fullscreenElement,
     fullscreenButton,
     isFullscreen,
-    fullscreenHandler,
     fullscreenEventHandler,
+    onToggleFullscreen,
   };
 }

@@ -7,6 +7,8 @@ import { computed, defineComponent, ref } from 'vue';
 import { useStore } from 'vuex';
 
 import { actionModifier } from '../keyLayouts';
+import { Nav } from '../types/enums';
+import CaretPosition from '../classes/caretPosition';
 
 export default defineComponent({
   name: 'ButtonComponent',
@@ -24,6 +26,8 @@ export default defineComponent({
     const currentLayout = computed(() => store.state.keyboardStore.currentLayout);
     const modifier = computed(() => store.state.keyboardStore.modifier);
     const beforeLayout = computed(() => store.state.keyboardStore.beforeLayout);
+    const text = computed(() => store.getters.readText);
+    const caretPosition = computed(() => store.getters.readCaretPosition);
 
     const checkButton = computed(() => {
       let char = '';
@@ -39,32 +43,61 @@ export default defineComponent({
       ) {
         char = props.char.slice(1, props.char.length - 1);
 
-        if (char === 'upper') {
-          char = modifier.value === 'none' ? '⇧' : '⇩';
-        } else if (char === 'backspace') {
-          // char = '⇤';
-          char = 'Шаг назад';
-        } else if (char === 'back') {
-          char = '⇦';
-        } else if (char === 'emoji') {
-          char = '😉';
-        } else if (char === 'phrases') {
-          char = 'Фразы';
+        switch (char) {
+          case 'upper': {
+            char = modifier.value === 'none' ? '⇧' : '⇩';
+            break;
+          }
+          case 'backspace': {
+            char = 'Шаг назад';
+            break;
+          }
+          case 'back': {
+            char = '⇦';
+            break;
+          }
+          case 'emoji': {
+            char = '😉';
+            break;
+          }
+          case 'phrases': {
+            char = 'Фразы';
+            break;
+          }
         }
       } else {
         char = props.char;
         // Блок проверки спец символов
         switch (char) {
-          case '\n':
+          case '\n': {
             char = '↵';
             break;
-          case '_':
+          }
+          case '_': {
             char = '_';
             break;
-          case '':
+          }
+          case '': {
             // char = '↰';
             char = '^';
             break;
+          }
+          case 'left': {
+            char = '←';
+            break;
+          }
+          case 'top': {
+            char = '↑';
+            break;
+          }
+          case 'right': {
+            char = '→';
+            break;
+          }
+          case 'bottom': {
+            char = '↓';
+            break;
+          }
           default:
             char = actionModifier[modifier.value](char);
         }
@@ -97,8 +130,29 @@ export default defineComponent({
           store.dispatch('setCurrentLayout', beforeLayout.value);
           store.dispatch('setBeforeLayout', '');
         } else if (actionType === 'backspace') {
-          store.commit('textBackspace');
+          store.dispatch('backspace');
         }
+      } else if (['left', 'top', 'right', 'bottom'].includes(char)) {
+        let newPosition = 0;
+        switch (char) {
+          case Nav.LEFT: {
+            newPosition = CaretPosition.toLeft(caretPosition.value, text.value);
+            break;
+          }
+          case Nav.RIGHT: {
+            newPosition = CaretPosition.toRight(caretPosition.value, text.value);
+            break;
+          }
+          case Nav.TOP: {
+            newPosition = CaretPosition.toTop(caretPosition.value, text.value);
+            break;
+          }
+          case Nav.BOTTOM: {
+            newPosition = CaretPosition.toBottom(caretPosition.value, text.value);
+            break;
+          }
+        }
+        store.dispatch('setCaretPosition', newPosition);
       } else {
         let textContent = (ev.target as HTMLDocument).textContent;
         // Блок проверки спец символов
@@ -109,7 +163,9 @@ export default defineComponent({
         if (store.state.keyboardStore.modifier !== 'upper') {
           store.dispatch('setModifier', 'upper');
         }
-        store.dispatch('inputKeyboardText', textContent);
+        if (textContent) {
+          store.dispatch('inputText', textContent);
+        }
       }
     };
 

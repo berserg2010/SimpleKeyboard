@@ -1,53 +1,50 @@
 <template>
-  <section class="text_input">
-    <textarea type="textarea" placeholder="Поле для ввода" :rows="maxRows" v-model="input"></textarea>
+  <section :class="SCROLL_ELEMENT_CLASSNAME" :style="[styles]">
+    <template v-for="(value, key) in textArray" :key="key">
+      <p class="line_number" v-text="key + 1"></p>
+      <p :class="TEXT_ELEMENT_CLASSNAME" v-text="value"></p>
+    </template>
   </section>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, nextTick, onUpdated, toRefs } from 'vue';
+import { computed, defineComponent, onMounted, watch } from 'vue';
 import { useStore } from 'vuex';
 
 import useScroll from '../use/useScroll';
+import useCaret from '../use/useCaret';
+import { SCROLL_ELEMENT_CLASSNAME, TEXT_ELEMENT_CLASSNAME } from '../constants';
 
 export default defineComponent({
   name: 'TextInput',
-  props: {
-    isFullscreen: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  setup(props) {
+  setup() {
     const store = useStore();
-    const { scrollToBottom } = useScroll();
+    const { scrollElement } = useScroll();
+    const { setCaret } = useCaret();
 
-    const { isFullscreen } = toRefs(props);
+    const text = computed(() => store.getters.readText);
+    const textArray = computed(() => text.value.split('\n'));
+    const caretPosition = computed(() => store.getters.readCaretPosition);
 
-    const input = computed({
-      get() {
-        return store.state.keyboardStore.input;
-      },
-      set(newValue: string) {
-        store.dispatch('inputText', newValue);
-      },
+    const styles = computed(() => ({
+      gridTemplateRows: textArray.value.length < 2 ? '1fr' : `repeat(${textArray.value.length - 1}, auto) 1fr`,
+    }));
+
+    watch(caretPosition, () => {
+      setCaret(caretPosition.value);
+      scrollElement();
     });
 
-    const maxRows = computed(() => {
-      return isFullscreen.value ? 4 : 3;
-    });
-
-    onUpdated(() => {
-      const textarea = document.getElementsByTagName('textarea')[0];
-
-      nextTick(() => {
-        scrollToBottom(textarea);
-      });
+    onMounted(() => {
+      setCaret();
+      scrollElement();
     });
 
     return {
-      input,
-      maxRows,
+      textArray,
+      SCROLL_ELEMENT_CLASSNAME,
+      TEXT_ELEMENT_CLASSNAME,
+      styles,
     };
   },
 });

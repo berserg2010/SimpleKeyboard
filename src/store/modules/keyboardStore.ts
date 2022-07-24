@@ -1,31 +1,33 @@
-import { ActionTree, MutationTree } from 'vuex';
+import { ActionTree, GetterTree, MutationTree } from 'vuex';
+import CaretPosition from '../../classes/caretPosition';
+import v from 'voca';
 
 export interface State {
-  input: string;
+  text: string;
   currentLayout: string;
   modifier: string;
   beforeLayout: string;
+  caretPosition: number;
+  isFullscreen: boolean;
+  isHiddenKeyboard: boolean;
 }
 
 const state = (): State => {
   return {
-    input: '',
+    text: '',
     currentLayout: 'rus',
     // modifier: 'none',
     modifier: 'upper',
     beforeLayout: '',
+    caretPosition: 0,
+    isFullscreen: false,
+    isHiddenKeyboard: false,
   };
 };
 
 const mutations = <MutationTree<State>>{
-  inputKeyboardText(state, input) {
-    state.input = state.input + input;
-  },
-  inputText(state, input) {
-    state.input = input;
-  },
-  textBackspace(state) {
-    state.input = state.input.slice(0, state.input.length - 1);
+  inputText(state, text: string) {
+    state.text = text;
   },
   setCurrentLayout(state, currentLayout) {
     state.currentLayout = currentLayout;
@@ -36,14 +38,50 @@ const mutations = <MutationTree<State>>{
   setBeforeLayout(state, beforeLayout) {
     state.beforeLayout = beforeLayout;
   },
+  setCaretPosition(state, payload: number) {
+    state.caretPosition = payload;
+  },
+  toggleIsFullscreen(state, payload: boolean) {
+    state.isFullscreen = payload;
+  },
+  toggleHiddenKeyboard(state, flag?: boolean) {
+    if (typeof flag === 'undefined') {
+      state.isHiddenKeyboard = !state.isHiddenKeyboard;
+    } else {
+      state.isHiddenKeyboard = flag;
+    }
+  },
 };
 
 const actions = <ActionTree<State, any>>{
-  inputKeyboardText({ commit }, input) {
-    commit('inputKeyboardText', input);
+  inputText({ commit, getters }, char: string) {
+    const text = getters.readText;
+    const caretPosition = getters.readCaretPosition;
+    let result = '';
+
+    if (!caretPosition) {
+      result = char + text;
+    } else if (caretPosition === text.length) {
+      result = text + char;
+    } else {
+      result = text.slice(0, caretPosition) + char + text.slice(caretPosition);
+    }
+    commit('inputText', result);
+    commit('setCaretPosition', caretPosition + char.length);
   },
-  inputText({ commit }, input) {
-    commit('inputText', input);
+  backspace({ commit, getters }) {
+    const text = getters.readText;
+    const caretPosition = getters.readCaretPosition;
+
+    const char = CaretPosition.getLastChar(text.slice(0, caretPosition));
+    const result = text.slice(0, caretPosition - char.length) + text.slice(caretPosition);
+
+    commit('inputText', result);
+    commit('setCaretPosition', caretPosition - char.length);
+  },
+  uploadText({ commit }, text: string) {
+    commit('inputText', text);
+    commit('setCaretPosition', 0);
   },
   setCurrentLayout({ commit }, currentLayout) {
     commit('setCurrentLayout', currentLayout);
@@ -54,9 +92,28 @@ const actions = <ActionTree<State, any>>{
   setBeforeLayout({ commit }, beforeLayout) {
     commit('setBeforeLayout', beforeLayout);
   },
+  setCaretPosition({ commit }, payload: number) {
+    commit('setCaretPosition', payload);
+  },
 };
 
-const getters = {};
+const getters = <GetterTree<State, any>>{
+  readText(state) {
+    return state.text;
+  },
+  readCharsLength(state) {
+    return v.countGraphemes(state.text);
+  },
+  readCaretPosition(state) {
+    return state.caretPosition;
+  },
+  readIsFullscreen(state) {
+    return state.isFullscreen;
+  },
+  readIsHiddenKeyboard(state) {
+    return state.isHiddenKeyboard;
+  },
+};
 
 export default {
   namespaced: false,
