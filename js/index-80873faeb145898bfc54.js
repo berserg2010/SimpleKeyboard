@@ -2,14 +2,14 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 3342:
+/***/ 342:
 /***/ (function(module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
     if(true) {
-      // 1645911787374
-      var cssReload = __webpack_require__(4783)(module.id, {"locals":false});
+      // 1658648437772
+      var cssReload = __webpack_require__(783)(module.id, {"locals":false});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);
     }
@@ -17,171 +17,170 @@
 
 /***/ }),
 
-/***/ 4918:
+/***/ 449:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 
 // EXTERNAL MODULE: ./node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js
-var runtime_dom_esm_bundler = __webpack_require__(9963);
-// EXTERNAL MODULE: ./node_modules/element-plus/es/index.js + 177 modules
-var es = __webpack_require__(1173);
-// EXTERNAL MODULE: ./node_modules/element-plus/lib/theme-chalk/index.css
-var theme_chalk = __webpack_require__(3074);
+var runtime_dom_esm_bundler = __webpack_require__(963);
+// EXTERNAL MODULE: ./node_modules/element-plus/es/defaults.mjs + 783 modules
+var defaults = __webpack_require__(499);
+// EXTERNAL MODULE: ./node_modules/element-plus/theme-chalk/index.css
+var theme_chalk = __webpack_require__(216);
 // EXTERNAL MODULE: ./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
-var runtime_core_esm_bundler = __webpack_require__(6252);
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/App.vue?vue&type=template&id=20241fd1&ts=true
+var runtime_core_esm_bundler = __webpack_require__(252);
+// EXTERNAL MODULE: ./node_modules/@vue/shared/dist/shared.esm-bundler.js
+var shared_esm_bundler = __webpack_require__(577);
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/App.vue?vue&type=template&id=611fc19c&ts=true
 
-const _hoisted_1 = {
-    class: "wrapper",
-    ref: "fullscreenElement"
-};
-const _hoisted_2 = /*#__PURE__*/ (0,runtime_core_esm_bundler/* createElementVNode */._)("span", { class: "logo" }, "Simple Keyboard", -1 /* HOISTED */);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_el_icon = (0,runtime_core_esm_bundler/* resolveComponent */.up)("el-icon");
-    const _component_el_button = (0,runtime_core_esm_bundler/* resolveComponent */.up)("el-button");
+    const _component_MainHeader = (0,runtime_core_esm_bundler/* resolveComponent */.up)("MainHeader");
     const _component_TextInput = (0,runtime_core_esm_bundler/* resolveComponent */.up)("TextInput");
     const _component_KeyboardComponent = (0,runtime_core_esm_bundler/* resolveComponent */.up)("KeyboardComponent");
-    return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)("div", _hoisted_1, [
-        (0,runtime_core_esm_bundler/* createElementVNode */._)("header", null, [
-            _hoisted_2,
-            (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_button, {
-                circle: "",
-                onClick: (0,runtime_dom_esm_bundler/* withModifiers */.iM)(_ctx.textExport, ["stop", "prevent"])
-            }, {
-                default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
-                    (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_icon, {
-                        size: 14,
-                        style: { "vertical-align": "middle" }
-                    }, {
-                        default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
-                            ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)((0,runtime_core_esm_bundler/* resolveDynamicComponent */.LL)(_ctx.DocumentAdd)))
-                        ]),
-                        _: 1 /* STABLE */
-                    })
-                ]),
-                _: 1 /* STABLE */
-            }, 8 /* PROPS */, ["onClick"]),
-            (_ctx.isFullscreen)
-                ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)(_component_el_button, {
-                    key: 0,
-                    ref: "fullscreenButton",
-                    circle: "",
-                    onClick: (0,runtime_dom_esm_bundler/* withModifiers */.iM)(_ctx.hideKeyboardHandler, ["stop", "prevent"])
-                }, {
-                    default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
-                        (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_icon, {
-                            size: 14,
-                            style: { "vertical-align": "middle" }
-                        }, {
-                            default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
-                                ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)((0,runtime_core_esm_bundler/* resolveDynamicComponent */.LL)(_ctx.isHiddenKeyboard ? _ctx.ArrowUp : _ctx.ArrowDown)))
-                            ]),
-                            _: 1 /* STABLE */
-                        })
-                    ]),
-                    _: 1 /* STABLE */
-                }, 8 /* PROPS */, ["onClick"]))
-                : (0,runtime_core_esm_bundler/* createCommentVNode */.kq)("v-if", true),
-            (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_button, {
-                ref: "fullscreenButton",
-                circle: "",
-                onClick: (0,runtime_dom_esm_bundler/* withModifiers */.iM)(_ctx.fullscreenHandler, ["stop", "prevent"])
-            }, {
-                default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
-                    (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_icon, {
-                        size: 14,
-                        style: { "vertical-align": "middle" }
-                    }, {
-                        default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
-                            ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)((0,runtime_core_esm_bundler/* resolveDynamicComponent */.LL)(_ctx.isFullscreen ? _ctx.Close : _ctx.FullScreen)))
-                        ]),
-                        _: 1 /* STABLE */
-                    })
-                ]),
-                _: 1 /* STABLE */
-            }, 8 /* PROPS */, ["onClick"])
-        ]),
+    return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)("div", {
+        class: (0,shared_esm_bundler/* normalizeClass */.C_)(_ctx.FULLSCREEN_ELEMENT_CLASSNAME)
+    }, [
+        (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_MainHeader),
         (0,runtime_core_esm_bundler/* createElementVNode */._)("main", null, [
-            (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_TextInput, { isFullscreen: _ctx.isFullscreen }, null, 8 /* PROPS */, ["isFullscreen"]),
-            (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_KeyboardComponent, {
-                getKeyboard: _ctx.getKeyboard,
-                isHiddenKeyboard: _ctx.isHiddenKeyboard
-            }, null, 8 /* PROPS */, ["getKeyboard", "isHiddenKeyboard"])
+            (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_TextInput),
+            (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_KeyboardComponent, { onChange: _ctx.getKeyboard }, null, 8 /* PROPS */, ["onChange"])
         ])
-    ], 512 /* NEED_PATCH */));
+    ], 2 /* CLASS */));
 }
 
-;// CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=20241fd1&ts=true
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/TextInput.vue?vue&type=template&id=eea886b8&ts=true
 
-// EXTERNAL MODULE: ./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
-var reactivity_esm_bundler = __webpack_require__(2262);
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/TextInput.vue?vue&type=template&id=2692d1d0&ts=true
-
-const TextInputvue_type_template_id_2692d1d0_ts_true_hoisted_1 = { class: "text_input" };
-const TextInputvue_type_template_id_2692d1d0_ts_true_hoisted_2 = ["rows"];
-function TextInputvue_type_template_id_2692d1d0_ts_true_render(_ctx, _cache, $props, $setup, $data, $options) {
-    return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)("section", TextInputvue_type_template_id_2692d1d0_ts_true_hoisted_1, [
-        (0,runtime_core_esm_bundler/* withDirectives */.wy)((0,runtime_core_esm_bundler/* createElementVNode */._)("textarea", {
-            type: "textarea",
-            placeholder: "Поле для ввода",
-            rows: _ctx.maxRows,
-            "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => ((_ctx.input) = $event))
-        }, null, 8 /* PROPS */, TextInputvue_type_template_id_2692d1d0_ts_true_hoisted_2), [
-            [runtime_dom_esm_bundler/* vModelText */.nr, _ctx.input]
-        ])
-    ]));
+const _hoisted_1 = ["textContent"];
+const _hoisted_2 = ["textContent"];
+function TextInputvue_type_template_id_eea886b8_ts_true_render(_ctx, _cache, $props, $setup, $data, $options) {
+    return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)("section", {
+        class: (0,shared_esm_bundler/* normalizeClass */.C_)(_ctx.SCROLL_ELEMENT_CLASSNAME),
+        style: (0,shared_esm_bundler/* normalizeStyle */.j5)([_ctx.styles])
+    }, [
+        ((0,runtime_core_esm_bundler/* openBlock */.wg)(true), (0,runtime_core_esm_bundler/* createElementBlock */.iD)(runtime_core_esm_bundler/* Fragment */.HY, null, (0,runtime_core_esm_bundler/* renderList */.Ko)(_ctx.textArray, (value, key) => {
+            return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)(runtime_core_esm_bundler/* Fragment */.HY, { key: key }, [
+                (0,runtime_core_esm_bundler/* createElementVNode */._)("p", {
+                    class: "line_number",
+                    textContent: (0,shared_esm_bundler/* toDisplayString */.zw)(key + 1)
+                }, null, 8 /* PROPS */, _hoisted_1),
+                (0,runtime_core_esm_bundler/* createElementVNode */._)("p", {
+                    class: (0,shared_esm_bundler/* normalizeClass */.C_)(_ctx.TEXT_ELEMENT_CLASSNAME),
+                    textContent: (0,shared_esm_bundler/* toDisplayString */.zw)(value)
+                }, null, 10 /* CLASS, PROPS */, _hoisted_2)
+            ], 64 /* STABLE_FRAGMENT */));
+        }), 128 /* KEYED_FRAGMENT */))
+    ], 6 /* CLASS, STYLE */));
 }
 
-;// CONCATENATED MODULE: ./src/components/TextInput.vue?vue&type=template&id=2692d1d0&ts=true
+// EXTERNAL MODULE: ./node_modules/vuex/dist/vuex.esm-bundler.js + 5 modules
+var vuex_esm_bundler = __webpack_require__(989);
+;// CONCATENATED MODULE: ./src/constants.ts
+const SCROLL_ELEMENT_CLASSNAME = 'text_input';
+const TEXT_ELEMENT_CLASSNAME = 'text_element';
+const CARET_CLASSNAME = 'caret';
+const FULLSCREEN_ELEMENT_CLASSNAME = 'wrapper';
 
-// EXTERNAL MODULE: ./node_modules/vuex/dist/vuex.esm-bundler.js + 3 modules
-var vuex_esm_bundler = __webpack_require__(4709);
 ;// CONCATENATED MODULE: ./src/use/useScroll.ts
-function useScroll() {
-    const scrollToBottom = (el) => {
-        el?.scrollBy(0, el.scrollHeight);
+
+
+/* harmony default export */ var useScroll = (() => {
+    /**
+     * Прокрутить скролл, держать в области видимости элемент с указанным классом.
+     */
+    const scrollElement = async () => {
+        await (0,runtime_core_esm_bundler/* nextTick */.Y3)();
+        const [caret] = document.getElementsByClassName(CARET_CLASSNAME);
+        caret?.scrollIntoView({ block: 'center', behavior: 'auto' });
     };
     return {
-        scrollToBottom,
+        scrollElement,
     };
-}
+});
+
+;// CONCATENATED MODULE: ./src/use/useCaret.ts
+
+
+
+/* harmony default export */ var useCaret = (() => {
+    const store = (0,vuex_esm_bundler/* useStore */.oR)();
+    const text = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.getters.readText);
+    /**
+     * Создание элемента каретки.
+     */
+    const createCaret = () => {
+        const caret = document.createElement('span');
+        caret.setAttribute('class', 'caret');
+        return caret;
+    };
+    /**
+     * Вычисление и добавление каретки в текст.
+     */
+    const setCaret = async (position) => {
+        await (0,runtime_core_esm_bundler/* nextTick */.Y3)();
+        const textElements = document.getElementsByClassName(TEXT_ELEMENT_CLASSNAME);
+        // Удаляем каретку из текста
+        Array.from(textElements).forEach((item) => {
+            const [caret] = item.getElementsByClassName('caret');
+            caret?.remove();
+        });
+        if (typeof position === 'undefined' || position >= text.value.length) {
+            textElements[textElements.length - 1].appendChild(createCaret());
+            return;
+        }
+        // Получаем массив строк от начала до текущей позиции
+        const lines = text.value.slice(0, position).split('\n');
+        // Получаем позицию в строке
+        const positionInLine = lines[lines.length - 1].length;
+        // Получаем элемент с текущей позицией
+        const textEl = textElements[lines.length - 1];
+        // Сохраняем значение элемента
+        const value = textEl.textContent || '';
+        textEl.textContent = '';
+        if (position === 0) {
+            textEl.appendChild(createCaret());
+            textEl.append(value);
+            return;
+        }
+        textEl.append(value.slice(0, positionInLine));
+        textEl.appendChild(createCaret());
+        textEl.append(value.slice(positionInLine));
+    };
+    return {
+        setCaret,
+    };
+});
 
 ;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/TextInput.vue?vue&type=script&lang=ts
 
 
 
+
+
 /* harmony default export */ var TextInputvue_type_script_lang_ts = ((0,runtime_core_esm_bundler/* defineComponent */.aZ)({
     name: 'TextInput',
-    props: {
-        isFullscreen: {
-            type: Boolean,
-            default: false,
-        },
-    },
-    setup(props) {
+    setup() {
         const store = (0,vuex_esm_bundler/* useStore */.oR)();
-        const { scrollToBottom } = useScroll();
-        const { isFullscreen } = (0,reactivity_esm_bundler/* toRefs */.BK)(props);
-        const input = (0,runtime_core_esm_bundler/* computed */.Fl)({
-            get() {
-                return store.state.keyboardStore.input;
-            },
-            set(newValue) {
-                store.dispatch('inputText', newValue);
-            },
+        const { scrollElement } = useScroll();
+        const { setCaret } = useCaret();
+        const text = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.getters.readText);
+        const textArray = (0,runtime_core_esm_bundler/* computed */.Fl)(() => text.value.split('\n'));
+        const caretPosition = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.getters.readCaretPosition);
+        const styles = (0,runtime_core_esm_bundler/* computed */.Fl)(() => ({
+            gridTemplateRows: textArray.value.length < 2 ? '1fr' : `repeat(${textArray.value.length - 1}, auto) 1fr`,
+        }));
+        (0,runtime_core_esm_bundler/* watch */.YP)(caretPosition, () => {
+            setCaret(caretPosition.value);
+            scrollElement();
         });
-        const maxRows = (0,runtime_core_esm_bundler/* computed */.Fl)(() => {
-            return isFullscreen.value ? 4 : 3;
-        });
-        (0,runtime_core_esm_bundler/* onUpdated */.ic)(() => {
-            const textarea = document.getElementsByTagName('textarea')[0];
-            (0,runtime_core_esm_bundler/* nextTick */.Y3)(() => {
-                scrollToBottom(textarea);
-            });
+        (0,runtime_core_esm_bundler/* onMounted */.bv)(() => {
+            setCaret();
+            scrollElement();
         });
         return {
-            input,
-            maxRows,
+            textArray,
+            SCROLL_ELEMENT_CLASSNAME: SCROLL_ELEMENT_CLASSNAME,
+            TEXT_ELEMENT_CLASSNAME: TEXT_ELEMENT_CLASSNAME,
+            styles,
         };
     },
 }));
@@ -189,45 +188,55 @@ function useScroll() {
 ;// CONCATENATED MODULE: ./src/components/TextInput.vue?vue&type=script&lang=ts
  
 // EXTERNAL MODULE: ./node_modules/vue-loader/dist/exportHelper.js
-var exportHelper = __webpack_require__(3744);
+var exportHelper = __webpack_require__(744);
 ;// CONCATENATED MODULE: ./src/components/TextInput.vue
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.Z)(TextInputvue_type_script_lang_ts, [['render',TextInputvue_type_template_id_2692d1d0_ts_true_render]])
+const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.Z)(TextInputvue_type_script_lang_ts, [['render',TextInputvue_type_template_id_eea886b8_ts_true_render]])
 
 /* harmony default export */ var TextInput = (__exports__);
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/KeyboardComponent.vue?vue&type=template&id=26ef0c07&ts=true
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/KeyboardComponent.vue?vue&type=template&id=13197e22&ts=true
 
-const KeyboardComponentvue_type_template_id_26ef0c07_ts_true_hoisted_1 = {
+const KeyboardComponentvue_type_template_id_13197e22_ts_true_hoisted_1 = {
     ref: "keyboardRef",
     class: "keyboard"
 };
-function KeyboardComponentvue_type_template_id_26ef0c07_ts_true_render(_ctx, _cache, $props, $setup, $data, $options) {
+function KeyboardComponentvue_type_template_id_13197e22_ts_true_render(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_ButtonComponent = (0,runtime_core_esm_bundler/* resolveComponent */.up)("ButtonComponent");
-    return (0,runtime_core_esm_bundler/* withDirectives */.wy)(((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)("section", KeyboardComponentvue_type_template_id_26ef0c07_ts_true_hoisted_1, [
-        ((0,runtime_core_esm_bundler/* openBlock */.wg)(true), (0,runtime_core_esm_bundler/* createElementBlock */.iD)(runtime_core_esm_bundler/* Fragment */.HY, null, (0,runtime_core_esm_bundler/* renderList */.Ko)(_ctx.layout, (i, key) => {
-            return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)("div", {
-                key: key,
-                class: "row"
-            }, [
-                ((0,runtime_core_esm_bundler/* openBlock */.wg)(true), (0,runtime_core_esm_bundler/* createElementBlock */.iD)(runtime_core_esm_bundler/* Fragment */.HY, null, (0,runtime_core_esm_bundler/* renderList */.Ko)(i, (j, key) => {
-                    return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)(_component_ButtonComponent, {
+    return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)(runtime_dom_esm_bundler/* Transition */.uT, {
+        name: "slide-fade",
+        persisted: ""
+    }, {
+        default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+            (0,runtime_core_esm_bundler/* withDirectives */.wy)((0,runtime_core_esm_bundler/* createElementVNode */._)("section", KeyboardComponentvue_type_template_id_13197e22_ts_true_hoisted_1, [
+                ((0,runtime_core_esm_bundler/* openBlock */.wg)(true), (0,runtime_core_esm_bundler/* createElementBlock */.iD)(runtime_core_esm_bundler/* Fragment */.HY, null, (0,runtime_core_esm_bundler/* renderList */.Ko)(_ctx.layout, (i, key) => {
+                    return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)("div", {
                         key: key,
-                        char: j
-                    }, null, 8 /* PROPS */, ["char"]));
+                        class: "row"
+                    }, [
+                        ((0,runtime_core_esm_bundler/* openBlock */.wg)(true), (0,runtime_core_esm_bundler/* createElementBlock */.iD)(runtime_core_esm_bundler/* Fragment */.HY, null, (0,runtime_core_esm_bundler/* renderList */.Ko)(i, (j, key) => {
+                            return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)(_component_ButtonComponent, {
+                                key: key,
+                                char: j
+                            }, null, 8 /* PROPS */, ["char"]));
+                        }), 128 /* KEYED_FRAGMENT */))
+                    ]));
                 }), 128 /* KEYED_FRAGMENT */))
-            ]));
-        }), 128 /* KEYED_FRAGMENT */))
-    ], 512 /* NEED_PATCH */)), [
-        [runtime_dom_esm_bundler/* vShow */.F8, !_ctx.isHiddenKeyboard]
-    ]);
+            ], 512 /* NEED_PATCH */), [
+                [runtime_dom_esm_bundler/* vShow */.F8, !_ctx.isHiddenKeyboard]
+            ])
+        ]),
+        _: 1 /* STABLE */
+    }));
 }
 
-;// CONCATENATED MODULE: ./src/components/KeyboardComponent.vue?vue&type=template&id=26ef0c07&ts=true
+;// CONCATENATED MODULE: ./src/components/KeyboardComponent.vue?vue&type=template&id=13197e22&ts=true
 
+// EXTERNAL MODULE: ./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
+var reactivity_esm_bundler = __webpack_require__(262);
 ;// CONCATENATED MODULE: ./src/keyLayouts.ts
 const mixSymbols = [['?', '_', '.', '!', ',', ':', ';', '-', '']];
 const mixNum = [['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '']];
@@ -243,7 +252,7 @@ const rus = [
     ['ы', 'э', 'ю', 'я', 'й', 'ъ', 'ь', ''],
     ...mixNum,
     ...mixSymbols,
-    ['<backspace>', '[upper]', '{eng}', '{num}', '{emoji}', '{phrases}', '\n', ''],
+    ['<backspace>', '{nav}', '[upper]', '{eng}', '{num}', '{emoji}', '{phrases}', '\n', ''],
 ];
 const eng = [
     ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', ''],
@@ -251,7 +260,7 @@ const eng = [
     ['s', 't', 'u', 'v', 'w', 'x', 'y', 'z', ''],
     ...mixNum,
     ...mixSymbols,
-    ['<backspace>', '[upper]', '{rus}', '{num}', '{emoji}', '{phrases}', '\n', ''],
+    ['<backspace>', '{nav}', '[upper]', '{rus}', '{num}', '{emoji}', '{phrases}', '\n', ''],
 ];
 const num = [
     ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ''],
@@ -279,12 +288,17 @@ const phrases = [
     ...mixSymbols,
     ...mixSpaceChar,
 ];
+const nav = [
+    ['left', 'top', 'right', 'bottom', ''],
+    ['<backspace>', '{rus}', '{eng}', '{num}', '{emoji}', '{phrases}', '\n', ''],
+];
 const layouts = {
     eng,
     rus,
     num,
     emoji,
     phrases,
+    nav,
 };
 const actionModifier = {
     none: (value) => value,
@@ -292,11 +306,9 @@ const actionModifier = {
 };
 /* harmony default export */ var keyLayouts = (layouts);
 
-// EXTERNAL MODULE: ./node_modules/@vue/shared/dist/shared.esm-bundler.js
-var shared_esm_bundler = __webpack_require__(3577);
-;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/ButtonComponent.vue?vue&type=template&id=0c24d409&ts=true
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/ButtonComponent.vue?vue&type=template&id=4e60cb34&ts=true
 
-function ButtonComponentvue_type_template_id_0c24d409_ts_true_render(_ctx, _cache, $props, $setup, $data, $options) {
+function ButtonComponentvue_type_template_id_4e60cb34_ts_true_render(_ctx, _cache, $props, $setup, $data, $options) {
     return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)("button", {
         ref: "buttonRef",
         class: "button",
@@ -306,7 +318,153 @@ function ButtonComponentvue_type_template_id_0c24d409_ts_true_render(_ctx, _cach
     }, (0,shared_esm_bundler/* toDisplayString */.zw)(_ctx.checkButton), 513 /* TEXT, NEED_PATCH */));
 }
 
+;// CONCATENATED MODULE: ./src/types/enums.ts
+var Nav;
+(function (Nav) {
+    Nav["LEFT"] = "left";
+    Nav["TOP"] = "top";
+    Nav["RIGHT"] = "right";
+    Nav["BOTTOM"] = "bottom";
+})(Nav || (Nav = {}));
+
+// EXTERNAL MODULE: ./node_modules/voca/index.js
+var voca = __webpack_require__(485);
+var voca_default = /*#__PURE__*/__webpack_require__.n(voca);
+;// CONCATENATED MODULE: ./src/classes/caretPosition.ts
+
+class CaretPosition {
+    /**
+     * Вычислить позицию каретки при перемещении влево.
+     *
+     * @param currentPosition
+     * @param text
+     */
+    static toLeft(currentPosition, text) {
+        // Получаем символ слева
+        const char = this.getLastChar(text.slice(0, currentPosition));
+        if (currentPosition > char.length) {
+            return currentPosition - char.length;
+        }
+        else {
+            return 0;
+        }
+    }
+    /**
+     * Вычислить позицию каретки при перемещении вправо.
+     *
+     * @param currentPosition
+     * @param text
+     */
+    static toRight(currentPosition, text) {
+        // Получаем символ справа
+        const char = voca_default().chain(text.slice(currentPosition)).graphemeAt(0).value();
+        const newPosition = currentPosition + char.length;
+        if (newPosition < text.length) {
+            return newPosition;
+        }
+        else {
+            return text.length;
+        }
+    }
+    /**
+     * Вычислить позицию каретки при перемещении вверх.
+     *
+     * @param currentPosition
+     * @param text
+     */
+    static toTop(currentPosition, text) {
+        // Получаем массив строк от начала до текущей позиции с усечением последней строки
+        const lines = text.slice(0, currentPosition).split('\n');
+        if (lines.length > 1) {
+            // Получить подстроку и количество символов в подстроке для текущей строки
+            const [currentSubstring, currentCountChars] = this.getSubstringFromArray(lines, lines.length - 1);
+            // Следующая строка на которую требуется перейти и количество символов в следующей строке
+            const [nextLine, nextLineChars] = this.getSubstringFromArray(lines, lines.length - 2, lines.length - 1);
+            // Позиция в конце следующей строки
+            const nextLineNullPosition = currentPosition - currentSubstring.length - 1;
+            if (currentCountChars < nextLineChars) {
+                // Если в текущей строке символов меньше чем в следующей,
+                // то в следующей строке сместить курсор на количество символов текущей строки
+                return nextLineNullPosition - nextLine.length + this.getCharArray(nextLine, 0, currentCountChars).length;
+            }
+            else {
+                // Иначе установить курсор в конец следующей строки
+                return nextLineNullPosition;
+            }
+        }
+        return 0;
+    }
+    /**
+     * Вычислить позицию каретки при перемещении вниз.
+     *
+     * @param currentPosition
+     * @param text
+     */
+    static toBottom(currentPosition, text) {
+        // Получаем массив строк от начала до текущей позиции с усечением последней строки
+        const lines = text.slice(0, currentPosition).split('\n');
+        // Получаем массив из всех строк
+        const splitLines = text.split('\n');
+        if (lines.length < splitLines.length) {
+            // Получить подстроку и количество символов в подстроке для текущей строки
+            const [currentSubstring, currentCountChars] = this.getSubstringFromArray(lines, lines.length - 1);
+            // Текущая строка (вся)
+            const [currentLine] = splitLines.slice(lines.length - 1, lines.length);
+            // Следующая строка на которую требуется перейти и количество символов в следующей строке
+            const [nextLine, nextLineChars] = this.getSubstringFromArray(splitLines, lines.length, lines.length + 1);
+            // Позиция в начале следующей строки
+            const nextLineNullPosition = currentPosition - currentSubstring.length + currentLine.length + 1;
+            if (currentCountChars < nextLineChars) {
+                // Если в текущей строке символов меньше чем в следующей,
+                // то в следующей строке сместить курсор на количество символов текущей строки
+                return nextLineNullPosition + this.getCharArray(nextLine, 0, currentCountChars).length;
+            }
+            else {
+                // Иначе установить курсор в конец следующей строки
+                return nextLineNullPosition + nextLine.length;
+            }
+        }
+        return text.length;
+    }
+    /**
+     * Вернуть картеж из подстроки элемента массива и количества символов в подстроке.
+     *
+     * @param arr
+     * @param start
+     * @param end
+     */
+    static getSubstringFromArray(arr, start, end) {
+        // Подстрока
+        const [substring] = arr.slice(start, end);
+        // Количество символов в подстроке
+        const countChars = voca_default().countGraphemes(substring);
+        return [substring, countChars];
+    }
+    /**
+     * Получить подстроку из строки.
+     *
+     * @param text
+     * @param start
+     * @param end
+     */
+    static getCharArray(text, start, end) {
+        return voca_default().graphemes(text).slice(start, end).join('');
+    }
+    /**
+     * Получить последний символ.
+     *
+     * @param text
+     */
+    static getLastChar(text) {
+        const char = voca_default().chain(text).reverseGrapheme().graphemeAt(0).value();
+        return char;
+    }
+}
+/* harmony default export */ var classes_caretPosition = (CaretPosition);
+
 ;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/ButtonComponent.vue?vue&type=script&lang=ts
+
+
 
 
 
@@ -324,6 +482,8 @@ function ButtonComponentvue_type_template_id_0c24d409_ts_true_render(_ctx, _cach
         const currentLayout = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.state.keyboardStore.currentLayout);
         const modifier = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.state.keyboardStore.modifier);
         const beforeLayout = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.state.keyboardStore.beforeLayout);
+        const text = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.getters.readText);
+        const caretPosition = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.getters.readCaretPosition);
         const checkButton = (0,runtime_core_esm_bundler/* computed */.Fl)(() => {
             let char = '';
             const firstChar = props.char[0];
@@ -333,37 +493,62 @@ function ButtonComponentvue_type_template_id_0c24d409_ts_true_render(_ctx, _cach
                 (firstChar === '[' && lastChar === ']') ||
                 (firstChar === '<' && lastChar === '>')) {
                 char = props.char.slice(1, props.char.length - 1);
-                if (char === 'upper') {
-                    char = modifier.value === 'none' ? '⇧' : '⇩';
-                }
-                else if (char === 'backspace') {
-                    // char = '⇤';
-                    char = 'Шаг назад';
-                }
-                else if (char === 'back') {
-                    char = '⇦';
-                }
-                else if (char === 'emoji') {
-                    char = '😉';
-                }
-                else if (char === 'phrases') {
-                    char = 'Фразы';
+                switch (char) {
+                    case 'upper': {
+                        char = modifier.value === 'none' ? '⇧' : '⇩';
+                        break;
+                    }
+                    case 'backspace': {
+                        char = 'Шаг назад';
+                        break;
+                    }
+                    case 'back': {
+                        char = '⇦';
+                        break;
+                    }
+                    case 'emoji': {
+                        char = '😉';
+                        break;
+                    }
+                    case 'phrases': {
+                        char = 'Фразы';
+                        break;
+                    }
                 }
             }
             else {
                 char = props.char;
                 // Блок проверки спец символов
                 switch (char) {
-                    case '\n':
+                    case '\n': {
                         char = '↵';
                         break;
-                    case '_':
+                    }
+                    case '_': {
                         char = '_';
                         break;
-                    case '':
+                    }
+                    case '': {
                         // char = '↰';
                         char = '^';
                         break;
+                    }
+                    case 'left': {
+                        char = '←';
+                        break;
+                    }
+                    case 'top': {
+                        char = '↑';
+                        break;
+                    }
+                    case 'right': {
+                        char = '→';
+                        break;
+                    }
+                    case 'bottom': {
+                        char = '↓';
+                        break;
+                    }
                     default:
                         char = actionModifier[modifier.value](char);
                 }
@@ -398,8 +583,30 @@ function ButtonComponentvue_type_template_id_0c24d409_ts_true_render(_ctx, _cach
                     store.dispatch('setBeforeLayout', '');
                 }
                 else if (actionType === 'backspace') {
-                    store.commit('textBackspace');
+                    store.dispatch('backspace');
                 }
+            }
+            else if (['left', 'top', 'right', 'bottom'].includes(char)) {
+                let newPosition = 0;
+                switch (char) {
+                    case Nav.LEFT: {
+                        newPosition = classes_caretPosition.toLeft(caretPosition.value, text.value);
+                        break;
+                    }
+                    case Nav.RIGHT: {
+                        newPosition = classes_caretPosition.toRight(caretPosition.value, text.value);
+                        break;
+                    }
+                    case Nav.TOP: {
+                        newPosition = classes_caretPosition.toTop(caretPosition.value, text.value);
+                        break;
+                    }
+                    case Nav.BOTTOM: {
+                        newPosition = classes_caretPosition.toBottom(caretPosition.value, text.value);
+                        break;
+                    }
+                }
+                store.dispatch('setCaretPosition', newPosition);
             }
             else {
                 let textContent = ev.target.textContent;
@@ -411,7 +618,9 @@ function ButtonComponentvue_type_template_id_0c24d409_ts_true_render(_ctx, _cach
                 if (store.state.keyboardStore.modifier !== 'upper') {
                     store.dispatch('setModifier', 'upper');
                 }
-                store.dispatch('inputKeyboardText', textContent);
+                if (textContent) {
+                    store.dispatch('inputText', textContent);
+                }
             }
         };
         return {
@@ -430,7 +639,7 @@ function ButtonComponentvue_type_template_id_0c24d409_ts_true_render(_ctx, _cach
 
 
 ;
-const ButtonComponent_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(ButtonComponentvue_type_script_lang_ts, [['render',ButtonComponentvue_type_template_id_0c24d409_ts_true_render]])
+const ButtonComponent_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(ButtonComponentvue_type_script_lang_ts, [['render',ButtonComponentvue_type_template_id_4e60cb34_ts_true_render]])
 
 /* harmony default export */ var ButtonComponent = (ButtonComponent_exports_);
 ;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/KeyboardComponent.vue?vue&type=script&lang=ts
@@ -443,32 +652,21 @@ const ButtonComponent_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(Bu
     components: {
         ButtonComponent: ButtonComponent,
     },
-    props: {
-        getKeyboard: {
-            type: Function,
-            required: true,
-        },
-        isHiddenKeyboard: {
-            type: Boolean,
-            default: false,
-        },
-    },
-    setup(props) {
+    emits: ['change'],
+    setup(props, { emit }) {
         const store = (0,vuex_esm_bundler/* useStore */.oR)();
+        const keyboardRef = (0,reactivity_esm_bundler/* ref */.iH)('');
         const currentLayout = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.state.keyboardStore.currentLayout);
         const layout = (0,runtime_core_esm_bundler/* computed */.Fl)(() => keyLayouts[currentLayout.value]);
-        const keyboardRef = (0,reactivity_esm_bundler/* ref */.iH)('');
-        (0,runtime_core_esm_bundler/* onMounted */.bv)(() => {
-            // console.info('[onMounted]')
-            props.getKeyboard(keyboardRef.value);
-        });
-        (0,runtime_core_esm_bundler/* onUpdated */.ic)(() => {
-            // console.info('[onUpdated]')
-            props.getKeyboard(keyboardRef.value);
-        });
+        const isHiddenKeyboard = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.getters.readIsHiddenKeyboard);
+        (0,runtime_core_esm_bundler/* watch */.YP)(currentLayout, async () => {
+            await (0,runtime_core_esm_bundler/* nextTick */.Y3)();
+            emit('change', keyboardRef.value);
+        }, { immediate: true });
         return {
             layout,
             keyboardRef,
+            isHiddenKeyboard,
         };
     },
 }));
@@ -481,15 +679,120 @@ const ButtonComponent_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(Bu
 
 
 ;
-const KeyboardComponent_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(KeyboardComponentvue_type_script_lang_ts, [['render',KeyboardComponentvue_type_template_id_26ef0c07_ts_true_render]])
+const KeyboardComponent_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(KeyboardComponentvue_type_script_lang_ts, [['render',KeyboardComponentvue_type_template_id_13197e22_ts_true_render]])
 
 /* harmony default export */ var KeyboardComponent = (KeyboardComponent_exports_);
+;// CONCATENATED MODULE: ./src/use/useFullscreen.ts
+
+
+
+
+/* harmony default export */ function useFullscreen() {
+    const store = (0,vuex_esm_bundler/* useStore */.oR)();
+    const { scrollElement } = useScroll();
+    const fullscreenButton = (0,reactivity_esm_bundler/* ref */.iH)(null);
+    const fullscreenElement = (0,runtime_core_esm_bundler/* computed */.Fl)(() => {
+        const [el] = document.getElementsByClassName(FULLSCREEN_ELEMENT_CLASSNAME);
+        return el;
+    });
+    const isFullscreen = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.getters.readIsFullscreen);
+    /**
+     * Выйти из полноэкранного режима.
+     */
+    const exitFullscreen = () => {
+        // console.info('[exitFullscreen]')
+        const fsDoc = document;
+        const fsElement = fsDoc.fullscreenElement ||
+            fsDoc.webkitFullscreenElement ||
+            fsDoc.msFullscreenElement ||
+            fsDoc.mozFullScreenElement;
+        if (fsElement) {
+            let exitFS;
+            if (fsDoc.exitFullscreen) {
+                exitFS = fsDoc.exitFullscreen();
+            }
+            else if (fsDoc.webkitCancelFullScreen) {
+                exitFS = fsDoc.webkitCancelFullScreen();
+            }
+            else if (fsDoc.msExitFullscreen) {
+                exitFS = fsDoc.msExitFullscreen();
+            }
+            else if (fsDoc.mozCancelFullScreen) {
+                exitFS = fsDoc.mozCancelFullScreen();
+            }
+            else {
+                alert('Выход из полноэкранного режима не работает, для выхода нажмите Esc.');
+            }
+            if (exitFS) {
+                exitFS
+                    .then(() => {
+                    console.info('Document Exited from Full screen mode');
+                })
+                    .catch((err) => {
+                    console.warn(err);
+                });
+            }
+        }
+    };
+    /**
+     * Переключение полноэкранного режима.
+     */
+    const toggleFullscreen = () => {
+        if (!isFullscreen.value) {
+            if (fullscreenElement.value.requestFullscreen) {
+                fullscreenElement.value.requestFullscreen();
+            }
+            else if (fullscreenElement.value.webkitRequestFullScreen) {
+                fullscreenElement.value.webkitRequestFullScreen();
+            }
+            else if (fullscreenElement.value.msRequestFullscreen) {
+                fullscreenElement.value.msRequestFullscreen();
+            }
+            else if (fullscreenElement.value.mozRequestFullScreen) {
+                fullscreenElement.value.mozRequestFullScreen();
+            }
+        }
+        else {
+            exitFullscreen();
+        }
+    };
+    /**
+     * Переключение состояния при изменении полноэкранного режима.
+     */
+    const fullscreenEventHandler = () => {
+        let fsElement;
+        const fsDoc = document;
+        if (fsDoc.fullscreenElement !== undefined) {
+            fsElement = fsDoc.fullscreenElement;
+        }
+        else if (fsDoc.webkitFullscreenElement !== undefined) {
+            fsElement = fsDoc.webkitFullscreenElement;
+        }
+        store.commit('toggleIsFullscreen', fsElement !== null);
+    };
+    /**
+     * Переключить полноэкранный режим.
+     */
+    const onToggleFullscreen = async () => {
+        isFullscreen.value && store.commit('toggleHiddenKeyboard', false);
+        toggleFullscreen();
+        await scrollElement();
+    };
+    return {
+        fullscreenElement,
+        fullscreenButton,
+        isFullscreen,
+        fullscreenEventHandler,
+        onToggleFullscreen,
+    };
+}
+
 ;// CONCATENATED MODULE: ./src/use/useIterator.ts
 
 function useIterator() {
     const delay = 1500;
     const timerId = (0,reactivity_esm_bundler/* ref */.iH)(null);
-    const running = (0,reactivity_esm_bundler/* ref */.iH)('');
+    const running = (0,reactivity_esm_bundler/* ref */.iH)();
     const keyboard = (0,reactivity_esm_bundler/* ref */.iH)(null);
     const rows = (0,reactivity_esm_bundler/* ref */.iH)(null);
     const lenArray = (0,reactivity_esm_bundler/* ref */.iH)(0);
@@ -547,117 +850,264 @@ function useIterator() {
     };
 }
 
-;// CONCATENATED MODULE: ./src/use/useFullscreen.ts
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/MainHeader.vue?vue&type=template&id=7ba20ae4&ts=true
 
-/* harmony default export */ function useFullscreen() {
-    const fullscreenElement = (0,reactivity_esm_bundler/* ref */.iH)(null);
-    const fullscreenButton = (0,reactivity_esm_bundler/* ref */.iH)(null);
-    const isFullscreen = (0,reactivity_esm_bundler/* ref */.iH)(false);
-    const exitFullscreen = () => {
-        // console.info('[exitFullscreen]')
-        const fsDoc = document;
-        const fsElement = fsDoc.fullscreenElement ||
-            fsDoc.webkitFullscreenElement ||
-            fsDoc.msFullscreenElement ||
-            fsDoc.mozFullScreenElement;
-        if (fsElement) {
-            let exitFS;
-            if (fsDoc.exitFullscreen) {
-                exitFS = fsDoc.exitFullscreen();
-            }
-            else if (fsDoc.webkitCancelFullScreen) {
-                exitFS = fsDoc.webkitCancelFullScreen();
-            }
-            else if (fsDoc.msExitFullscreen) {
-                exitFS = fsDoc.msExitFullscreen();
-            }
-            else if (fsDoc.mozCancelFullScreen) {
-                exitFS = fsDoc.mozCancelFullScreen();
-            }
-            else {
-                alert('Выход из полноэкранного режима не работает, для выхода нажмите Esc.');
-            }
-            if (exitFS) {
-                exitFS
-                    .then(() => {
-                    console.info('Document Exited from Full screen mode');
+const MainHeadervue_type_template_id_7ba20ae4_ts_true_hoisted_1 = /*#__PURE__*/ (0,runtime_core_esm_bundler/* createElementVNode */._)("span", { class: "logo" }, "Simple Keyboard", -1 /* HOISTED */);
+function MainHeadervue_type_template_id_7ba20ae4_ts_true_render(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_el_space = (0,runtime_core_esm_bundler/* resolveComponent */.up)("el-space");
+    const _component_el_tag = (0,runtime_core_esm_bundler/* resolveComponent */.up)("el-tag");
+    const _component_el_icon = (0,runtime_core_esm_bundler/* resolveComponent */.up)("el-icon");
+    const _component_el_button = (0,runtime_core_esm_bundler/* resolveComponent */.up)("el-button");
+    const _component_el_popconfirm = (0,runtime_core_esm_bundler/* resolveComponent */.up)("el-popconfirm");
+    const _component_el_upload = (0,runtime_core_esm_bundler/* resolveComponent */.up)("el-upload");
+    return ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createElementBlock */.iD)("header", null, [
+        MainHeadervue_type_template_id_7ba20ae4_ts_true_hoisted_1,
+        (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_space),
+        (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_tag, {
+            round: "",
+            style: { "font-size": "16px" }
+        }, {
+            default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                (0,runtime_core_esm_bundler/* createTextVNode */.Uk)((0,shared_esm_bundler/* toDisplayString */.zw)(_ctx.charsLength), 1 /* TEXT */)
+            ]),
+            _: 1 /* STABLE */
+        }),
+        (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_popconfirm, {
+            title: "Удаляем текст?",
+            "confirm-button-text": "Да",
+            "cancel-button-text": "Нет",
+            teleported: false,
+            onConfirm: (0,runtime_dom_esm_bundler/* withModifiers */.iM)(_ctx.onRemoveText, ["stop"]),
+            onCancel: _cache[1] || (_cache[1] = (0,runtime_dom_esm_bundler/* withModifiers */.iM)(() => { }, ["stop"]))
+        }, {
+            reference: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_button, {
+                    class: "header__button",
+                    circle: "",
+                    onClick: _cache[0] || (_cache[0] = (0,runtime_dom_esm_bundler/* withModifiers */.iM)(() => { }, ["stop"]))
+                }, {
+                    default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                        (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_icon, {
+                            size: 14,
+                            style: { "vertical-align": "middle" }
+                        }, {
+                            default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                                ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)((0,runtime_core_esm_bundler/* resolveDynamicComponent */.LL)(_ctx.DocumentDelete)))
+                            ]),
+                            _: 1 /* STABLE */
+                        })
+                    ]),
+                    _: 1 /* STABLE */
                 })
-                    .catch((err) => {
-                    console.warn(err);
-                });
-            }
-        }
-    };
-    const fullscreenHandler = () => {
-        if (!isFullscreen.value) {
-            if (fullscreenElement.value.requestFullscreen) {
-                fullscreenElement.value.requestFullscreen();
-            }
-            else if (fullscreenElement.value.webkitRequestFullScreen) {
-                fullscreenElement.value.webkitRequestFullScreen();
-            }
-            else if (fullscreenElement.value.msRequestFullscreen) {
-                fullscreenElement.value.msRequestFullscreen();
-            }
-            else if (fullscreenElement.value.mozRequestFullScreen) {
-                fullscreenElement.value.mozRequestFullScreen();
-            }
-        }
-        else {
-            exitFullscreen();
-        }
-    };
-    const fullscreenEventHandler = () => {
-        let fsElement;
-        const fsDoc = document;
-        if (fsDoc.fullscreenElement !== undefined) {
-            fsElement = fsDoc.fullscreenElement;
-        }
-        else if (fsDoc.webkitFullscreenElement !== undefined) {
-            fsElement = fsDoc.webkitFullscreenElement;
-        }
-        isFullscreen.value = fsElement !== null;
-    };
-    return {
-        fullscreenElement,
-        fullscreenButton,
-        isFullscreen,
-        fullscreenHandler,
-        fullscreenEventHandler,
-    };
+            ]),
+            _: 1 /* STABLE */
+        }, 8 /* PROPS */, ["onConfirm"]),
+        (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_upload, {
+            "file-list": _ctx.uploadFiles,
+            "onUpdate:file-list": _cache[2] || (_cache[2] = ($event) => ((_ctx.uploadFiles) = $event)),
+            class: "header__upload",
+            action: "#",
+            accept: ".txt",
+            "auto-upload": false,
+            "show-file-list": false,
+            limit: 1,
+            "on-change": _ctx.onUploadText,
+            "on-remove": _ctx.onUploadText,
+            onClick: _cache[3] || (_cache[3] = (0,runtime_dom_esm_bundler/* withModifiers */.iM)(() => { }, ["stop"]))
+        }, {
+            default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_button, {
+                    class: "header__button",
+                    circle: ""
+                }, {
+                    default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                        (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_icon, {
+                            style: { "vertical-align": "middle" },
+                            size: 14
+                        }, {
+                            default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                                ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)((0,runtime_core_esm_bundler/* resolveDynamicComponent */.LL)(_ctx.Download)))
+                            ]),
+                            _: 1 /* STABLE */
+                        })
+                    ]),
+                    _: 1 /* STABLE */
+                })
+            ]),
+            _: 1 /* STABLE */
+        }, 8 /* PROPS */, ["file-list", "on-change", "on-remove"]),
+        (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_button, {
+            class: "header__button",
+            circle: "",
+            onClick: (0,runtime_dom_esm_bundler/* withModifiers */.iM)(_ctx.onExportText, ["stop", "prevent"])
+        }, {
+            default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_icon, {
+                    style: { "vertical-align": "middle" },
+                    size: 14
+                }, {
+                    default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                        ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)((0,runtime_core_esm_bundler/* resolveDynamicComponent */.LL)(_ctx.Upload)))
+                    ]),
+                    _: 1 /* STABLE */
+                })
+            ]),
+            _: 1 /* STABLE */
+        }, 8 /* PROPS */, ["onClick"]),
+        (_ctx.isFullscreen)
+            ? ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)(_component_el_button, {
+                key: 0,
+                class: "header__button",
+                circle: "",
+                onClick: (0,runtime_dom_esm_bundler/* withModifiers */.iM)(_ctx.onToggleShowKeyboard, ["stop", "prevent"])
+            }, {
+                default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                    (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_icon, {
+                        style: { "vertical-align": "middle" },
+                        size: 14
+                    }, {
+                        default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                            ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)((0,runtime_core_esm_bundler/* resolveDynamicComponent */.LL)(_ctx.isHiddenKeyboard ? _ctx.ArrowUp : _ctx.ArrowDown)))
+                        ]),
+                        _: 1 /* STABLE */
+                    })
+                ]),
+                _: 1 /* STABLE */
+            }, 8 /* PROPS */, ["onClick"]))
+            : (0,runtime_core_esm_bundler/* createCommentVNode */.kq)("v-if", true),
+        (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_button, {
+            class: "header__button",
+            ref: "fullscreenButton",
+            circle: "",
+            onClick: (0,runtime_dom_esm_bundler/* withModifiers */.iM)(_ctx.onToggleFullscreen, ["stop", "prevent"])
+        }, {
+            default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                (0,runtime_core_esm_bundler/* createVNode */.Wm)(_component_el_icon, {
+                    style: { "vertical-align": "middle" },
+                    size: 14
+                }, {
+                    default: (0,runtime_core_esm_bundler/* withCtx */.w5)(() => [
+                        ((0,runtime_core_esm_bundler/* openBlock */.wg)(), (0,runtime_core_esm_bundler/* createBlock */.j4)((0,runtime_core_esm_bundler/* resolveDynamicComponent */.LL)(_ctx.isFullscreen ? _ctx.Close : _ctx.FullScreen)))
+                    ]),
+                    _: 1 /* STABLE */
+                })
+            ]),
+            _: 1 /* STABLE */
+        }, 8 /* PROPS */, ["onClick"])
+    ]));
 }
 
+;// CONCATENATED MODULE: ./src/components/MainHeader.vue?vue&type=template&id=7ba20ae4&ts=true
+
+// EXTERNAL MODULE: ./node_modules/@element-plus/icons-vue/dist/index.js
+var dist = __webpack_require__(781);
 // EXTERNAL MODULE: ./node_modules/file-saver/dist/FileSaver.min.js
-var FileSaver_min = __webpack_require__(3162);
+var FileSaver_min = __webpack_require__(162);
 ;// CONCATENATED MODULE: ./src/use/useTextExport.ts
 
 
 
-/* harmony default export */ function useTextExport() {
+
+/* harmony default export */ var useTextExport = (() => {
     const store = (0,vuex_esm_bundler/* useStore */.oR)();
-    const textExport = () => {
-        const text = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.state.keyboardStore.input);
+    const { setCaret } = useCaret();
+    const uploadFiles = (0,reactivity_esm_bundler/* ref */.iH)([]);
+    /**
+     * Сохранить текст в файл.
+     */
+    const onExportText = () => {
+        const text = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.getters.readText);
+        // Для названия файла берется первая строка текста
         const filename = text.value.split('\n')[0];
         const blob = new Blob([text.value], { type: 'text/plain;charset=utf-8' });
         (0,FileSaver_min.saveAs)(blob, `${filename}.txt`);
     };
-    return {
-        textExport,
+    /**
+     * Загрузить текст из файла.
+     *
+     * @param file
+     */
+    const onUploadText = async (file) => {
+        const text = (await file.raw?.text()) || '';
+        await store.dispatch('uploadText', text);
+        uploadFiles.value = [];
+        await setCaret(0);
     };
-}
+    /**
+     * Очистить текстовое поле.
+     */
+    const onRemoveText = async () => {
+        await store.dispatch('uploadText', '');
+        await setCaret(0);
+    };
+    return {
+        onExportText,
+        uploadFiles,
+        onUploadText,
+        onRemoveText,
+    };
+});
 
-// EXTERNAL MODULE: ./node_modules/@element-plus/icons-vue/dist/es/arrow-down.mjs
-var arrow_down = __webpack_require__(8647);
-// EXTERNAL MODULE: ./node_modules/@element-plus/icons-vue/dist/es/arrow-up.mjs
-var arrow_up = __webpack_require__(3928);
-// EXTERNAL MODULE: ./node_modules/@element-plus/icons-vue/dist/es/close.mjs
-var es_close = __webpack_require__(4915);
-// EXTERNAL MODULE: ./node_modules/@element-plus/icons-vue/dist/es/full-screen.mjs
-var full_screen = __webpack_require__(5876);
-// EXTERNAL MODULE: ./node_modules/@element-plus/icons-vue/dist/es/document-add.mjs
-var document_add = __webpack_require__(9795);
+;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/components/MainHeader.vue?vue&type=script&lang=ts
+
+
+
+
+
+
+/* harmony default export */ var MainHeadervue_type_script_lang_ts = ((0,runtime_core_esm_bundler/* defineComponent */.aZ)({
+    name: 'MainHeader',
+    setup() {
+        const store = (0,vuex_esm_bundler/* useStore */.oR)();
+        const { fullscreenElement, fullscreenButton, isFullscreen, onToggleFullscreen } = useFullscreen();
+        const { scrollElement } = useScroll();
+        const { onExportText, onUploadText, uploadFiles, onRemoveText } = useTextExport();
+        const isHiddenKeyboard = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.getters.readIsHiddenKeyboard);
+        const charsLength = (0,runtime_core_esm_bundler/* computed */.Fl)(() => store.getters.readCharsLength);
+        /**
+         * Переключатель отображения клавиатуры.
+         */
+        const onToggleShowKeyboard = async () => {
+            store.commit('toggleHiddenKeyboard');
+            if (fullscreenElement.value && !isHiddenKeyboard.value) {
+                // Если fullscreen и клавиатура отображается - прокрутить
+                await scrollElement();
+            }
+        };
+        return {
+            charsLength,
+            uploadFiles,
+            onExportText,
+            onUploadText,
+            onRemoveText,
+            isFullscreen,
+            isHiddenKeyboard,
+            onToggleShowKeyboard,
+            onToggleFullscreen,
+            fullscreenButton,
+            ArrowDown: dist/* ArrowDown */.K5e,
+            ArrowUp: dist/* ArrowUp */.a2Z,
+            Close: dist/* Close */.x8P,
+            FullScreen: dist/* FullScreen */.ITT,
+            Download: dist/* Download */.UWx,
+            Upload: dist/* Upload */.gqx,
+            DocumentDelete: dist/* DocumentDelete */.jY0,
+        };
+    },
+}));
+
+;// CONCATENATED MODULE: ./src/components/MainHeader.vue?vue&type=script&lang=ts
+ 
+;// CONCATENATED MODULE: ./src/components/MainHeader.vue
+
+
+
+
+;
+const MainHeader_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(MainHeadervue_type_script_lang_ts, [['render',MainHeadervue_type_template_id_7ba20ae4_ts_true_render]])
+
+/* harmony default export */ var MainHeader = (MainHeader_exports_);
 ;// CONCATENATED MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-1!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[8].use[0]!./src/App.vue?vue&type=script&lang=ts
-
 
 
 
@@ -668,65 +1118,39 @@ var document_add = __webpack_require__(9795);
 /* harmony default export */ var Appvue_type_script_lang_ts = ((0,runtime_core_esm_bundler/* defineComponent */.aZ)({
     name: 'App',
     components: {
+        MainHeader: MainHeader,
         TextInput: TextInput,
         KeyboardComponent: KeyboardComponent,
     },
     setup() {
+        const { fullscreenEventHandler } = useFullscreen();
         const { timerId, running, keyboard, button, removeClassFromElements, rowsIterator, colsIterator, getKeyboard } = useIterator();
-        const { scrollToBottom } = useScroll();
-        const { textExport } = useTextExport();
-        const { fullscreenElement, fullscreenButton, isFullscreen, fullscreenHandler, fullscreenEventHandler } = useFullscreen();
-        const isHiddenKeyboard = (0,reactivity_esm_bundler/* ref */.iH)(false);
-        const hideKeyboardHandler = () => {
-            isHiddenKeyboard.value = !isHiddenKeyboard.value;
-            if (fullscreenElement.value) {
-                const fsElementGet = fullscreenElement.value.getElementsByTagName('textarea')[0];
-                if (isHiddenKeyboard.value) {
-                    fsElementGet.style.height = 'calc(100vh - 60px - 32px)';
-                }
-                else {
-                    fsElementGet.style.height = 'auto';
-                    scrollToBottom(fsElementGet);
-                }
-            }
-        };
         (0,runtime_core_esm_bundler/* onMounted */.bv)(() => {
             document.addEventListener('fullscreenchange', fullscreenEventHandler);
             document.addEventListener('webkitfullscreenchange', fullscreenEventHandler);
             document.addEventListener('click', () => {
-                if (running.value === '') {
-                    timerId.value = rowsIterator();
-                    running.value = 'row';
-                }
-                else if (running.value === 'row') {
+                if (running.value === 'row') {
                     clearInterval(timerId.value);
                     removeClassFromElements(keyboard.value);
                     timerId.value = colsIterator();
                     running.value = 'col';
                 }
-                else {
+                else if (running.value === 'col') {
                     clearInterval(timerId.value);
                     removeClassFromElements(keyboard.value);
                     button.value.click();
                     timerId.value = rowsIterator();
                     running.value = 'row';
                 }
+                else {
+                    timerId.value = rowsIterator();
+                    running.value = 'row';
+                }
             });
         });
         return {
-            fullscreenElement,
-            fullscreenButton,
-            isFullscreen,
-            fullscreenHandler,
             getKeyboard,
-            isHiddenKeyboard,
-            hideKeyboardHandler,
-            textExport,
-            ArrowDown: arrow_down/* default */.Z,
-            ArrowUp: arrow_up/* default */.Z,
-            Close: es_close/* default */.Z,
-            FullScreen: full_screen/* default */.Z,
-            DocumentAdd: document_add/* default */.Z,
+            FULLSCREEN_ELEMENT_CLASSNAME: FULLSCREEN_ELEMENT_CLASSNAME,
         };
     },
 }));
@@ -743,24 +1167,23 @@ const App_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(Appvue_type_sc
 
 /* harmony default export */ var App = (App_exports_);
 ;// CONCATENATED MODULE: ./src/store/modules/keyboardStore.ts
+
+
 const state = () => {
     return {
-        input: '',
+        text: '',
         currentLayout: 'rus',
         // modifier: 'none',
         modifier: 'upper',
         beforeLayout: '',
+        caretPosition: 0,
+        isFullscreen: false,
+        isHiddenKeyboard: false,
     };
 };
 const mutations = {
-    inputKeyboardText(state, input) {
-        state.input = state.input + input;
-    },
-    inputText(state, input) {
-        state.input = input;
-    },
-    textBackspace(state) {
-        state.input = state.input.slice(0, state.input.length - 1);
+    inputText(state, text) {
+        state.text = text;
     },
     setCurrentLayout(state, currentLayout) {
         state.currentLayout = currentLayout;
@@ -771,13 +1194,49 @@ const mutations = {
     setBeforeLayout(state, beforeLayout) {
         state.beforeLayout = beforeLayout;
     },
+    setCaretPosition(state, payload) {
+        state.caretPosition = payload;
+    },
+    toggleIsFullscreen(state, payload) {
+        state.isFullscreen = payload;
+    },
+    toggleHiddenKeyboard(state, flag) {
+        if (typeof flag === 'undefined') {
+            state.isHiddenKeyboard = !state.isHiddenKeyboard;
+        }
+        else {
+            state.isHiddenKeyboard = flag;
+        }
+    },
 };
 const actions = {
-    inputKeyboardText({ commit }, input) {
-        commit('inputKeyboardText', input);
+    inputText({ commit, getters }, char) {
+        const text = getters.readText;
+        const caretPosition = getters.readCaretPosition;
+        let result = '';
+        if (!caretPosition) {
+            result = char + text;
+        }
+        else if (caretPosition === text.length) {
+            result = text + char;
+        }
+        else {
+            result = text.slice(0, caretPosition) + char + text.slice(caretPosition);
+        }
+        commit('inputText', result);
+        commit('setCaretPosition', caretPosition + char.length);
     },
-    inputText({ commit }, input) {
-        commit('inputText', input);
+    backspace({ commit, getters }) {
+        const text = getters.readText;
+        const caretPosition = getters.readCaretPosition;
+        const char = classes_caretPosition.getLastChar(text.slice(0, caretPosition));
+        const result = text.slice(0, caretPosition - char.length) + text.slice(caretPosition);
+        commit('inputText', result);
+        commit('setCaretPosition', caretPosition - char.length);
+    },
+    uploadText({ commit }, text) {
+        commit('inputText', text);
+        commit('setCaretPosition', 0);
     },
     setCurrentLayout({ commit }, currentLayout) {
         commit('setCurrentLayout', currentLayout);
@@ -788,8 +1247,27 @@ const actions = {
     setBeforeLayout({ commit }, beforeLayout) {
         commit('setBeforeLayout', beforeLayout);
     },
+    setCaretPosition({ commit }, payload) {
+        commit('setCaretPosition', payload);
+    },
 };
-const getters = {};
+const getters = {
+    readText(state) {
+        return state.text;
+    },
+    readCharsLength(state) {
+        return voca_default().countGraphemes(state.text);
+    },
+    readCaretPosition(state) {
+        return state.caretPosition;
+    },
+    readIsFullscreen(state) {
+        return state.isFullscreen;
+    },
+    readIsHiddenKeyboard(state) {
+        return state.isHiddenKeyboard;
+    },
+};
 /* harmony default export */ var keyboardStore = ({
     namespaced: false,
     state,
@@ -810,7 +1288,7 @@ const store = (0,vuex_esm_bundler/* createStore */.MT)({
 });
 
 // EXTERNAL MODULE: ./src/assets/scss/main.scss
-var main = __webpack_require__(3342);
+var main = __webpack_require__(342);
 ;// CONCATENATED MODULE: ./src/index.ts
 
 
@@ -818,7 +1296,7 @@ var main = __webpack_require__(3342);
 
 
 
-(0,runtime_dom_esm_bundler/* createApp */.ri)(App).provide('store', store).use(es/* default */.ZP).mount('#app');
+(0,runtime_dom_esm_bundler/* createApp */.ri)(App).provide('store', store).use(defaults/* default */.Z).mount('#app');
 
 
 /***/ })
@@ -839,7 +1317,7 @@ var main = __webpack_require__(3342);
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
 /******/ 			id: moduleId,
-/******/ 			loaded: false,
+/******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
@@ -853,9 +1331,6 @@ var main = __webpack_require__(3342);
 /******/ 			module.error = e;
 /******/ 			throw e;
 /******/ 		}
-/******/ 	
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -954,7 +1429,7 @@ var main = __webpack_require__(3342);
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
-/******/ 		__webpack_require__.h = function() { return "c04b0dc4ac381ba80e95"; }
+/******/ 		__webpack_require__.h = function() { return "c029f31ede98725a43d8"; }
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -1020,15 +1495,6 @@ var main = __webpack_require__(3342);
 /******/ 		};
 /******/ 	}();
 /******/ 	
-/******/ 	/* webpack/runtime/node module decorator */
-/******/ 	!function() {
-/******/ 		__webpack_require__.nmd = function(module) {
-/******/ 			module.paths = [];
-/******/ 			if (!module.children) module.children = [];
-/******/ 			return module;
-/******/ 		};
-/******/ 	}();
-/******/ 	
 /******/ 	/* webpack/runtime/hot module replacement */
 /******/ 	!function() {
 /******/ 		var currentModuleData = {};
@@ -1043,7 +1509,8 @@ var main = __webpack_require__(3342);
 /******/ 		var currentStatus = "idle";
 /******/ 		
 /******/ 		// while downloading
-/******/ 		var blockingPromises;
+/******/ 		var blockingPromises = 0;
+/******/ 		var blockingPromisesWaiting = [];
 /******/ 		
 /******/ 		// The update info
 /******/ 		var currentUpdateApplyHandlers;
@@ -1233,17 +1700,28 @@ var main = __webpack_require__(3342);
 /******/ 			return Promise.all(results);
 /******/ 		}
 /******/ 		
+/******/ 		function unblock() {
+/******/ 			if (--blockingPromises === 0) {
+/******/ 				setStatus("ready").then(function () {
+/******/ 					if (blockingPromises === 0) {
+/******/ 						var list = blockingPromisesWaiting;
+/******/ 						blockingPromisesWaiting = [];
+/******/ 						for (var i = 0; i < list.length; i++) {
+/******/ 							list[i]();
+/******/ 						}
+/******/ 					}
+/******/ 				});
+/******/ 			}
+/******/ 		}
+/******/ 		
 /******/ 		function trackBlockingPromise(promise) {
 /******/ 			switch (currentStatus) {
 /******/ 				case "ready":
 /******/ 					setStatus("prepare");
-/******/ 					blockingPromises.push(promise);
-/******/ 					waitForBlockingPromises(function () {
-/******/ 						return setStatus("ready");
-/******/ 					});
-/******/ 					return promise;
+/******/ 				/* fallthrough */
 /******/ 				case "prepare":
-/******/ 					blockingPromises.push(promise);
+/******/ 					blockingPromises++;
+/******/ 					promise.then(unblock, unblock);
 /******/ 					return promise;
 /******/ 				default:
 /******/ 					return promise;
@@ -1251,11 +1729,11 @@ var main = __webpack_require__(3342);
 /******/ 		}
 /******/ 		
 /******/ 		function waitForBlockingPromises(fn) {
-/******/ 			if (blockingPromises.length === 0) return fn();
-/******/ 			var blocker = blockingPromises;
-/******/ 			blockingPromises = [];
-/******/ 			return Promise.all(blocker).then(function () {
-/******/ 				return waitForBlockingPromises(fn);
+/******/ 			if (blockingPromises === 0) return fn();
+/******/ 			return new Promise(function (resolve) {
+/******/ 				blockingPromisesWaiting.push(function () {
+/******/ 					resolve(fn());
+/******/ 				});
 /******/ 			});
 /******/ 		}
 /******/ 		
@@ -1276,7 +1754,6 @@ var main = __webpack_require__(3342);
 /******/ 		
 /******/ 					return setStatus("prepare").then(function () {
 /******/ 						var updatedModules = [];
-/******/ 						blockingPromises = [];
 /******/ 						currentUpdateApplyHandlers = [];
 /******/ 		
 /******/ 						return Promise.all(
@@ -1313,7 +1790,11 @@ var main = __webpack_require__(3342);
 /******/ 		function hotApply(options) {
 /******/ 			if (currentStatus !== "ready") {
 /******/ 				return Promise.resolve().then(function () {
-/******/ 					throw new Error("apply() is only allowed in ready status");
+/******/ 					throw new Error(
+/******/ 						"apply() is only allowed in ready status (state: " +
+/******/ 							currentStatus +
+/******/ 							")"
+/******/ 					);
 /******/ 				});
 /******/ 			}
 /******/ 			return internalApply(options);
@@ -1534,7 +2015,8 @@ var main = __webpack_require__(3342);
 /******/ 		
 /******/ 		var currentUpdatedModulesList;
 /******/ 		var waitingUpdateResolves = {};
-/******/ 		function loadUpdateChunk(chunkId) {
+/******/ 		function loadUpdateChunk(chunkId, updatedModulesList) {
+/******/ 			currentUpdatedModulesList = updatedModulesList;
 /******/ 			return new Promise(function(resolve, reject) {
 /******/ 				waitingUpdateResolves[chunkId] = resolve;
 /******/ 				// start update chunk loading
@@ -1997,15 +2479,16 @@ var main = __webpack_require__(3342);
 /******/ 				) {
 /******/ 					promises.push(loadUpdateChunk(chunkId, updatedModulesList));
 /******/ 					currentUpdateChunks[chunkId] = true;
+/******/ 				} else {
+/******/ 					currentUpdateChunks[chunkId] = false;
 /******/ 				}
 /******/ 			});
 /******/ 			if (__webpack_require__.f) {
 /******/ 				__webpack_require__.f.jsonpHmr = function (chunkId, promises) {
 /******/ 					if (
 /******/ 						currentUpdateChunks &&
-/******/ 						!__webpack_require__.o(currentUpdateChunks, chunkId) &&
-/******/ 						__webpack_require__.o(installedChunks, chunkId) &&
-/******/ 						installedChunks[chunkId] !== undefined
+/******/ 						__webpack_require__.o(currentUpdateChunks, chunkId) &&
+/******/ 						!currentUpdateChunks[chunkId]
 /******/ 					) {
 /******/ 						promises.push(loadUpdateChunk(chunkId));
 /******/ 						currentUpdateChunks[chunkId] = true;
@@ -2062,7 +2545,7 @@ var main = __webpack_require__(3342);
 /******/ 	// module cache are used so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [216], function() { return __webpack_require__(4918); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [216], function() { return __webpack_require__(449); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
