@@ -1,4 +1,7 @@
 import { ref } from 'vue';
+import useScroll from './useScroll';
+
+const { scrollElement } = useScroll();
 
 export default function useIterator(): any {
   const delay = 1500;
@@ -54,11 +57,20 @@ export default function useIterator(): any {
     }, 0);
   };
 
-  const getKeyboard = (keyboardRef: NodeList) => {
+  const getKeyboard = async (keyboardRef: NodeList) => {
     // console.info('[getKeyboard]');
     keyboard.value = keyboardRef;
     rows.value = (keyboardRef as any).querySelectorAll('.row');
     lenArray.value = rows.value?.length || 0;
+
+    await scrollElement();
+
+    if (timerId.value) {
+      clearInterval(timerId.value);
+      removeClassFromElements(keyboard.value as any);
+      timerId.value = rowsIterator();
+      running.value = 'row';
+    }
   };
 
   return {
