@@ -59,6 +59,13 @@ export default function useIterator(): any {
     keyboard.value = keyboardRef;
     rows.value = (keyboardRef as any).querySelectorAll('.row');
     lenArray.value = rows.value?.length || 0;
+
+    if (timerId.value) {
+      clearInterval(timerId.value);
+      removeClassFromElements(keyboard.value as any);
+      timerId.value = rowsIterator();
+      running.value = 'row';
+    }
   };
 
   return {
