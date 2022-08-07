@@ -8,7 +8,7 @@
 // extracted by mini-css-extract-plugin
 
     if(true) {
-      // 1658648437772
+      // 1659851486544
       var cssReload = __webpack_require__(783)(module.id, {"locals":false});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);
@@ -238,7 +238,7 @@ function KeyboardComponentvue_type_template_id_13197e22_ts_true_render(_ctx, _ca
 // EXTERNAL MODULE: ./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
 var reactivity_esm_bundler = __webpack_require__(262);
 ;// CONCATENATED MODULE: ./src/keyLayouts.ts
-const mixSymbols = [['?', '_', '.', '!', ',', ':', ';', '-', '']];
+const mixSymbols = [['?', '!', ' ', '_', "'", '"', ',', '.', ':', ';', '–', '']];
 const mixNum = [['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '']];
 const mixUnits = [
     ['мм', 'см', 'дм', 'м', 'км', 'м^2', 'м^3', ''],
@@ -264,8 +264,8 @@ const eng = [
 ];
 const num = [
     ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ''],
-    ['+', '-', '×', ':', '=', '(', ')', ''],
-    ['%', '<', '>', "'", ',', '.', '/', '~', ''],
+    ['+', '-', '×', ':', '=', '*', '/', '(', ')', ''],
+    ['%', '<', '>', '{', '}', '~', '№', '$', ''],
     ...mixUnits,
     ...mixSymbols,
     ...mixSpaceChar,
@@ -789,6 +789,8 @@ const KeyboardComponent_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(
 
 ;// CONCATENATED MODULE: ./src/use/useIterator.ts
 
+
+const { scrollElement } = useScroll();
 function useIterator() {
     const delay = 1500;
     const timerId = (0,reactivity_esm_bundler/* ref */.iH)(null);
@@ -832,11 +834,18 @@ function useIterator() {
             timerId.value = window.setTimeout(tick, delay);
         }, 0);
     };
-    const getKeyboard = (keyboardRef) => {
+    const getKeyboard = async (keyboardRef) => {
         // console.info('[getKeyboard]');
         keyboard.value = keyboardRef;
         rows.value = keyboardRef.querySelectorAll('.row');
         lenArray.value = rows.value?.length || 0;
+        await scrollElement();
+        if (timerId.value) {
+            clearInterval(timerId.value);
+            removeClassFromElements(keyboard.value);
+            timerId.value = rowsIterator();
+            running.value = 'row';
+        }
     };
     return {
         timerId,
@@ -1429,7 +1438,7 @@ var main = __webpack_require__(342);
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
-/******/ 		__webpack_require__.h = function() { return "c029f31ede98725a43d8"; }
+/******/ 		__webpack_require__.h = function() { return "c5ec2f72ead8d24bc3ab"; }
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
