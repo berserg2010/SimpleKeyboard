@@ -36,7 +36,7 @@ export default defineComponent({
       document.addEventListener('fullscreenchange', fullscreenEventHandler);
       document.addEventListener('webkitfullscreenchange', fullscreenEventHandler);
 
-      document.addEventListener('click', () => {
+      document.addEventListener('keyup', () => {
         if (running.value === 'row') {
           clearInterval(timerId.value!);
           removeClassFromElements(keyboard.value as any);

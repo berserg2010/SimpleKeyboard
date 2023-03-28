@@ -1,24 +1,25 @@
 # Simple Keyboard
 
-## Description
-
 Клавиатура позволяет печатать текст людям с ограниченными возможностями.
 
 [Demo](https://berserg2010.github.io/SimpleKeyboard/)
 
+---
+
 ## Project setup
 
-```
+```shell
 # Install packages
-npm install
+yarn install
 
 # Run app
-npm run start
+yarn start
 
 # Run linter
-npm run lint
+yarn lint
 
 # Build app
-npm run build
-
+yarn build
 ```
+
+---
